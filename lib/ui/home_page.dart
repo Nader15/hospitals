@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:hospitals/ApiFunctions/api.dart';
+import 'package:hospitals/models/axises_model.dart';
 import 'package:hospitals/ui/Axes/Constructions.dart';
 import 'package:hospitals/utils/Navigator.dart';
 import 'package:hospitals/utils/routing/departmentsBody.dart';
@@ -14,15 +16,40 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
+  AxisesModel axisesModel;
+  List<AxisesModel> axisesList = List();
   final items = [
     Container(),
     GovernmentsBody(),
     DepartementsBody(),
   ];
-  bool constructionsEnabled = false;
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    Future.delayed(Duration(milliseconds: 0), () {
+      gettingData();
+    });
+
+//    showHud();
+  }
+
+
+  gettingData() {
+    setState(() {
+      Api(context).GetAxesApi(_scaffoldKey).then((value) {
+        axisesModel = value;
+        axisesList.add(value);
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
+    print("lengh: ${axisesList.length}");
     var screenHeight = MediaQuery.of(context).size.height;
     var screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
@@ -77,22 +104,23 @@ class _HomePageState extends State<HomePage> {
                         padding: EdgeInsets.all(30),
                         height: screenHeight,
                         child: ListView.builder(
+                          physics: NeverScrollableScrollPhysics(),
                           shrinkWrap: true,
-                          physics: AlwaysScrollableScrollPhysics(),
                           itemCount: 9,
                           itemBuilder: (context, index) {
                             return InkWell(
                               onTap: () {
-                                setState(() {
-                                  constructionsEnabled = true;
-                                });
-                                navigateAndKeepStack(
+                                // setState(() {
+                                //   constructionsEnabled = true;
+                                // });
+                                navigateAndClearStack(
                                     context,
                                     HomePage(
                                       currentIndex: 1,
                                     ));
                               },
                               child: Container(
+                                padding: EdgeInsets.only(left: 10, right: 10),
                                 alignment: Alignment.center,
                                 margin: EdgeInsets.only(bottom: 50),
                                 height: 60,
@@ -101,6 +129,7 @@ class _HomePageState extends State<HomePage> {
                                     borderRadius: BorderRadius.circular(30)),
                                 child: Text(
                                   "محور الانشاءات",
+                                  textAlign: TextAlign.center,
                                   style: TextStyle(
                                       fontSize: 25,
                                       fontWeight: FontWeight.bold),

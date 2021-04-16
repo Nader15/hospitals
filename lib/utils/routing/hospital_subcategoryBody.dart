@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:hospitals/ui/Axes/Constructions.dart';
 import 'package:hospitals/utils/Navigator.dart';
 
-class HospitalsBody extends StatefulWidget {
+class HospitalsSubcategoryBody extends StatefulWidget {
   @override
-  _HospitalsBodyState createState() => _HospitalsBodyState();
+  _HospitalsSubcategoryBodyState createState() => _HospitalsSubcategoryBodyState();
 }
 
-class _HospitalsBodyState extends State<HospitalsBody> {
+class _HospitalsSubcategoryBodyState extends State<HospitalsSubcategoryBody> {
   @override
   Widget build(BuildContext context) {
     var screenHeight = MediaQuery.of(context).size.height;
@@ -15,8 +15,29 @@ class _HospitalsBodyState extends State<HospitalsBody> {
     return Column(
       children: [
         Text(
-          "المستشفيات",
+          "مستشفي أكتوبر",
           style: TextStyle(color: Colors.black, fontSize: 50),
+        ),
+        SizedBox(
+          height: 100,
+        ),
+        Container(
+          padding: EdgeInsets.all(20),
+          width: screenWidth / 6.2,
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [
+                    Color(0XffE9A4A7),
+                    Color(0XffD2B0C3),
+                  ]),
+              borderRadius: BorderRadius.circular(20)),
+          child: Text(
+            "طبيعة العمل",
+            style: TextStyle(fontSize: 25),
+          ),
         ),
         SizedBox(
           height: 200,
@@ -25,7 +46,7 @@ class _HospitalsBodyState extends State<HospitalsBody> {
           width: screenWidth / 1.7,
           height: screenHeight / 2,
           child: GridView.builder(
-            itemCount: 9,
+            itemCount: 3,
             physics: ScrollPhysics(),
             shrinkWrap: true,
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -55,7 +76,7 @@ class _HospitalsBodyState extends State<HospitalsBody> {
                           ]),
                       borderRadius: BorderRadius.circular(25)),
                   child: Text(
-                    "مستشفي أكتوبر  ",
+                    "طبيعة العمل",
                     style: TextStyle(fontSize: 25),
                   ),
                 ),
