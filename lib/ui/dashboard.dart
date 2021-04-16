@@ -13,6 +13,17 @@ class _DashboardState extends State<Dashboard> {
   bool sectionsTapped = false;
   bool hospitalTapped = false;
 
+  var workController = TextEditingController();
+  var percentController = TextEditingController();
+  var timeController = TextEditingController();
+  var contractorController = TextEditingController();
+  var engineerController = TextEditingController();
+  var waterController = TextEditingController();
+  var sewageController = TextEditingController();
+  var transformerSupplyController = TextEditingController();
+  var transformerInstallationController = TextEditingController();
+  var electricController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     var screenHeight = MediaQuery.of(context).size.height;
@@ -38,364 +49,812 @@ class _DashboardState extends State<Dashboard> {
                         child: SingleChildScrollView(
                           child: Column(
                             children: [
-                              Card(
-                                elevation: 10,
-                                child: Container(
-                                  padding: EdgeInsets.all(5),
-                                  alignment: Alignment.center,
-                                  // width: screenWidth/2,
-                                  decoration: BoxDecoration(
-                                      color: Colors.white,
-                                      borderRadius: BorderRadius.circular(5)),
-                                  child: Text(
-                                    "الانشاءات",
-                                    style: TextStyle(
-                                        fontSize: 30, color: Colors.blueAccent),
+                              Center(
+                                child: Card(
+                                  elevation: 10,
+                                  child: Container(
+                                    padding: EdgeInsets.all(5),
+                                    alignment: Alignment.center,
+                                    // width: screenWidth/2,
+                                    decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius: BorderRadius.circular(5)),
+                                    child: Text(
+                                      "الانشاءات",
+                                      style: TextStyle(
+                                          fontSize: 30,
+                                          color: Colors.blueAccent),
+                                    ),
                                   ),
                                 ),
                               ),
                               SizedBox(
                                 height: 10,
                               ),
-                              Row(
+                              Column(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
-                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Column(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Card(
-                                        elevation: 10,
-                                        child: SingleChildScrollView(
-                                          child: Container(
-                                            // alignment: Alignment.center,
-                                            width: screenWidth / 2,
-                                            height: screenHeight / 2,
-                                            decoration: BoxDecoration(
-                                                color: Colors.white,
-                                                borderRadius:
-                                                    BorderRadius.circular(5)),
-                                            child: Container(
-                                              height: 20,
-                                              child: Column(
-                                                children: [
-                                                  Container(
-                                                    height: screenHeight / 5,
-                                                    child: Padding(
-                                                      padding:
-                                                          EdgeInsets.all(20),
-                                                      child: GridView.builder(
-                                                        shrinkWrap: true,
-                                                        physics:
-                                                            const NeverScrollableScrollPhysics(),
-                                                        padding:
-                                                            EdgeInsets.only(
-                                                                left: 10),
-                                                        itemCount: 1,
-                                                        itemBuilder:
-                                                            (context, index) {
-                                                          return IntrinsicWidth(
-                                                            child: Column(
-                                                              crossAxisAlignment:
-                                                                  CrossAxisAlignment
-                                                                      .start,
-                                                              children: [
-                                                                header1(),
-                                                                Divider(),
-                                                                Inputs()
-                                                              ],
-                                                            ),
-                                                          );
-                                                        },
-                                                        gridDelegate:
-                                                            const SliverGridDelegateWithFixedCrossAxisCount(
-                                                          crossAxisCount: 1,
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                  Text(
-                                                    "ملاحظات",
-                                                    style:
-                                                        TextStyle(fontSize: 20),
-                                                  ),
-                                                  SizedBox(
-                                                    height: screenHeight / 30,
-                                                  ),
-                                                  Container(
-                                                    height: 60,
-                                                    width:
-                                                    MediaQuery.of(context).size.width / 2.5,
-                                                    child: PopupMenuButton(
-                                                      icon: Row(
-                                                        mainAxisAlignment:
-                                                        MainAxisAlignment.spaceBetween,
-                                                        children: [
-                                                          Container(
-                                                              padding: EdgeInsets.all(10),
-                                                              width: 45,
-                                                              height: 65,
-                                                              decoration: BoxDecoration(
-                                                                  color: Colors.white,
-                                                                  borderRadius:
-                                                                  BorderRadius.circular(5)),
-                                                              child: Icon(Icons.ac_unit,color: Colors.red,)),
-                                                          Container(
-                                                            child: Row(
-                                                              children: [
-                                                                Text("SortBy",
-                                                                    style: TextStyle(
-                                                                        color: Colors.white,
-                                                                        fontSize: 17)),
-                                                                Icon(
-                                                                  Icons
-                                                                      .keyboard_arrow_down_outlined,
-                                                                  size: 30,
-                                                                  color: Colors.white,
-                                                                )
-                                                              ],
+                                  SingleChildScrollView(
+                                    child: Container(
+                                      // alignment: Alignment.center,
+                                      width: screenWidth / 1.23,
+                                      height: screenHeight / 1.21,
+                                      decoration: BoxDecoration(
+                                          // color:Colors.blueGrey,
+                                          borderRadius:
+                                              BorderRadius.circular(5)),
+                                      child: Container(
+                                        height: 20,
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(20.0),
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.end,
+                                            children: [
+                                              Center(
+                                                child: Card(
+                                                  child: Container(
+                                                    padding: EdgeInsets.only(
+                                                        left: 10, right: 10),
+                                                    width: screenWidth / 5,
+                                                    child: Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      children: [
+                                                        SizedBox(
+                                                          width: MediaQuery.of(
+                                                                      context)
+                                                                  .size
+                                                                  .width /
+                                                              10,
+                                                          child: Container(
+                                                            height: 60,
+                                                            // width: 50,
+                                                            child:
+                                                                PopupMenuButton(
+                                                              icon: Row(
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .spaceBetween,
+                                                                children: [
+                                                                  SizedBox(
+                                                                    width: 150,
+                                                                    child:
+                                                                        TextFormField(
+                                                                      controller:
+                                                                          workController,
+                                                                    ),
+                                                                  ),
+                                                                  Icon(Icons
+                                                                      .arrow_drop_down_sharp),
+                                                                ],
+                                                              ),
+                                                              onSelected:
+                                                                  workChoiceAction,
+                                                              itemBuilder:
+                                                                  (BuildContext
+                                                                      context) {
+                                                                return workConstants
+                                                                    .workChoices
+                                                                    .map((String
+                                                                        choice) {
+                                                                  return PopupMenuItem<
+                                                                          String>(
+                                                                      value:
+                                                                          choice,
+                                                                      child: Text(
+                                                                          choice));
+                                                                }).toList();
+                                                              },
                                                             ),
                                                           ),
-                                                        ],
-                                                      ),
-                                                      // onSelected: ChoiceAction,
-                                                      // itemBuilder: (BuildContext context) {
-                                                      //   return Constants.Choices.map(
-                                                      //           (String choice) {
-                                                      //         return PopupMenuItem<String>(
-                                                      //             value: choice,
-                                                      //             child: Text(choice));
-                                                      //       }).toList();
-                                                      // },
+                                                        ),
+                                                        Text("طبيعة العمل"),
+                                                      ],
                                                     ),
                                                   ),
-                                                  SizedBox(
-                                                    height: screenHeight / 30,
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                height: 50,
+                                              ),
+                                              Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  Card(
+                                                    child: Container(
+                                                      padding: EdgeInsets.only(
+                                                          left: 10, right: 10),
+                                                      width: screenWidth / 5,
+                                                      child: Row(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .spaceBetween,
+                                                        children: [
+                                                          SizedBox(
+                                                            width: MediaQuery.of(
+                                                                        context)
+                                                                    .size
+                                                                    .width /
+                                                                10,
+                                                            child: Container(
+                                                              height: 60,
+                                                              // width: 50,
+                                                              child:
+                                                                  PopupMenuButton(
+                                                                icon: Row(
+                                                                  mainAxisAlignment:
+                                                                      MainAxisAlignment
+                                                                          .spaceBetween,
+                                                                  children: [
+                                                                    SizedBox(
+                                                                      width:
+                                                                          150,
+                                                                      child:
+                                                                          TextFormField(
+                                                                        controller:
+                                                                            workController,
+                                                                      ),
+                                                                    ),
+                                                                    Icon(Icons
+                                                                        .arrow_drop_down_sharp),
+                                                                  ],
+                                                                ),
+                                                                onSelected:
+                                                                    workChoiceAction,
+                                                                itemBuilder:
+                                                                    (BuildContext
+                                                                        context) {
+                                                                  return workConstants
+                                                                      .workChoices
+                                                                      .map((String
+                                                                          choice) {
+                                                                    return PopupMenuItem<
+                                                                            String>(
+                                                                        value:
+                                                                            choice,
+                                                                        child: Text(
+                                                                            choice));
+                                                                  }).toList();
+                                                                },
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          Text("مقاول التنفيذ"),
+                                                        ],
+                                                      ),
+                                                    ),
                                                   ),
-                                                  Expanded(
-                                                    child: LayoutBuilder(
-                                                        builder: (context,
-                                                            constrains) {
-                                                      double localHeight =
-                                                          constrains.maxHeight;
-                                                      double localWidth =
-                                                          constrains.maxWidth;
-                                                      return SizedBox(
-                                                        width: localWidth / 2,
-                                                        // height: localHeight/20,
-                                                        child: TextFormField(
-                                                          maxLines: 5,
-                                                          maxLength: 100,
-                                                          decoration:
-                                                              InputDecoration(
-                                                                  border:
-                                                                      OutlineInputBorder()),
-                                                        ),
-                                                      );
-                                                    }),
-                                                  )
-                                                  // Divider(),
-                                                  // Expanded(
-                                                  //   child: Padding(
-                                                  //       padding:
-                                                  //           EdgeInsets.all(20),
-                                                  //       child: ListView.builder(
-                                                  //           scrollDirection:
-                                                  //               Axis.vertical,
-                                                  //           itemCount: 1,
-                                                  //           itemBuilder:
-                                                  //               (context, index) {
-                                                  //             return header2();
-                                                  //           })),
-                                                  // ),
+                                                  Card(
+                                                    child: Container(
+                                                      padding: EdgeInsets.only(
+                                                          left: 10, right: 10),
+                                                      width: screenWidth / 5,
+                                                      child: Row(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .spaceBetween,
+                                                        children: [
+                                                          SizedBox(
+                                                            width: MediaQuery.of(
+                                                                        context)
+                                                                    .size
+                                                                    .width /
+                                                                10,
+                                                            child: Container(
+                                                              height: 60,
+                                                              // width: 50,
+                                                              child:
+                                                                  PopupMenuButton(
+                                                                icon: Row(
+                                                                  mainAxisAlignment:
+                                                                      MainAxisAlignment
+                                                                          .spaceBetween,
+                                                                  children: [
+                                                                    SizedBox(
+                                                                      width:
+                                                                          150,
+                                                                      child:
+                                                                          TextFormField(
+                                                                        controller:
+                                                                            workController,
+                                                                      ),
+                                                                    ),
+                                                                    Icon(Icons
+                                                                        .arrow_drop_down_sharp),
+                                                                  ],
+                                                                ),
+                                                                onSelected:
+                                                                    workChoiceAction,
+                                                                itemBuilder:
+                                                                    (BuildContext
+                                                                        context) {
+                                                                  return workConstants
+                                                                      .workChoices
+                                                                      .map((String
+                                                                          choice) {
+                                                                    return PopupMenuItem<
+                                                                            String>(
+                                                                        value:
+                                                                            choice,
+                                                                        child: Text(
+                                                                            choice));
+                                                                  }).toList();
+                                                                },
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          Text(
+                                                              "ميعاد متوقع للتنفيذ"),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Card(
+                                                    child: Container(
+                                                      padding: EdgeInsets.only(
+                                                          left: 10, right: 10),
+                                                      width: screenWidth / 5,
+                                                      child: Row(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .spaceBetween,
+                                                        children: [
+                                                          SizedBox(
+                                                            width: MediaQuery.of(
+                                                                        context)
+                                                                    .size
+                                                                    .width /
+                                                                10,
+                                                            child: Container(
+                                                              height: 60,
+                                                              // width: 50,
+                                                              child:
+                                                                  PopupMenuButton(
+                                                                icon: Row(
+                                                                  mainAxisAlignment:
+                                                                      MainAxisAlignment
+                                                                          .spaceBetween,
+                                                                  children: [
+                                                                    SizedBox(
+                                                                      width:
+                                                                          150,
+                                                                      child:
+                                                                          TextFormField(
+                                                                        controller:
+                                                                            workController,
+                                                                      ),
+                                                                    ),
+                                                                    Icon(Icons
+                                                                        .arrow_drop_down_sharp),
+                                                                  ],
+                                                                ),
+                                                                onSelected:
+                                                                    workChoiceAction,
+                                                                itemBuilder:
+                                                                    (BuildContext
+                                                                        context) {
+                                                                  return workConstants
+                                                                      .workChoices
+                                                                      .map((String
+                                                                          choice) {
+                                                                    return PopupMenuItem<
+                                                                            String>(
+                                                                        value:
+                                                                            choice,
+                                                                        child: Text(
+                                                                            choice));
+                                                                  }).toList();
+                                                                },
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          Text("نسب التنفيذ"),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ),
                                                 ],
                                               ),
-                                            ),
+                                              SizedBox(
+                                                height: 50,
+                                              ),
+                                              Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  Card(
+                                                    child: Container(
+                                                      padding: EdgeInsets.only(
+                                                          left: 10, right: 10),
+                                                      width: screenWidth / 5,
+                                                      child: Row(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .spaceBetween,
+                                                        children: [
+                                                          SizedBox(
+                                                            width: MediaQuery.of(
+                                                                        context)
+                                                                    .size
+                                                                    .width /
+                                                                10,
+                                                            child: Container(
+                                                              height: 60,
+                                                              // width: 50,
+                                                              child:
+                                                                  PopupMenuButton(
+                                                                icon: Row(
+                                                                  mainAxisAlignment:
+                                                                      MainAxisAlignment
+                                                                          .spaceBetween,
+                                                                  children: [
+                                                                    SizedBox(
+                                                                      width:
+                                                                          150,
+                                                                      child:
+                                                                          TextFormField(
+                                                                        controller:
+                                                                            workController,
+                                                                      ),
+                                                                    ),
+                                                                    Icon(Icons
+                                                                        .arrow_drop_down_sharp),
+                                                                  ],
+                                                                ),
+                                                                onSelected:
+                                                                    workChoiceAction,
+                                                                itemBuilder:
+                                                                    (BuildContext
+                                                                        context) {
+                                                                  return workConstants
+                                                                      .workChoices
+                                                                      .map((String
+                                                                          choice) {
+                                                                    return PopupMenuItem<
+                                                                            String>(
+                                                                        value:
+                                                                            choice,
+                                                                        child: Text(
+                                                                            choice));
+                                                                  }).toList();
+                                                                },
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          Text(
+                                                              "الحماية المدنية"),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Card(
+                                                    child: Container(
+                                                      padding: EdgeInsets.only(
+                                                          left: 10, right: 10),
+                                                      width: screenWidth / 5,
+                                                      child: Row(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .spaceBetween,
+                                                        children: [
+                                                          SizedBox(
+                                                            width: MediaQuery.of(
+                                                                        context)
+                                                                    .size
+                                                                    .width /
+                                                                10,
+                                                            child: Container(
+                                                              height: 60,
+                                                              // width: 50,
+                                                              child:
+                                                                  PopupMenuButton(
+                                                                icon: Row(
+                                                                  mainAxisAlignment:
+                                                                      MainAxisAlignment
+                                                                          .spaceBetween,
+                                                                  children: [
+                                                                    SizedBox(
+                                                                      width:
+                                                                          150,
+                                                                      child:
+                                                                          TextFormField(
+                                                                        controller:
+                                                                            workController,
+                                                                      ),
+                                                                    ),
+                                                                    Icon(Icons
+                                                                        .arrow_drop_down_sharp),
+                                                                  ],
+                                                                ),
+                                                                onSelected:
+                                                                    workChoiceAction,
+                                                                itemBuilder:
+                                                                    (BuildContext
+                                                                        context) {
+                                                                  return workConstants
+                                                                      .workChoices
+                                                                      .map((String
+                                                                          choice) {
+                                                                    return PopupMenuItem<
+                                                                            String>(
+                                                                        value:
+                                                                            choice,
+                                                                        child: Text(
+                                                                            choice));
+                                                                  }).toList();
+                                                                },
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          Text("الصرف"),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Card(
+                                                    child: Container(
+                                                      padding: EdgeInsets.only(
+                                                          left: 10, right: 10),
+                                                      width: screenWidth / 5,
+                                                      child: Row(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .spaceBetween,
+                                                        children: [
+                                                          SizedBox(
+                                                            width: MediaQuery.of(
+                                                                        context)
+                                                                    .size
+                                                                    .width /
+                                                                10,
+                                                            child: Container(
+                                                              height: 60,
+                                                              // width: 50,
+                                                              child:
+                                                                  PopupMenuButton(
+                                                                icon: Row(
+                                                                  mainAxisAlignment:
+                                                                      MainAxisAlignment
+                                                                          .spaceBetween,
+                                                                  children: [
+                                                                    SizedBox(
+                                                                      width:
+                                                                          150,
+                                                                      child:
+                                                                          TextFormField(
+                                                                        controller:
+                                                                            workController,
+                                                                      ),
+                                                                    ),
+                                                                    Icon(Icons
+                                                                        .arrow_drop_down_sharp),
+                                                                  ],
+                                                                ),
+                                                                onSelected:
+                                                                    workChoiceAction,
+                                                                itemBuilder:
+                                                                    (BuildContext
+                                                                        context) {
+                                                                  return workConstants
+                                                                      .workChoices
+                                                                      .map((String
+                                                                          choice) {
+                                                                    return PopupMenuItem<
+                                                                            String>(
+                                                                        value:
+                                                                            choice,
+                                                                        child: Text(
+                                                                            choice));
+                                                                  }).toList();
+                                                                },
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          Text("المياة"),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                              SizedBox(
+                                                height: 50,
+                                              ),
+                                              Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  Card(
+                                                    child: Container(
+                                                      padding: EdgeInsets.only(
+                                                          left: 10, right: 20),
+                                                      width: screenWidth / 5,
+                                                      child: Row(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .spaceBetween,
+                                                        children: [
+                                                          SizedBox(
+                                                            width: MediaQuery.of(
+                                                                        context)
+                                                                    .size
+                                                                    .width /
+                                                                10,
+                                                            child: Container(
+                                                              height: 60,
+                                                              // width: 50,
+                                                              child:
+                                                                  PopupMenuButton(
+                                                                icon: Row(
+                                                                  mainAxisAlignment:
+                                                                      MainAxisAlignment
+                                                                          .spaceBetween,
+                                                                  children: [
+                                                                    SizedBox(
+                                                                      width:
+                                                                          150,
+                                                                      child:
+                                                                          TextFormField(
+                                                                        controller:
+                                                                            workController,
+                                                                      ),
+                                                                    ),
+                                                                    Icon(Icons
+                                                                        .arrow_drop_down_sharp),
+                                                                  ],
+                                                                ),
+                                                                onSelected:
+                                                                    workChoiceAction,
+                                                                itemBuilder:
+                                                                    (BuildContext
+                                                                        context) {
+                                                                  return workConstants
+                                                                      .workChoices
+                                                                      .map((String
+                                                                          choice) {
+                                                                    return PopupMenuItem<
+                                                                            String>(
+                                                                        value:
+                                                                            choice,
+                                                                        child: Text(
+                                                                            choice));
+                                                                  }).toList();
+                                                                },
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          Text(
+                                                              "موقف التيار الكهربي"),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Card(
+                                                    child: Container(
+                                                      padding: EdgeInsets.only(
+                                                          left: 10, right: 10),
+                                                      width: screenWidth / 5,
+                                                      child: Row(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .spaceBetween,
+                                                        children: [
+                                                          SizedBox(
+                                                            width: MediaQuery.of(
+                                                                        context)
+                                                                    .size
+                                                                    .width /
+                                                                10,
+                                                            child: Container(
+                                                              height: 60,
+                                                              // width: 50,
+                                                              child:
+                                                                  PopupMenuButton(
+                                                                icon: Row(
+                                                                  mainAxisAlignment:
+                                                                      MainAxisAlignment
+                                                                          .spaceBetween,
+                                                                  children: [
+                                                                    SizedBox(
+                                                                      width:
+                                                                          150,
+                                                                      child:
+                                                                          TextFormField(
+                                                                        controller:
+                                                                            workController,
+                                                                      ),
+                                                                    ),
+                                                                    Icon(Icons
+                                                                        .arrow_drop_down_sharp),
+                                                                  ],
+                                                                ),
+                                                                onSelected:
+                                                                    workChoiceAction,
+                                                                itemBuilder:
+                                                                    (BuildContext
+                                                                        context) {
+                                                                  return workConstants
+                                                                      .workChoices
+                                                                      .map((String
+                                                                          choice) {
+                                                                    return PopupMenuItem<
+                                                                            String>(
+                                                                        value:
+                                                                            choice,
+                                                                        child: Text(
+                                                                            choice));
+                                                                  }).toList();
+                                                                },
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          Text("تركيب المحول"),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Card(
+                                                    child: Container(
+                                                      padding: EdgeInsets.only(
+                                                          left: 10, right: 10),
+                                                      width: screenWidth / 5,
+                                                      child: Row(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .spaceBetween,
+                                                        children: [
+                                                          SizedBox(
+                                                            width: MediaQuery.of(
+                                                                        context)
+                                                                    .size
+                                                                    .width /
+                                                                10,
+                                                            child: Container(
+                                                              height: 60,
+                                                              // width: 50,
+                                                              child:
+                                                                  PopupMenuButton(
+                                                                icon: Row(
+                                                                  mainAxisAlignment:
+                                                                      MainAxisAlignment
+                                                                          .spaceBetween,
+                                                                  children: [
+                                                                    SizedBox(
+                                                                      width:
+                                                                          150,
+                                                                      child:
+                                                                          TextFormField(
+                                                                        controller:
+                                                                            workController,
+                                                                      ),
+                                                                    ),
+                                                                    Icon(Icons
+                                                                        .arrow_drop_down_sharp),
+                                                                  ],
+                                                                ),
+                                                                onSelected:
+                                                                    workChoiceAction,
+                                                                itemBuilder:
+                                                                    (BuildContext
+                                                                        context) {
+                                                                  return workConstants
+                                                                      .workChoices
+                                                                      .map((String
+                                                                          choice) {
+                                                                    return PopupMenuItem<
+                                                                            String>(
+                                                                        value:
+                                                                            choice,
+                                                                        child: Text(
+                                                                            choice));
+                                                                  }).toList();
+                                                                },
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          Text("توريد المحول"),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+
+                                              SizedBox(
+                                                height: screenHeight / 30,
+                                              ),
+                                              // Container(
+                                              //   height: 60,
+                                              //   width:
+                                              //       MediaQuery.of(context)
+                                              //               .size
+                                              //               .width /
+                                              //           2.5,
+                                              //   child:
+                                              // ),
+                                              Center(
+                                                child: Card(
+                                                  child: Container(
+                                                    padding: EdgeInsets.all(10),
+                                                    child: Column(
+                                                      children: [
+                                                        Text(
+                                                          "ملاحظات",
+                                                          style: TextStyle(
+                                                              fontSize: 20),
+                                                        ),
+                                                        SizedBox(
+                                                          height: 20,
+                                                        ),
+                                                        LayoutBuilder(builder:
+                                                            (context,
+                                                                constrains) {
+                                                          double localHeight =
+                                                              constrains
+                                                                  .maxHeight;
+                                                          double localWidth =
+                                                              constrains
+                                                                  .maxWidth;
+                                                          return SizedBox(
+                                                            width:
+                                                                localWidth / 2,
+                                                            // height: localHeight/20,
+                                                            child:
+                                                                TextFormField(
+                                                              maxLines: 5,
+                                                              maxLength: 100,
+                                                              decoration:
+                                                                  InputDecoration(
+                                                                      border:
+                                                                          OutlineInputBorder()),
+                                                            ),
+                                                          );
+                                                        }),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ),
+                                              )
+                                              // Divider(),
+                                              // Expanded(
+                                              //   child: Padding(
+                                              //       padding:
+                                              //           EdgeInsets.all(20),
+                                              //       child: ListView.builder(
+                                              //           scrollDirection:
+                                              //               Axis.vertical,
+                                              //           itemCount: 1,
+                                              //           itemBuilder:
+                                              //               (context, index) {
+                                              //             return header2();
+                                              //           })),
+                                              // ),
+                                            ],
                                           ),
                                         ),
                                       ),
-                                      SizedBox(
-                                        height: 10,
-                                      ),
-                                      Container(
-                                        // alignment: Alignment.center,
-                                        width: screenWidth / 2,
-                                        // color: Colors.red,
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Text(
-                                              "إظهار 1 إلى 1 من المدخلات",
-                                              style: TextStyle(
-                                                  color: Colors.white),
-                                            ),
-                                            Container(
-                                              width: screenWidth / 8,
-                                              child: Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
-                                                children: [
-                                                  InkWell(
-                                                    onTap: () {},
-                                                    child: Container(
-                                                      width: 30,
-                                                      height: 30,
-                                                      decoration: BoxDecoration(
-                                                          color: Colors.white,
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(5)),
-                                                      child: Icon(
-                                                        Icons.arrow_back,
-                                                        size: 15,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                  Container(
-                                                    alignment: Alignment.center,
-                                                    width: 30,
-                                                    height: 30,
-                                                    decoration: BoxDecoration(
-                                                        color:
-                                                            Colors.blueAccent,
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(5)),
-                                                    child: Text(
-                                                      "1",
-                                                      style: TextStyle(
-                                                          color: Colors.white),
-                                                    ),
-                                                  ),
-                                                  InkWell(
-                                                    onTap: () {},
-                                                    child: Container(
-                                                      width: 30,
-                                                      height: 30,
-                                                      decoration: BoxDecoration(
-                                                          color: Colors.white,
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(5)),
-                                                      child: Icon(
-                                                        Icons.arrow_forward,
-                                                        size: 15,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                            Container()
-                                          ],
-                                        ),
-                                      ),
-                                    ],
+                                    ),
                                   ),
-                                  Card(
-                                    elevation: 10,
+                                  SizedBox(
+                                    height: 10,
+                                  ),
+                                  InkWell(
+                                    onTap: () {},
                                     child: Container(
-                                      width: screenWidth / 5,
-                                      height: screenHeight / 1.2,
+                                      width: screenWidth / 4,
+                                      padding: EdgeInsets.all(10),
+                                      alignment: Alignment.center,
                                       decoration: BoxDecoration(
                                           color: Colors.white,
                                           borderRadius:
                                               BorderRadius.circular(5)),
-                                      child: centerTapped
-                                          ? Column(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.spaceEvenly,
-                                              children: [
-                                                Text(
-                                                  'حي المرج',
-                                                  style:
-                                                      TextStyle(fontSize: 17),
-                                                ),
-                                                Text(
-                                                  'حي المطرية',
-                                                  style:
-                                                      TextStyle(fontSize: 17),
-                                                ),
-                                                Text(
-                                                  'حي عين شمس',
-                                                  style:
-                                                      TextStyle(fontSize: 17),
-                                                ),
-                                                Text(
-                                                  'حي السلام أول',
-                                                  style:
-                                                      TextStyle(fontSize: 17),
-                                                ),
-                                                Text(
-                                                  'حي مصر الجديدة',
-                                                  style:
-                                                      TextStyle(fontSize: 17),
-                                                ),
-                                              ],
-                                            )
-                                          : sectionsTapped
-                                              ? Column(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceEvenly,
-                                                  children: [
-                                                    Text(
-                                                      'وحدة شرق',
-                                                      style: TextStyle(
-                                                          fontSize: 17),
-                                                    ),
-                                                    Text(
-                                                      'وحدة جنوب',
-                                                      style: TextStyle(
-                                                          fontSize: 17),
-                                                    ),
-                                                    Text(
-                                                      'وحدة غرب',
-                                                      style: TextStyle(
-                                                          fontSize: 17),
-                                                    ),
-                                                    Text(
-                                                      'وحدة شمال',
-                                                      style: TextStyle(
-                                                          fontSize: 17),
-                                                    ),
-                                                  ],
-                                                )
-                                              : hospitalTapped
-                                                  ? Column(
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .spaceEvenly,
-                                                      children: [
-                                                        Text(
-                                                          'مستشفى السعودي الألماني',
-                                                          style: TextStyle(
-                                                              fontSize: 17),
-                                                        ),
-                                                        Text(
-                                                          'مستشفى النزهة الدولي',
-                                                          style: TextStyle(
-                                                              fontSize: 17),
-                                                        ),
-                                                        Text(
-                                                          'المركز الطبي العالمي',
-                                                          style: TextStyle(
-                                                              fontSize: 17),
-                                                        ),
-                                                        Text(
-                                                          'مستشفى سرطان الأطفال 57357',
-                                                          style: TextStyle(
-                                                              fontSize: 17),
-                                                        ),
-                                                      ],
-                                                    )
-                                                  : Container(),
+                                      child: Text("تأكيد"),
                                     ),
-                                  ),
+                                  )
                                 ],
                               ),
                             ],
@@ -604,10 +1063,7 @@ class _DashboardState extends State<Dashboard> {
         Expanded(child: Text("المهندس الاستشاري", textAlign: TextAlign.center)),
         Expanded(child: Text("مقاول التنفيذ", textAlign: TextAlign.center)),
         Expanded(
-            child:
-                Text("ميعاد متوقع للتسليم", textAlign: TextAlign.center)),
-        Expanded(child: Text("نسب التنفيذ")),
-        Expanded(child: Text("طبيعة العمل")),
+            child: Text("ميعاد متوقع للتسليم", textAlign: TextAlign.center)),
       ],
     );
   }
@@ -617,48 +1073,254 @@ class _DashboardState extends State<Dashboard> {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         SizedBox(
-          width: MediaQuery.of(context).size.width / 30,
-          child: TextFormField(),
+          width: MediaQuery.of(context).size.width / 20,
+          child: Container(
+            height: 60,
+            // width: 50,
+            child: PopupMenuButton(
+              icon: Row(
+                children: [
+                  SizedBox(
+                    width: 50,
+                    child: TextFormField(),
+                  ),
+                  Icon(Icons.arrow_drop_down_sharp),
+                ],
+              ),
+              onSelected: workChoiceAction,
+              itemBuilder: (BuildContext context) {
+                return workConstants.workChoices.map((String choice) {
+                  return PopupMenuItem<String>(
+                      value: choice, child: Text(choice));
+                }).toList();
+              },
+            ),
+          ),
         ),
         SizedBox(
-          width: MediaQuery.of(context).size.width / 30,
-          child: TextFormField(
-            keyboardType: TextInputType.number,
+          width: MediaQuery.of(context).size.width / 20,
+          child: Container(
+            height: 60,
+            // width: 50,
+            child: PopupMenuButton(
+              icon: Row(
+                children: [
+                  SizedBox(
+                    width: 50,
+                    child: TextFormField(),
+                  ),
+                  Icon(Icons.arrow_drop_down_sharp),
+                ],
+              ),
+              onSelected: workChoiceAction,
+              itemBuilder: (BuildContext context) {
+                return workConstants.workChoices.map((String choice) {
+                  return PopupMenuItem<String>(
+                      value: choice, child: Text(choice));
+                }).toList();
+              },
+            ),
+          ),
+        ),
+        SizedBox(
+          width: MediaQuery.of(context).size.width / 20,
+          child: Container(
+            height: 60,
+            // width: 50,
+            child: PopupMenuButton(
+              icon: Row(
+                children: [
+                  SizedBox(
+                    width: 50,
+                    child: TextFormField(),
+                  ),
+                  Icon(Icons.arrow_drop_down_sharp),
+                ],
+              ),
+              onSelected: workChoiceAction,
+              itemBuilder: (BuildContext context) {
+                return workConstants.workChoices.map((String choice) {
+                  return PopupMenuItem<String>(
+                      value: choice, child: Text(choice));
+                }).toList();
+              },
+            ),
+          ),
+        ),
+        SizedBox(
+          width: MediaQuery.of(context).size.width / 20,
+          child: Container(
+            height: 60,
+            // width: 50,
+            child: PopupMenuButton(
+              icon: Row(
+                children: [
+                  SizedBox(
+                    width: 50,
+                    child: TextFormField(),
+                  ),
+                  Icon(Icons.arrow_drop_down_sharp),
+                ],
+              ),
+              onSelected: workChoiceAction,
+              itemBuilder: (BuildContext context) {
+                return workConstants.workChoices.map((String choice) {
+                  return PopupMenuItem<String>(
+                      value: choice, child: Text(choice));
+                }).toList();
+              },
+            ),
+          ),
+        ),
+        SizedBox(
+          width: MediaQuery.of(context).size.width / 20,
+          child: Container(
+            height: 60,
+            // width: 50,
+            child: PopupMenuButton(
+              icon: Row(
+                children: [
+                  SizedBox(
+                    width: 50,
+                    child: TextFormField(
+                      controller: waterController,
+                    ),
+                  ),
+                  Icon(Icons.arrow_drop_down_sharp),
+                ],
+              ),
+              onSelected: waterChoiceAction,
+              itemBuilder: (BuildContext context) {
+                return waterConstants.waterChoices.map((String choice) {
+                  return PopupMenuItem<String>(
+                      value: choice, child: Text(choice));
+                }).toList();
+              },
+            ),
+          ),
+        ),
+        SizedBox(
+          width: MediaQuery.of(context).size.width / 20,
+          child: Container(
+            height: 60,
+            // width: 50,
+            child: PopupMenuButton(
+              icon: Row(
+                children: [
+                  SizedBox(
+                    width: 50,
+                    child: TextFormField(),
+                  ),
+                  Icon(Icons.arrow_drop_down_sharp),
+                ],
+              ),
+              onSelected: workChoiceAction,
+              itemBuilder: (BuildContext context) {
+                return workConstants.workChoices.map((String choice) {
+                  return PopupMenuItem<String>(
+                      value: choice, child: Text(choice));
+                }).toList();
+              },
+            ),
+          ),
+        ),
+        SizedBox(
+          width: MediaQuery.of(context).size.width / 20,
+          child: Container(
+            height: 60,
+            // width: 50,
+            child: PopupMenuButton(
+              icon: Row(
+                children: [
+                  SizedBox(
+                    width: 50,
+                    child: TextFormField(),
+                  ),
+                  Icon(Icons.arrow_drop_down_sharp),
+                ],
+              ),
+              onSelected: workChoiceAction,
+              itemBuilder: (BuildContext context) {
+                return workConstants.workChoices.map((String choice) {
+                  return PopupMenuItem<String>(
+                      value: choice, child: Text(choice));
+                }).toList();
+              },
+            ),
+          ),
+        ),
+        SizedBox(
+          width: MediaQuery.of(context).size.width / 20,
+          child: Container(
+            height: 60,
+            // width: 50,
+            child: PopupMenuButton(
+              icon: Row(
+                children: [
+                  SizedBox(
+                    width: 50,
+                    child: TextFormField(),
+                  ),
+                  Icon(Icons.arrow_drop_down_sharp),
+                ],
+              ),
+              onSelected: workChoiceAction,
+              itemBuilder: (BuildContext context) {
+                return workConstants.workChoices.map((String choice) {
+                  return PopupMenuItem<String>(
+                      value: choice, child: Text(choice));
+                }).toList();
+              },
+            ),
           ),
         ),
         SizedBox(
           width: MediaQuery.of(context).size.width / 30,
-          child: TextFormField(),
-        ),
-        SizedBox(
-          width: MediaQuery.of(context).size.width / 30,
-          child: TextFormField(),
-        ),
-        SizedBox(
-          width: MediaQuery.of(context).size.width / 30,
-          child: TextFormField(),
-        ),
-        SizedBox(
-          width: MediaQuery.of(context).size.width / 30,
-          child: TextFormField(),
-        ),
-        SizedBox(
-          width: MediaQuery.of(context).size.width / 30,
-          child: TextFormField(),
-        ),
-        SizedBox(
-          width: MediaQuery.of(context).size.width / 30,
-          child: TextFormField(),
-        ),
-        SizedBox(
-          width: MediaQuery.of(context).size.width / 30,
-          child: TextFormField(),
-        ),
-        SizedBox(
-          width: MediaQuery.of(context).size.width / 30,
-          child: TextFormField(),
+          child: Container(
+            height: 50,
+            // width: 50,
+            child: TextFormField(
+              decoration: InputDecoration(prefix: Text("%")),
+            ),
+          ),
         ),
       ],
     );
   }
+
+  void workChoiceAction(String choice) {
+    if (choice == workConstants.ch2) {
+      workController.text = workConstants.ch2;
+    } else if (choice == workConstants.ch1) {
+      workController.text = workConstants.ch1;
+    } else {
+      workController.text = workConstants.ch3;
+    }
+  }
+
+  void waterChoiceAction(String choice) {
+    if (choice == waterConstants.ch2) {
+      waterController.text = waterConstants.ch2;
+    } else if (choice == waterConstants.ch1) {
+      waterController.text = waterConstants.ch1;
+    } else {
+      waterController.text = waterConstants.ch3;
+    }
+  }
+}
+
+class workConstants {
+  static String ch1 = "انشاء جديد";
+  static String ch2 = "تطوير";
+  static String ch3 = "تطوير وانشاء جزئي";
+
+  static List<String> workChoices = <String>[ch1, ch2, ch3];
+}
+
+class waterConstants {
+  static String ch1 = "عمومي";
+  static String ch2 = "بالسيارة";
+  static String ch3 = "لم يتم";
+
+  static List<String> waterChoices = <String>[ch1, ch2, ch3];
 }
