@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:hospitals/ApiFunctions/api.dart';
 import 'package:hospitals/ui/Axes/Constructions.dart';
 import 'package:hospitals/ui/home_page.dart';
 import 'package:hospitals/utils/Navigator.dart';
+import 'package:hospitals/utils/global.dart';
 
 class SectionBody extends StatefulWidget {
   @override
@@ -9,6 +11,8 @@ class SectionBody extends StatefulWidget {
 }
 
 class _SectionBodyState extends State<SectionBody> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     var screenHeight = MediaQuery.of(context).size.height;
@@ -37,8 +41,12 @@ class _SectionBodyState extends State<SectionBody> {
             ),
             itemBuilder: (context, index) {
               return InkWell(
-                onTap: (){
-                  navigateAndKeepStack(context, Constructions(currentIndex: 3,));
+                onTap: () {
+                  navigateAndKeepStack(
+                      context,
+                      Constructions(
+                        currentIndex: 3,
+                      ));
                 },
                 child: Container(
                   alignment: Alignment.center,
@@ -52,7 +60,7 @@ class _SectionBodyState extends State<SectionBody> {
                           ]),
                       borderRadius: BorderRadius.circular(25)),
                   child: Text(
-                    "مستشفي",
+                    "${sectionTypeList[index].name}",
                     style: TextStyle(fontSize: 25),
                   ),
                 ),

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:hospitals/ApiFunctions/api.dart';
 import 'package:hospitals/ui/Axes/Constructions.dart';
 import 'package:hospitals/utils/Navigator.dart';
+import 'package:hospitals/utils/global.dart';
 
 class DepartementsBody extends StatefulWidget {
   @override
@@ -8,6 +10,8 @@ class DepartementsBody extends StatefulWidget {
 }
 
 class _DepartementsBodyState extends State<DepartementsBody> {
+
+
   @override
   Widget build(BuildContext context) {
     var screenHeight = MediaQuery.of(context).size.height;
@@ -16,7 +20,7 @@ class _DepartementsBodyState extends State<DepartementsBody> {
       child: Column(
         children: [
           Text(
-            "الأدارات",
+            "الأدارات"+" (${departmentList.length})",
             style: TextStyle(color: Colors.black, fontSize: 50),
           ),
           SizedBox(
@@ -26,7 +30,7 @@ class _DepartementsBodyState extends State<DepartementsBody> {
             width: screenWidth / 1.7,
             height: screenHeight / 2,
             child: GridView.builder(
-              itemCount: 9,
+              itemCount: departmentList.length,
               physics: ScrollPhysics(),
               shrinkWrap: true,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -56,7 +60,7 @@ class _DepartementsBodyState extends State<DepartementsBody> {
                             ]),
                         borderRadius: BorderRadius.circular(25)),
                     child: Text(
-                      "ادارة غرب",
+                      "${departmentList[index].name}",
                       style: TextStyle(fontSize: 25),
                     ),
                   ),

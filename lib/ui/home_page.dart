@@ -3,6 +3,7 @@ import 'package:hospitals/ApiFunctions/api.dart';
 import 'package:hospitals/models/axises_model.dart';
 import 'package:hospitals/ui/Axes/Constructions.dart';
 import 'package:hospitals/utils/Navigator.dart';
+import 'package:hospitals/utils/global.dart';
 import 'package:hospitals/utils/routing/departmentsBody.dart';
 import 'package:hospitals/utils/routing/governmentsBody.dart';
 
@@ -16,9 +17,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
-  AxisesModel axisesModel;
-  List<AxisesModel> axisesList = List();
   final items = [
     Container(),
     GovernmentsBody(),
@@ -33,23 +31,19 @@ class _HomePageState extends State<HomePage> {
     Future.delayed(Duration(milliseconds: 0), () {
       gettingData();
     });
-
-//    showHud();
   }
 
-
   gettingData() {
-    setState(() {
-      Api(context).GetAxesApi(_scaffoldKey).then((value) {
-        axisesModel = value;
-        axisesList.add(value);
-      });
-    });
+      Api(context).GetAxesApi(_scaffoldKey);
+      Api(context).GetGovernmentApi(_scaffoldKey);
+      Api(context).GetDepartementApi(_scaffoldKey);
+      Api(context).GetHospitalsApi(_scaffoldKey);
+      Api(context).GetSectionsApi(_scaffoldKey);
+      Api(context).WorkTypesApi(_scaffoldKey);
   }
 
   @override
   Widget build(BuildContext context) {
-    print("lengh: ${axisesList.length}");
     var screenHeight = MediaQuery.of(context).size.height;
     var screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
@@ -106,29 +100,26 @@ class _HomePageState extends State<HomePage> {
                         child: ListView.builder(
                           physics: NeverScrollableScrollPhysics(),
                           shrinkWrap: true,
-                          itemCount: 9,
+                          itemCount: axisesList.length,
                           itemBuilder: (context, index) {
                             return InkWell(
-                              onTap: () {
-                                // setState(() {
-                                //   constructionsEnabled = true;
-                                // });
+                              onTap: axisesList[index].id==1?() {
                                 navigateAndClearStack(
                                     context,
                                     HomePage(
                                       currentIndex: 1,
                                     ));
-                              },
+                              }:null,
                               child: Container(
                                 padding: EdgeInsets.only(left: 10, right: 10),
                                 alignment: Alignment.center,
                                 margin: EdgeInsets.only(bottom: 50),
                                 height: 60,
                                 decoration: BoxDecoration(
-                                    color: Colors.white,
+                                    color: axisesList[index].id==1? Colors.white:Colors.grey,
                                     borderRadius: BorderRadius.circular(30)),
                                 child: Text(
-                                  "محور الانشاءات",
+                                  "${axisesList[index].name}",
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                       fontSize: 25,

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:hospitals/ApiFunctions/api.dart';
 import 'package:hospitals/ui/Axes/Constructions.dart';
 import 'package:hospitals/utils/Navigator.dart';
+import 'package:hospitals/utils/global.dart';
 
 class HospitalsCategoryBody extends StatefulWidget {
   @override
@@ -8,6 +10,7 @@ class HospitalsCategoryBody extends StatefulWidget {
 }
 
 class _HospitalsCategoryBodyState extends State<HospitalsCategoryBody> {
+
   @override
   Widget build(BuildContext context) {
     var screenHeight = MediaQuery.of(context).size.height;
@@ -15,7 +18,7 @@ class _HospitalsCategoryBodyState extends State<HospitalsCategoryBody> {
     return Column(
       children: [
         Text(
-          "المستشفيات",
+          "المستشفيات"+" (${hospitalsList.length})",
           style: TextStyle(color: Colors.black, fontSize: 50),
         ),
         SizedBox(
@@ -25,7 +28,7 @@ class _HospitalsCategoryBodyState extends State<HospitalsCategoryBody> {
           width: screenWidth / 1.7,
           height: screenHeight / 2,
           child: GridView.builder(
-            itemCount: 9,
+            itemCount: hospitalsList.length,
             physics: ScrollPhysics(),
             shrinkWrap: true,
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -55,7 +58,8 @@ class _HospitalsCategoryBodyState extends State<HospitalsCategoryBody> {
                           ]),
                       borderRadius: BorderRadius.circular(25)),
                   child: Text(
-                    "مستشفي أكتوبر  ",
+                    "${hospitalsList[index].name}",
+                    textAlign: TextAlign.center,
                     style: TextStyle(fontSize: 25),
                   ),
                 ),

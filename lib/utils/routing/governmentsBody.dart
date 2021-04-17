@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:hospitals/ApiFunctions/api.dart';
 import 'package:hospitals/ui/Axes/Constructions.dart';
 import 'package:hospitals/utils/Navigator.dart';
+import 'package:hospitals/utils/global.dart';
 import 'package:hospitals/utils/routing/departmentsBody.dart';
 
 class GovernmentsBody extends StatefulWidget {
@@ -9,6 +11,7 @@ class GovernmentsBody extends StatefulWidget {
 }
 
 class _GovernmentsBodyState extends State<GovernmentsBody> {
+
   @override
   Widget build(BuildContext context) {
     var screenHeight = MediaQuery.of(context).size.height;
@@ -49,8 +52,8 @@ class _GovernmentsBodyState extends State<GovernmentsBody> {
               width: screenWidth / 1.7,
               height: screenHeight / 2,
               child: GridView.builder(
-                itemCount: 9,
-                physics: NeverScrollableScrollPhysics(),
+                itemCount: governmentsList.length,
+                physics: ScrollPhysics(),
                 shrinkWrap: true,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 3,
@@ -79,7 +82,7 @@ class _GovernmentsBodyState extends State<GovernmentsBody> {
                               ]),
                           borderRadius: BorderRadius.circular(25)),
                       child: Text(
-                        "القاهرة",
+                        "${governmentsList[index].name}",
                         style: TextStyle(fontSize: 25),
                       ),
                     ),

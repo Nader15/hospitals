@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hospitals/ui/Axes/axes_test.dart';
 import 'file:///D:/Nadrinhoo/AndroidStudioProjects/hospitals/lib/ui/Axes/Constructions.dart';
 import 'package:hospitals/ui/dashboard.dart';
 import 'package:hospitals/ui/home_page.dart';
@@ -15,6 +16,7 @@ void main() {
       title: "first-app",
       // home: Dashboard(),
       home: HomePage()
+      // home: AxesTest()
       // home: LoginScreen(),
       // home: LoginScreen(),
     ),

@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:hospitals/ApiFunctions/api.dart';
 import 'package:hospitals/ui/Axes/Constructions.dart';
 import 'package:hospitals/utils/Navigator.dart';
+import 'package:hospitals/utils/global.dart';
 
 class HospitalsSubcategoryBody extends StatefulWidget {
   @override
-  _HospitalsSubcategoryBodyState createState() => _HospitalsSubcategoryBodyState();
+  _HospitalsSubcategoryBodyState createState() =>
+      _HospitalsSubcategoryBodyState();
 }
 
 class _HospitalsSubcategoryBodyState extends State<HospitalsSubcategoryBody> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     var screenHeight = MediaQuery.of(context).size.height;
@@ -47,7 +52,8 @@ class _HospitalsSubcategoryBodyState extends State<HospitalsSubcategoryBody> {
           height: screenHeight / 2,
           child: GridView.builder(
             itemCount: 3,
-            physics: ScrollPhysics(),
+            // itemCount: workTypesList.length,
+            physics: NeverScrollableScrollPhysics(),
             shrinkWrap: true,
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 3,
@@ -58,11 +64,7 @@ class _HospitalsSubcategoryBodyState extends State<HospitalsSubcategoryBody> {
             itemBuilder: (context, index) {
               return InkWell(
                 onTap: () {
-                  // navigateAndKeepStack(
-                  //     context,
-                  //     Constructions(
-                  //       currentIndex: 2,
-                  //     ));
+                  // Api(context).PostWorkApi(_scaffoldKey);
                 },
                 child: Container(
                   alignment: Alignment.center,
@@ -76,7 +78,7 @@ class _HospitalsSubcategoryBodyState extends State<HospitalsSubcategoryBody> {
                           ]),
                       borderRadius: BorderRadius.circular(25)),
                   child: Text(
-                    "طبيعة العمل",
+                    "${workTypesList[index].name}",
                     style: TextStyle(fontSize: 25),
                   ),
                 ),
