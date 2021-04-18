@@ -6,6 +6,9 @@ import 'package:hospitals/ui/dashboard.dart';
 import 'package:hospitals/ui/home_page.dart';
 import 'package:hospitals/ui/login.dart';
 import 'package:hospitals/ui/test.dart';
+import 'package:hospitals/utils/routing/hospital_subcategory1Body.dart';
+
+import 'utils/routing/hospital_subcategory2Body.dart';
 
 void main() {
   runApp(
@@ -15,11 +18,11 @@ void main() {
         // primarySwatch: Colors.blue,
       ),
       title: "first-app",
-      // home: Dashboard(),
-      // home: HomePage()
-      home: AdminView()
+      // home: HospitalsSubcategory2Body(),
+      home: HomePage()
+      // home: AdminView()
       // home: AxesTest()
-      // home: LoginScreen(),
+      // home: HospitalsSubcategory1Body(),
       // home: LoginScreen(),
     ),
   );

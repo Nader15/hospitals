@@ -17,11 +17,11 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final items = [
-    Container(),
-    GovernmentsBody(),
-    DepartementsBody(),
-  ];
+  // final items = [
+  //   Container(),
+  //   // GovernmentsBody(),
+  //   // DepartementsBody(),
+  // ];
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -40,20 +40,27 @@ class _HomePageState extends State<HomePage> {
     Api(context).GetHospitalsApi(_scaffoldKey);
     Api(context).GetSectionsApi(_scaffoldKey);
     Api(context).WorkTypesApi(_scaffoldKey);
-    Api(context).HospitalInputsApi(_scaffoldKey);
+    // Api(context).HospitalInputsApi(_scaffoldKey);
+    Api(context).contractorApi(_scaffoldKey);
+    Api(context).civilProtectionApi(_scaffoldKey);
+    Api(context).WaterStateApi(_scaffoldKey);
+    Api(context).ExchangeApi(_scaffoldKey);
+    Api(context).donornotsApi(_scaffoldKey);
   }
 
-  @override
-  void dispose() {
-    Api(context).GetAxesApi(_scaffoldKey);
-    Api(context).GetGovernmentApi(_scaffoldKey);
-    Api(context).GetDepartementApi(_scaffoldKey);
-    Api(context).GetHospitalsApi(_scaffoldKey);
-    Api(context).GetSectionsApi(_scaffoldKey);
-    Api(context).WorkTypesApi(_scaffoldKey);
-    Api(context).HospitalInputsApi(_scaffoldKey);
-    super.dispose();
-  }
+  // @override
+  // void dispose() {
+  //   Api(context).GetAxesApi(_scaffoldKey);
+  //   Api(context).GetGovernmentApi(_scaffoldKey);
+  //   Api(context).GetDepartementApi(_scaffoldKey);
+  //   Api(context).GetHospitalsApi(_scaffoldKey);
+  //   Api(context).GetSectionsApi(_scaffoldKey);
+  //   Api(context).WorkTypesApi(_scaffoldKey);
+  //   Api(context).HospitalInputsApi(_scaffoldKey);
+  //   Api(context).contractorApi(_scaffoldKey);
+  //   Api(context).civilProtectionApi(_scaffoldKey);
+  //   super.dispose();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -82,7 +89,7 @@ class _HomePageState extends State<HomePage> {
                               width: 300,
                             )),
                       ),
-                      items[widget.currentIndex],
+                      // items[widget.currentIndex],
                     ],
                   ),
                   // alignment: Alignment.center,
@@ -116,15 +123,18 @@ class _HomePageState extends State<HomePage> {
                           itemCount: axisesList.length,
                           itemBuilder: (context, index) {
                             return InkWell(
-                              onTap: axisesList[index].id == 1
-                                  ? () {
-                                      navigateAndClearStack(
-                                          context,
-                                          HomePage(
-                                            currentIndex: 1,
-                                          ));
-                                    }
-                                  : null,
+                              onTap:
+                                  // axisesList[index].id == 1
+                                  //     ?
+                                  () {
+                                navigateAndClearStack(context, GovernmentsBody()
+                                    // HomePage(
+                                    //   currentIndex: 1,
+                                    // ),
+                                    );
+                              }
+                              // : null
+                              ,
                               child: Container(
                                 padding: EdgeInsets.only(left: 10, right: 10),
                                 alignment: Alignment.center,

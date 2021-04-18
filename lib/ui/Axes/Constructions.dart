@@ -17,14 +17,14 @@ class Constructions extends StatefulWidget {
 }
 
 class _ConstructionsState extends State<Constructions> {
-  final items = [
-    GovernmentsBody(),
-    DepartementsBody(),
-    SectionBody(),
-    HospitalsCategoryBody(),
-    HospitalsSubcategory1Body(),
-    HospitalsSubcategory2Body(),
-  ];
+  // final items = [
+  //   // GovernmentsBody(),
+  //   // DepartementsBody(),
+  //   // SectionBody(),
+  //   // HospitalsCategoryBody(),
+  //   HospitalsSubcategory1Body(),
+  //   // HospitalsSubcategory2Body(),
+  // ];
 
   @override
   Widget build(BuildContext context) {
@@ -79,7 +79,7 @@ class _ConstructionsState extends State<Constructions> {
                           SizedBox(
                             height: 100,
                           ),
-                          items[widget.currentIndex],
+                          // items[widget.currentIndex],
                         ],
                       ),
                     ),
