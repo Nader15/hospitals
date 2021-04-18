@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hospitals/ApiFunctions/api.dart';
 import 'package:hospitals/models/axises_model.dart';
-import 'file:///H:/hospitals/lib/ui/dashboard/dashboard.dart';
 import 'package:hospitals/ui/Axes/Constructions.dart';
 import 'package:hospitals/ui/Input_View/utils/routing/governmentsBody.dart';
+import 'package:hospitals/ui/dashboard/dashboard.dart';
 import 'package:hospitals/ui/dashboard_test.dart';
 import 'package:hospitals/ui/Input_View/utils/Navigator.dart';
 import 'package:hospitals/ui/Input_View/utils/global.dart';

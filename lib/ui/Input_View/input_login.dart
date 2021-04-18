@@ -2,8 +2,8 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_login/flutter_login.dart';
 import 'package:hospitals/ui/Admin_View/admin_view.dart';
+import 'package:hospitals/ui/Input_View/input_view.dart';
 import 'package:hospitals/ui/dashboard_test.dart';
-import 'file:///H:/hospitals/lib/ui/Input_View/input_view.dart';
 
 const users = const {
   'input@gmail.com': "666666",

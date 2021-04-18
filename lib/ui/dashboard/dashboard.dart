@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hospitals/ui/Admin_View/admin_login.dart';
-import 'file:///H:/hospitals/lib/ui/Input_View/input_login.dart';
+import 'package:hospitals/ui/Input_View/input_login.dart';
+import 'package:hospitals/ui/Input_View/utils/Navigator.dart';
+import 'package:hospitals/ui/Input_View/utils/global.dart';
 import 'package:hospitals/ui/Input_View/utils/Navigator.dart';
 import 'package:hospitals/ui/Input_View/utils/global.dart';
 
