@@ -1,59 +1,60 @@
 import 'package:flutter/material.dart';
 import 'package:hospitals/ApiFunctions/api.dart';
 import 'package:hospitals/models/axises_model.dart';
+import 'package:hospitals/ui/Admin_View/hospitals_view.dart';
 import 'package:hospitals/ui/Axes/Constructions.dart';
 import 'package:hospitals/utils/Navigator.dart';
 import 'package:hospitals/utils/global.dart';
 import 'package:hospitals/utils/routing/departmentsBody.dart';
 import 'package:hospitals/utils/routing/governmentsBody.dart';
 
-class HomePage extends StatefulWidget {
+class AdminView extends StatefulWidget {
   int currentIndex;
 
-  HomePage({this.currentIndex = 0});
+  AdminView({this.currentIndex = 1});
 
   @override
-  _HomePageState createState() => _HomePageState();
+  _AdminViewState createState() => _AdminViewState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _AdminViewState extends State<AdminView> {
   final items = [
     Container(),
-    GovernmentsBody(),
-    DepartementsBody(),
+    HospitalsView(),
   ];
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    Future.delayed(Duration(milliseconds: 0), () {
-      gettingData();
-    });
-  }
-
-  gettingData() {
-    Api(context).GetAxesApi(_scaffoldKey);
-    Api(context).GetGovernmentApi(_scaffoldKey);
-    Api(context).GetDepartementApi(_scaffoldKey);
-    Api(context).GetHospitalsApi(_scaffoldKey);
-    Api(context).GetSectionsApi(_scaffoldKey);
-    Api(context).WorkTypesApi(_scaffoldKey);
-    Api(context).HospitalInputsApi(_scaffoldKey);
-  }
-
-  @override
-  void dispose() {
-    Api(context).GetAxesApi(_scaffoldKey);
-    Api(context).GetGovernmentApi(_scaffoldKey);
-    Api(context).GetDepartementApi(_scaffoldKey);
-    Api(context).GetHospitalsApi(_scaffoldKey);
-    Api(context).GetSectionsApi(_scaffoldKey);
-    Api(context).WorkTypesApi(_scaffoldKey);
-    Api(context).HospitalInputsApi(_scaffoldKey);
-    super.dispose();
-  }
+  //
+  // @override
+  // void initState() {
+  //   // TODO: implement initState
+  //   super.initState();
+  //   Future.delayed(Duration(milliseconds: 0), () {
+  //     gettingData();
+  //   });
+  // }
+  //
+  // gettingData() {
+  //   Api(context).GetAxesApi(_scaffoldKey);
+  //   Api(context).GetGovernmentApi(_scaffoldKey);
+  //   Api(context).GetDepartementApi(_scaffoldKey);
+  //   Api(context).GetHospitalsApi(_scaffoldKey);
+  //   Api(context).GetSectionsApi(_scaffoldKey);
+  //   Api(context).WorkTypesApi(_scaffoldKey);
+  //   Api(context).HospitalInputsApi(_scaffoldKey);
+  // }
+  //
+  // @override
+  // void dispose() {
+  //   Api(context).GetAxesApi(_scaffoldKey);
+  //   Api(context).GetGovernmentApi(_scaffoldKey);
+  //   Api(context).GetDepartementApi(_scaffoldKey);
+  //   Api(context).GetHospitalsApi(_scaffoldKey);
+  //   Api(context).GetSectionsApi(_scaffoldKey);
+  //   Api(context).WorkTypesApi(_scaffoldKey);
+  //   Api(context).HospitalInputsApi(_scaffoldKey);
+  //   super.dispose();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -113,30 +114,27 @@ class _HomePageState extends State<HomePage> {
                         child: ListView.builder(
                           physics: NeverScrollableScrollPhysics(),
                           shrinkWrap: true,
-                          itemCount: axisesList.length,
+                          itemCount: 10,
                           itemBuilder: (context, index) {
                             return InkWell(
-                              onTap: axisesList[index].id == 1
-                                  ? () {
-                                      navigateAndClearStack(
-                                          context,
-                                          HomePage(
-                                            currentIndex: 1,
-                                          ));
-                                    }
-                                  : null,
+                              onTap: () {
+                                navigateAndClearStack(
+                                    context,
+                                    AdminView(
+                                      currentIndex: 1,
+                                    ));
+                              },
                               child: Container(
                                 padding: EdgeInsets.only(left: 10, right: 10),
                                 alignment: Alignment.center,
                                 margin: EdgeInsets.only(bottom: 50),
                                 height: 60,
                                 decoration: BoxDecoration(
-                                    color: axisesList[index].id == 1
-                                        ? Colors.white
-                                        : Colors.grey,
+                                    color: Colors.white,
                                     borderRadius: BorderRadius.circular(30)),
                                 child: Text(
-                                  "${axisesList[index].name}",
+                                  // "${axisesList[index].name}",
+                                  "القاهرة",
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                       fontSize: 25,

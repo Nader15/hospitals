@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:hospitals/models/axises_model.dart';
 import 'package:hospitals/models/departement_model.dart';
 import 'package:hospitals/models/governments_model.dart';
+import 'package:hospitals/models/hospital_inputs_model.dart';
 import 'package:hospitals/models/hospitals_model.dart';
 import 'package:hospitals/models/sectionType_model.dart';
 import 'package:hospitals/models/workTypes_model.dart';
@@ -21,6 +22,8 @@ class Api {
   final String typeesLink = "sectiontypes";
   final String worktypesLink = "worktypes";
   final String advisorsLink = "advisors";
+  final String HospitalInputsLink = "Hospital-Inputs";
+  final String contractorsLink = "contractors";
 
   BuildContext context;
 
@@ -190,11 +193,65 @@ class Api {
     }
   }
 
-  Future PostWorkApi(GlobalKey<ScaffoldState> _scaffoldKey) async {
+  Future HospitalInputsApi(GlobalKey<ScaffoldState> _scaffoldKey) async {
+    XsProgressHud.show(context);
+    final String completeUrl = baseUrl + HospitalInputsLink;
+    final response = await http.get(
+      completeUrl,
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        // HttpHeaders.authorizationHeader: UserTocken
+      },
+    );
+    var dataContent = json.decode(response.body);
+    List<HospitalInputsModel> sectionTypeList2 = <HospitalInputsModel>[];
+    for (var value in dataContent) {
+      sectionTypeList2.add(HospitalInputsModel.fromJson(value));
+    }
+    hospitalInputsList.addAll(sectionTypeList2);
+    XsProgressHud.hide();
+    if (response.statusCode == 200) {
+      print("HospitalInputsList content : $dataContent");
+      return true;
+    } else {
+      print(dataContent);
+      return false;
+    }
+  }
+
+  Future contractorApi(GlobalKey<ScaffoldState> _scaffoldKey) async {
+    XsProgressHud.show(context);
+    final String completeUrl = baseUrl + contractorsLink;
+    final response = await http.get(
+      completeUrl,
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        // HttpHeaders.authorizationHeader: UserTocken
+      },
+    );
+    var dataContent = json.decode(response.body);
+    List<HospitalInputsModel> sectionTypeList2 = <HospitalInputsModel>[];
+    for (var value in dataContent) {
+      sectionTypeList2.add(HospitalInputsModel.fromJson(value));
+    }
+    contractorsList.addAll(sectionTypeList2);
+    XsProgressHud.hide();
+    if (response.statusCode == 200) {
+      print("contractorsList content : $dataContent");
+      return true;
+    } else {
+      print(dataContent);
+      return false;
+    }
+  }
+
+  Future PostWorkApi(GlobalKey<ScaffoldState> _scaffoldKey,String workType) async {
     XsProgressHud.show(context);
     final String completeUrl = baseUrl + advisorsLink;
     Map data = {
-      "Name": "استشاري3",
+      "Name": workType,
     };
     final response = await http.post(completeUrl,
         headers: {
@@ -213,4 +270,5 @@ class Api {
       print("dataContent:: ${dataContent}");
     return false;
   }
+
 }

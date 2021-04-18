@@ -2,7 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hospitals/utils/routing/departmentsBody.dart';
 import 'package:hospitals/utils/routing/governmentsBody.dart';
-import 'package:hospitals/utils/routing/hospital_subcategoryBody.dart';
+import 'package:hospitals/utils/routing/hospital_subcategory1Body.dart';
+import 'package:hospitals/utils/routing/hospital_subcategory2Body.dart';
 import 'package:hospitals/utils/routing/hospitals_categoryBody.dart';
 import 'package:hospitals/utils/routing/sectionBody.dart';
 
@@ -21,7 +22,8 @@ class _ConstructionsState extends State<Constructions> {
     DepartementsBody(),
     SectionBody(),
     HospitalsCategoryBody(),
-    HospitalsSubcategoryBody()
+    HospitalsSubcategory1Body(),
+    HospitalsSubcategory2Body(),
   ];
 
   @override

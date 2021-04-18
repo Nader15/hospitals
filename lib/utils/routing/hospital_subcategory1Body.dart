@@ -4,13 +4,13 @@ import 'package:hospitals/ui/Axes/Constructions.dart';
 import 'package:hospitals/utils/Navigator.dart';
 import 'package:hospitals/utils/global.dart';
 
-class HospitalsSubcategoryBody extends StatefulWidget {
+class HospitalsSubcategory1Body extends StatefulWidget {
   @override
-  _HospitalsSubcategoryBodyState createState() =>
-      _HospitalsSubcategoryBodyState();
+  _HospitalsSubcategory1BodyState createState() =>
+      _HospitalsSubcategory1BodyState();
 }
 
-class _HospitalsSubcategoryBodyState extends State<HospitalsSubcategoryBody> {
+class _HospitalsSubcategory1BodyState extends State<HospitalsSubcategory1Body> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -64,7 +64,12 @@ class _HospitalsSubcategoryBodyState extends State<HospitalsSubcategoryBody> {
             itemBuilder: (context, index) {
               return InkWell(
                 onTap: () {
-                  // Api(context).PostWorkApi(_scaffoldKey);
+                  // Api(context).PostWorkApi(_scaffoldKey,workTypesList[index].name);
+                  navigateAndKeepStack(
+                      context,
+                      Constructions(
+                        currentIndex: 5,
+                      ));
                 },
                 child: Container(
                   alignment: Alignment.center,
