@@ -36,16 +36,15 @@ class _HomePageState extends State<HomePage> {
   gettingData() {
     Api(context).GetAxesApi(_scaffoldKey);
     Api(context).GetGovernmentApi(_scaffoldKey);
-    Api(context).GetDepartementApi(_scaffoldKey);
-    Api(context).GetHospitalsApi(_scaffoldKey);
+    // Api(context).GetDepartementApi(_scaffoldKey);
+    // Api(context).GetHospitalsApi(_scaffoldKey);
     Api(context).GetSectionsApi(_scaffoldKey);
     Api(context).WorkTypesApi(_scaffoldKey);
-    // Api(context).HospitalInputsApi(_scaffoldKey);
-    Api(context).contractorApi(_scaffoldKey);
-    Api(context).civilProtectionApi(_scaffoldKey);
-    Api(context).WaterStateApi(_scaffoldKey);
-    Api(context).ExchangeApi(_scaffoldKey);
-    Api(context).donornotsApi(_scaffoldKey);
+    // Api(context).contractorApi(_scaffoldKey);
+    // Api(context).civilProtectionApi(_scaffoldKey);
+    // Api(context).WaterStateApi(_scaffoldKey);
+    // Api(context).ExchangeApi(_scaffoldKey);
+    // Api(context).donornotsApi(_scaffoldKey);
   }
 
   // @override

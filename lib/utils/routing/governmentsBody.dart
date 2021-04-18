@@ -83,16 +83,16 @@ class _GovernmentsBodyState extends State<GovernmentsBody> {
                       onTap: () {
                         setState(() {
                           govGlobal = governmentsList[index].name;
+                          print(
+                              "hello we are heeeeeere :::${governmentsList[index].name}");
+                          navigateAndKeepStack(
+                              context,
+                              DepartementsBody(
+                                idGov: governmentsList[index].id,
+                              )
+                          );
                         });
-                        navigateAndKeepStack(
-                            context,
-                            DepartementsBody(
-                              idGov: governmentsList[index].id,
-                            )
-                            // Constructions(
-                            //   currentIndex: 1,
-                            // ),
-                            );
+
                       },
                       child: Container(
                         alignment: Alignment.center,

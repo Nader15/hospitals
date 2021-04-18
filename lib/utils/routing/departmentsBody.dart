@@ -75,8 +75,12 @@ class _DepartementsBodyState extends State<DepartementsBody> {
                     onTap: () {
                     setState(() {
                       depIdGlobal = items[index].id;
-                    });
+                      depNameGlobal = items[index].name;
+                      print(
+                          "hello we are heeeeeere :::${governmentsList[index].name}");
                       navigateAndKeepStack(context, SectionBody());
+                    });
+
                     },
                     child: Container(
                       alignment: Alignment.center,

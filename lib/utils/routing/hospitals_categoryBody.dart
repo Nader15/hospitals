@@ -73,6 +73,9 @@ class _HospitalsCategoryBodyState extends State<HospitalsCategoryBody> {
                 itemBuilder: (context, index) {
                   return InkWell(
                     onTap: () {
+                      setState(() {
+                        headerGlobal = items[index].name;
+                      });
                       navigateAndClearStack(context, HospitalsSubcategory1Body()
                           // Constructions(
                           //   currentIndex: 4,

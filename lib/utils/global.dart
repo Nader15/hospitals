@@ -38,6 +38,12 @@ String DonOrNotSupply_id;
 String DonOrNotInstallation_id;
 String WaterState_id;
 String WorkTypeGlobal;
+
+//--------------------------------------
 int depIdGlobal;
 String govGlobal;
+String headerGlobal;
+String depNameGlobal;
+String sectionNameGlobal;
+//--------------------------------------
 List testList;

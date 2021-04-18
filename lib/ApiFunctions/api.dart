@@ -39,12 +39,12 @@ class Api {
   final String donornotsLink = "donornots";
   final String CreatorsLink = "centers";
 
-
   BuildContext context;
 
   Api(@required this.context);
 
-  Future filterDepartmenApi(GlobalKey<ScaffoldState> _scaffoldKey,int id,List items) async {
+  Future filterDepartmenApi(
+      GlobalKey<ScaffoldState> _scaffoldKey, int id, List items) async {
     XsProgressHud.show(context);
     final String completeUrl = baseUrl + "departments?[governorate]=$id";
     final response = await http.get(
@@ -71,7 +71,9 @@ class Api {
       return false;
     }
   }
-  Future filterHospitalApi(GlobalKey<ScaffoldState> _scaffoldKey,int id,List items) async {
+
+  Future filterHospitalApi(
+      GlobalKey<ScaffoldState> _scaffoldKey, int id, List items) async {
     XsProgressHud.show(context);
     final String completeUrl = baseUrl + "Hospitals?[department]=$id";
     final response = await http.get(
@@ -89,6 +91,64 @@ class Api {
     }
     items.addAll(filterDepList2);
     filterDepartmentList.addAll(filterDepList2);
+    XsProgressHud.hide();
+    if (response.statusCode == 200) {
+      print("FilterDepList content : ${filterDepartmentList.length}");
+      return items;
+    } else {
+      print(dataContent);
+      return false;
+    }
+  }
+
+  Future filterUnitsApi(
+      GlobalKey<ScaffoldState> _scaffoldKey, int id, List items) async {
+    XsProgressHud.show(context);
+    final String completeUrl = baseUrl + "Units?[department]=$id";
+    final response = await http.get(
+      completeUrl,
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        // HttpHeaders.authorizationHeader: UserTocken
+      },
+    );
+    var dataContent = json.decode(response.body);
+    List<FilterDepModel> filterDepList2 = <FilterDepModel>[];
+    for (var value in dataContent) {
+      filterDepList2.add(FilterDepModel.fromJson(value));
+    }
+    items.addAll(filterDepList2);
+    // filterDepartmentList.addAll(filterDepList2);
+    XsProgressHud.hide();
+    if (response.statusCode == 200) {
+      print("FilterDepList content : ${filterDepartmentList.length}");
+      return items;
+    } else {
+      print(dataContent);
+      return false;
+    }
+  }
+
+  Future filterCentersApi(
+      GlobalKey<ScaffoldState> _scaffoldKey, int id, List items) async {
+    XsProgressHud.show(context);
+    final String completeUrl = baseUrl + "centersses?[department]=$id";
+    final response = await http.get(
+      completeUrl,
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        // HttpHeaders.authorizationHeader: UserTocken
+      },
+    );
+    var dataContent = json.decode(response.body);
+    List<FilterDepModel> filterDepList2 = <FilterDepModel>[];
+    for (var value in dataContent) {
+      filterDepList2.add(FilterDepModel.fromJson(value));
+    }
+    items.addAll(filterDepList2);
+    // filterDepartmentList.addAll(filterDepList2);
     XsProgressHud.hide();
     if (response.statusCode == 200) {
       print("FilterDepList content : ${filterDepartmentList.length}");
@@ -235,7 +295,6 @@ class Api {
       return false;
     }
   }
-
 
   Future WorkTypesApi(GlobalKey<ScaffoldState> _scaffoldKey) async {
     XsProgressHud.show(context);
@@ -480,10 +539,9 @@ class Api {
     }
   }
 
-
   Future PostCreateApi(
       GlobalKey<ScaffoldState> _scaffoldKey,
-      // String Name,
+      String Name,
       String Excutionpercentage,
       String Datedelivery,
       String contractor,
@@ -495,16 +553,15 @@ class Api {
       String Thepositionoftheelectriccurrent,
       String Notes,
       String type,
-      // String governorate,
-      // String departments,
-      // String unittype,
+      String governorate,
+      String departments,
+      String unittype,
       String databasic,
-      String Advisor
-      ) async {
+      String Advisor) async {
     XsProgressHud.show(context);
     final String completeUrl = baseUrl + CreatorsLink;
     Map data = {
-      "Name": "Name",
+      "Name": Name,
       "Excutionpercentage": Excutionpercentage,
       "Datedelivery": Datedelivery,
       "contractor": contractor,
@@ -516,10 +573,10 @@ class Api {
       "Adapterinstallation": Adapterinstallation,
       "Thepositionoftheelectriccurrent": Thepositionoftheelectriccurrent,
       "Notes": Notes,
-      "type":type,
-      "governorate": "governorate",
-      "departments": 'departments',
-      "unittype": "unittype",
+      "type": type,
+      "governorate": governorate,
+      "departments": departments,
+      "unittype": unittype,
       "databasic": databasic,
       "Advisor": Advisor,
       "StateNow": 'StateNow'

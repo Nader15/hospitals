@@ -39,7 +39,7 @@ class _HospitalsSubcategory1BodyState extends State<HospitalsSubcategory1Body> {
           child: Column(
             children: [
               Text(
-                "مستشفي أكتوبر",
+                "$headerGlobal",
                 style: TextStyle(color: Colors.black, fontSize: 50),
               ),
               SizedBox(
@@ -85,14 +85,8 @@ class _HospitalsSubcategory1BodyState extends State<HospitalsSubcategory1Body> {
                       onTap: () {
                         setState(() {
                           WorkTypeGlobal = workTypesList[index].name;
+                          navigateAndClearStack(context, HospitalsSubcategory2Body());
                         });
-                        // Api(context).PostWorkApi(_scaffoldKey,workTypesList[index].name);
-                        navigateAndClearStack(context, HospitalsSubcategory2Body()
-
-                            // Constructions(
-                            //   currentIndex: 5,
-                            // ),
-                            );
                       },
                       child: Container(
                         alignment: Alignment.center,

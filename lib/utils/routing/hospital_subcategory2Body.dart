@@ -6,6 +6,10 @@ import 'package:hospitals/utils/global.dart';
 import 'package:hospitals/utils/routing/hospital_subcategory1Body.dart';
 
 class HospitalsSubcategory2Body extends StatefulWidget {
+  final String header;
+
+  HospitalsSubcategory2Body({this.header});
+
   @override
   _HospitalsSubcategory2BodyState createState() =>
       _HospitalsSubcategory2BodyState();
@@ -93,7 +97,7 @@ class _HospitalsSubcategory2BodyState extends State<HospitalsSubcategory2Body> {
           child: Column(
             children: [
               Text(
-                "مستشفي أكتوبر",
+                "${headerGlobal}",
                 style: TextStyle(color: Colors.black, fontSize: 50),
               ),
               SizedBox(
@@ -590,6 +594,7 @@ class _HospitalsSubcategory2BodyState extends State<HospitalsSubcategory2Body> {
                 onPressed: () {
                   Api(context).PostCreateApi(
                       _scaffoldKey,
+                      headerGlobal,
                       percentageController.text,
                       dateController1.text,
                       contractors_id,
@@ -601,6 +606,9 @@ class _HospitalsSubcategory2BodyState extends State<HospitalsSubcategory2Body> {
                       DonOrNotElectric_id,
                       notesController.text,
                       WorkTypeGlobal,
+                      govGlobal,
+                      depNameGlobal,
+                      sectionNameGlobal,
                       dateController2.text,
                       Advisors_id);
                 },

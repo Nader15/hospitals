@@ -1,23 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:hospitals/ApiFunctions/api.dart';
 import 'package:hospitals/ui/Axes/Constructions.dart';
-import 'package:hospitals/ui/home_page.dart';
 import 'package:hospitals/utils/Navigator.dart';
 import 'package:hospitals/utils/global.dart';
-import 'package:hospitals/utils/routing/centers_page.dart';
-import 'package:hospitals/utils/routing/hospitals_categoryBody.dart';
-import 'package:hospitals/utils/routing/units_page.dart';
+import 'package:hospitals/utils/routing/hospital_subcategory1Body.dart';
 
-class SectionBody extends StatefulWidget {
-  final int idGov;
+class unitsCategoryBody extends StatefulWidget {
 
-  SectionBody({this.idGov});
 
   @override
-  _SectionBodyState createState() => _SectionBodyState();
+  _unitsCategoryBodyState createState() => _unitsCategoryBodyState();
 }
 
-class _SectionBodyState extends State<SectionBody> {
+class _unitsCategoryBodyState extends State<unitsCategoryBody> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -29,14 +24,24 @@ class _SectionBodyState extends State<SectionBody> {
     });
   }
 
+  List items = [];
+
   gettingData() {
     setState(() {
-      Api(context).GetSectionsApi(_scaffoldKey);
+      // Api(context).GetDepartementApi(_scaffoldKey);
+      Api(context)
+          .filterUnitsApi(_scaffoldKey, depIdGlobal, items)
+          .then((value) {
+        setState(() {
+          items = value;
+        });
+      });
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    print("items;;;;;;;${items.length}");
     var screenHeight = MediaQuery.of(context).size.height;
     var screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
@@ -44,17 +49,17 @@ class _SectionBodyState extends State<SectionBody> {
         child: Column(
           children: [
             Text(
-              "نوع الوحدة",
+              "الوحدات" + " (${items.length})",
               style: TextStyle(color: Colors.black, fontSize: 50),
             ),
             SizedBox(
-              height: 300,
+              height: 200,
             ),
             Container(
               width: screenWidth / 1.7,
-              height: screenHeight / 3,
+              height: screenHeight / 2,
               child: GridView.builder(
-                itemCount: 3,
+                itemCount: items.length,
                 physics: ScrollPhysics(),
                 shrinkWrap: true,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -67,18 +72,13 @@ class _SectionBodyState extends State<SectionBody> {
                   return InkWell(
                     onTap: () {
                       setState(() {
-                        sectionNameGlobal = sectionTypeList[index].name;
-                        navigateAndKeepStack(
-                            context,
-                            sectionTypeList[index].id == 1
-                                ? HospitalsCategoryBody(
-                              idGov: widget.idGov,
-                            )
-                                : sectionTypeList[index].id == 2
-                                ? unitsCategoryBody()
-                                : CentersCategoryBody());
+                        headerGlobal = items[index].name;
                       });
-
+                      navigateAndClearStack(context, HospitalsSubcategory1Body()
+                        // Constructions(
+                        //   currentIndex: 4,
+                        // ),
+                      );
                     },
                     child: Container(
                       alignment: Alignment.center,
@@ -92,7 +92,8 @@ class _SectionBodyState extends State<SectionBody> {
                               ]),
                           borderRadius: BorderRadius.circular(25)),
                       child: Text(
-                        "${sectionTypeList[index].name}",
+                        "${items[index].name}",
+                        textAlign: TextAlign.center,
                         style: TextStyle(fontSize: 25),
                       ),
                     ),
