@@ -1,21 +1,22 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_login/flutter_login.dart';
-import 'package:hospitals/ui/dashboard.dart';
-import 'package:hospitals/ui/home_page.dart';
+import 'package:hospitals/ui/Admin_View/admin_view.dart';
+import 'package:hospitals/ui/dashboard_test.dart';
+import 'file:///H:/hospitals/lib/ui/Input_View/input_view.dart';
 
 const users = const {
   'admin@gmail.com': "666666",
 };
 
-class LoginScreen extends StatefulWidget {
+class AdminLogin extends StatefulWidget {
   @override
-  _LoginScreenState createState() => _LoginScreenState();
+  _AdminLoginState createState() => _AdminLoginState();
 }
 
 // var hashPass;
 
-class _LoginScreenState extends State<LoginScreen> {
+class _AdminLoginState extends State<AdminLogin> {
   Duration get loginTime => Duration(milliseconds: 2250);
   var passController = TextEditingController();
 
@@ -57,7 +58,7 @@ class _LoginScreenState extends State<LoginScreen> {
         onSignup: _authUser,
         onSubmitAnimationCompleted: () {
           Navigator.of(context).pushReplacement(MaterialPageRoute(
-            builder: (context) => HomePage(),
+            builder: (context) => AdminView(),
           ));
         },
         onRecoverPassword: _recoverPassword,

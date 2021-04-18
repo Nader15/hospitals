@@ -1,32 +1,39 @@
 import 'package:flutter/material.dart';
-
-import '../../ApiFunctions/api.dart';
+import 'package:hospitals/ApiFunctions/api.dart';
+import 'package:hospitals/ui/Axes/Constructions.dart';
 import 'package:hospitals/ui/Input_View/utils/Navigator.dart';
 import 'package:hospitals/ui/Input_View/utils/global.dart';
+import 'package:hospitals/ui/Input_View/utils/routing/centers_page.dart';
+import 'package:hospitals/ui/Input_View/utils/routing/hospitals_categoryBody.dart';
+import 'package:hospitals/ui/Input_View/utils/routing/units_page.dart';
 
-class HospitalsView extends StatefulWidget {
+class SectionBody extends StatefulWidget {
+  final int idGov;
+
+  SectionBody({this.idGov});
+
   @override
-  _HospitalsViewState createState() => _HospitalsViewState();
+  _SectionBodyState createState() => _SectionBodyState();
 }
 
-class _HospitalsViewState extends State<HospitalsView> {
+class _SectionBodyState extends State<SectionBody> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     Future.delayed(Duration(milliseconds: 0), () {
-      // gettingData();
+      gettingData();
     });
   }
-
-  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   gettingData() {
     setState(() {
-      Api(context).GetCreateApi(_scaffoldKey);
-
+      Api(context).GetSectionsApi(_scaffoldKey);
     });
   }
+
   @override
   Widget build(BuildContext context) {
     var screenHeight = MediaQuery.of(context).size.height;
@@ -91,63 +98,67 @@ class _HospitalsViewState extends State<HospitalsView> {
                     ],
                   ),
                   SizedBox(
-                    height: 100,
+                    height: 200,
                   ),
                   Text(
-                    "الأنشاءات" + " (${CreatorsList.length})",
+                    "نوع الوحدة",
                     style: TextStyle(color: Colors.black, fontSize: 50),
                   ),
-                  Center(
-                      child: Container(
-                        padding: EdgeInsets.all(200),
-                        // width: screenWidth / 2,
-                        height: screenHeight ,
-                        child: ListView.builder(
-                          shrinkWrap: true,
-                            physics: ScrollPhysics(),
-                            itemCount: CreatorsList.length,
-                            itemBuilder: (context, index) {
-                              return Padding(
-                                padding: EdgeInsets.only(bottom: 20),
-                                child: Card(
-                                  elevation: 10,
-                                  child: ListTile(
-                                    contentPadding: const EdgeInsets.all(100.0),
-                                    onTap: () {},
-                                    title: Row(
-                                      mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Icon(
-                                          Icons.arrow_back,
-                                          size: 30,
-                                        ),
-                                        Container(
-                                          // width: screenWidth/6,
-                                          child: Row(
-                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              Text(
-                                                "${CreatorsList[index].name}",
-                                                style: TextStyle(fontSize: 30),
-                                              ),
-                                              SizedBox(width: 100,),
-                                              Icon(Icons.local_hospital,size: 50,color: Colors.red,),
-                                            ],
-                                          ),
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              );
-                            }),
-                      )),
+                  SizedBox(
+                    height: 300,
+                  ),
+                  Container(
+                    width: screenWidth / 1.7,
+                    height: screenHeight / 3,
+                    child: GridView.builder(
+                      itemCount: 3,
+                      physics: ScrollPhysics(),
+                      shrinkWrap: true,
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 3,
+                        childAspectRatio: 4,
+                        mainAxisSpacing: 60,
+                        crossAxisSpacing: 100,
+                      ),
+                      itemBuilder: (context, index) {
+                        return InkWell(
+                          onTap: () {
+                            setState(() {
+                              sectionNameGlobal = sectionTypeList[index].name;
+                              navigateAndKeepStack(
+                                  context,
+                                  sectionTypeList[index].id == 1
+                                      ? HospitalsCategoryBody(
+                                    idGov: widget.idGov,
+                                  )
+                                      : sectionTypeList[index].id == 2
+                                      ? unitsCategoryBody()
+                                      : CentersCategoryBody());
+                            });
+
+                          },
+                          child: Container(
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                                gradient: LinearGradient(
+                                    begin: Alignment.topCenter,
+                                    end: Alignment.bottomCenter,
+                                    colors: [
+                                      Color(0XffE9A4A7),
+                                      Color(0XffD2B0C3),
+                                    ]),
+                                borderRadius: BorderRadius.circular(25)),
+                            child: Text(
+                              "${sectionTypeList[index].name}",
+                              style: TextStyle(fontSize: 25),
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                  ),
                 ],
               ),
-            ),
-            SizedBox(
-              height: 100,
             ),
           ],
         ),

@@ -1,34 +1,49 @@
 import 'package:flutter/material.dart';
-
-import '../../ApiFunctions/api.dart';
+import 'package:hospitals/ApiFunctions/api.dart';
+import 'package:hospitals/ui/Axes/Constructions.dart';
 import 'package:hospitals/ui/Input_View/utils/Navigator.dart';
 import 'package:hospitals/ui/Input_View/utils/global.dart';
+import 'package:hospitals/ui/Input_View/utils/routing/hospital_subcategory1Body.dart';
 
-class HospitalsView extends StatefulWidget {
+class HospitalsCategoryBody extends StatefulWidget {
+  final int idGov;
+
+  HospitalsCategoryBody({this.idGov});
+
   @override
-  _HospitalsViewState createState() => _HospitalsViewState();
+  _HospitalsCategoryBodyState createState() => _HospitalsCategoryBodyState();
 }
 
-class _HospitalsViewState extends State<HospitalsView> {
+class _HospitalsCategoryBodyState extends State<HospitalsCategoryBody> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     Future.delayed(Duration(milliseconds: 0), () {
-      // gettingData();
+      gettingData();
     });
   }
 
-  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  List items = [];
 
   gettingData() {
     setState(() {
-      Api(context).GetCreateApi(_scaffoldKey);
-
+      // Api(context).GetDepartementApi(_scaffoldKey);
+      Api(context)
+          .filterHospitalApi(_scaffoldKey, depIdGlobal, items)
+          .then((value) {
+        setState(() {
+          items = value;
+        });
+      });
     });
   }
+
   @override
   Widget build(BuildContext context) {
+    print("items;;;;;;;${items.length}");
     var screenHeight = MediaQuery.of(context).size.height;
     var screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
@@ -94,60 +109,60 @@ class _HospitalsViewState extends State<HospitalsView> {
                     height: 100,
                   ),
                   Text(
-                    "الأنشاءات" + " (${CreatorsList.length})",
+                    "المستشفيات" + " (${items.length})",
                     style: TextStyle(color: Colors.black, fontSize: 50),
                   ),
-                  Center(
-                      child: Container(
-                        padding: EdgeInsets.all(200),
-                        // width: screenWidth / 2,
-                        height: screenHeight ,
-                        child: ListView.builder(
-                          shrinkWrap: true,
-                            physics: ScrollPhysics(),
-                            itemCount: CreatorsList.length,
-                            itemBuilder: (context, index) {
-                              return Padding(
-                                padding: EdgeInsets.only(bottom: 20),
-                                child: Card(
-                                  elevation: 10,
-                                  child: ListTile(
-                                    contentPadding: const EdgeInsets.all(100.0),
-                                    onTap: () {},
-                                    title: Row(
-                                      mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Icon(
-                                          Icons.arrow_back,
-                                          size: 30,
-                                        ),
-                                        Container(
-                                          // width: screenWidth/6,
-                                          child: Row(
-                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              Text(
-                                                "${CreatorsList[index].name}",
-                                                style: TextStyle(fontSize: 30),
-                                              ),
-                                              SizedBox(width: 100,),
-                                              Icon(Icons.local_hospital,size: 50,color: Colors.red,),
-                                            ],
-                                          ),
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              );
-                            }),
-                      )),
+                  SizedBox(
+                    height: 200,
+                  ),
+                  Container(
+                    width: screenWidth / 1.7,
+                    height: screenHeight / 2,
+                    child: GridView.builder(
+                      itemCount: items.length,
+                      physics: ScrollPhysics(),
+                      shrinkWrap: true,
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 3,
+                        childAspectRatio: 4,
+                        mainAxisSpacing: 60,
+                        crossAxisSpacing: 100,
+                      ),
+                      itemBuilder: (context, index) {
+                        return InkWell(
+                          onTap: () {
+                            setState(() {
+                              headerGlobal = items[index].name;
+                            });
+                            navigateAndKeepStack(context, HospitalsSubcategory1Body()
+                                // Constructions(
+                                //   currentIndex: 4,
+                                // ),
+                                );
+                          },
+                          child: Container(
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                                gradient: LinearGradient(
+                                    begin: Alignment.topCenter,
+                                    end: Alignment.bottomCenter,
+                                    colors: [
+                                      Color(0XffE9A4A7),
+                                      Color(0XffD2B0C3),
+                                    ]),
+                                borderRadius: BorderRadius.circular(25)),
+                            child: Text(
+                              "${items[index].name}",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(fontSize: 25),
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                  ),
                 ],
               ),
-            ),
-            SizedBox(
-              height: 100,
             ),
           ],
         ),

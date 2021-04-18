@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:hospitals/ui/Admin_View/admin_view.dart';
+import 'file:///H:/hospitals/lib/ui/dashboard/dashboard.dart';
 import 'package:hospitals/ui/Axes/axes_test.dart';
-import 'file:///D:/Nadrinhoo/AndroidStudioProjects/hospitals/lib/ui/Axes/Constructions.dart';
-import 'package:hospitals/ui/dashboard.dart';
-import 'package:hospitals/ui/home_page.dart';
-import 'package:hospitals/ui/login.dart';
+import 'package:hospitals/ui/dashboard_test.dart';
+import 'file:///H:/hospitals/lib/ui/Input_View/input_view.dart';
+import 'file:///H:/hospitals/lib/ui/Input_View/input_login.dart';
 import 'package:hospitals/ui/test.dart';
-import 'package:hospitals/utils/routing/governmentsBody.dart';
-import 'package:hospitals/utils/routing/hospital_subcategory1Body.dart';
-import 'package:hospitals/utils/routing/hospitals_categoryBody.dart';
-
-import 'utils/routing/hospital_subcategory2Body.dart';
+import 'package:hospitals/ui/Input_View/utils/Navigator.dart';
+import 'package:hospitals/ui/Input_View/utils/global.dart';
 
 void main() {
   runApp(
@@ -21,7 +18,7 @@ void main() {
       ),
       title: "first-app",
       // home: GovernmentsBody(),
-      home: HomePage()
+      home: DashBoard()
       // home: AdminView()
       // home: AxesTest()
       // home: HospitalsSubcategory1Body(),

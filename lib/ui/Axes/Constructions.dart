@@ -1,11 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:hospitals/utils/routing/departmentsBody.dart';
-import 'package:hospitals/utils/routing/governmentsBody.dart';
-import 'package:hospitals/utils/routing/hospital_subcategory1Body.dart';
-import 'package:hospitals/utils/routing/hospital_subcategory2Body.dart';
-import 'package:hospitals/utils/routing/hospitals_categoryBody.dart';
-import 'package:hospitals/utils/routing/sectionBody.dart';
+import 'package:hospitals/ui/Input_View/utils/Navigator.dart';
+import 'package:hospitals/ui/Input_View/utils/global.dart';
 
 class Constructions extends StatefulWidget {
   int currentIndex;

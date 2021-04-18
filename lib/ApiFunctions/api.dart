@@ -17,7 +17,8 @@ import 'package:hospitals/models/hospitals_model.dart';
 import 'package:hospitals/models/sectionType_model.dart';
 import 'package:hospitals/models/water_state_model.dart';
 import 'package:hospitals/models/workTypes_model.dart';
-import 'package:hospitals/utils/global.dart';
+import 'package:hospitals/ui/Input_View/utils/Navigator.dart';
+import 'package:hospitals/ui/Input_View/utils/global.dart';
 import 'package:xs_progress_hud/xs_progress_hud.dart';
 import 'package:http/http.dart' as http;
 
@@ -531,13 +532,14 @@ class Api {
     CreatorsList.addAll(CreatorsList2);
     XsProgressHud.hide();
     if (response.statusCode == 200) {
-      print("axisesList content : $dataContent");
+      print("axisesList content : ${CreatorsList.length}");
       return true;
     } else {
       print(dataContent);
       return false;
     }
   }
+
 
   Future PostCreateApi(
       GlobalKey<ScaffoldState> _scaffoldKey,

@@ -1,22 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:hospitals/ApiFunctions/api.dart';
 import 'package:hospitals/models/axises_model.dart';
+import 'file:///H:/hospitals/lib/ui/dashboard/dashboard.dart';
 import 'package:hospitals/ui/Axes/Constructions.dart';
-import 'package:hospitals/utils/Navigator.dart';
-import 'package:hospitals/utils/global.dart';
-import 'package:hospitals/utils/routing/departmentsBody.dart';
-import 'package:hospitals/utils/routing/governmentsBody.dart';
+import 'package:hospitals/ui/Input_View/utils/routing/governmentsBody.dart';
+import 'package:hospitals/ui/dashboard_test.dart';
+import 'package:hospitals/ui/Input_View/utils/Navigator.dart';
+import 'package:hospitals/ui/Input_View/utils/global.dart';
 
-class HomePage extends StatefulWidget {
-  int currentIndex;
-
-  HomePage({this.currentIndex = 0});
-
+class InputView extends StatefulWidget {
   @override
-  _HomePageState createState() => _HomePageState();
+  _InputViewState createState() => _InputViewState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _InputViewState extends State<InputView> {
   // final items = [
   //   Container(),
   //   // GovernmentsBody(),
@@ -31,35 +28,28 @@ class _HomePageState extends State<HomePage> {
     Future.delayed(Duration(milliseconds: 0), () {
       gettingData();
     });
+    Future.delayed(Duration(milliseconds: 1000), () {
+      setState(() {
+        Api(context).GetAxesApi(_scaffoldKey);
+      });
+    });
   }
 
   gettingData() {
-    Api(context).GetAxesApi(_scaffoldKey);
-    Api(context).GetGovernmentApi(_scaffoldKey);
-    // Api(context).GetDepartementApi(_scaffoldKey);
-    // Api(context).GetHospitalsApi(_scaffoldKey);
-    Api(context).GetSectionsApi(_scaffoldKey);
-    Api(context).WorkTypesApi(_scaffoldKey);
-    // Api(context).contractorApi(_scaffoldKey);
-    // Api(context).civilProtectionApi(_scaffoldKey);
-    // Api(context).WaterStateApi(_scaffoldKey);
-    // Api(context).ExchangeApi(_scaffoldKey);
-    // Api(context).donornotsApi(_scaffoldKey);
+    setState(() {
+      Api(context).GetAxesApi(_scaffoldKey);
+      Api(context).GetGovernmentApi(_scaffoldKey);
+      // Api(context).GetDepartementApi(_scaffoldKey);
+      // Api(context).GetHospitalsApi(_scaffoldKey);
+      Api(context).GetSectionsApi(_scaffoldKey);
+      Api(context).WorkTypesApi(_scaffoldKey);
+      // Api(context).contractorApi(_scaffoldKey);
+      // Api(context).civilProtectionApi(_scaffoldKey);
+      // Api(context).WaterStateApi(_scaffoldKey);
+      // Api(context).ExchangeApi(_scaffoldKey);
+      // Api(context).donornotsApi(_scaffoldKey);
+    });
   }
-
-  // @override
-  // void dispose() {
-  //   Api(context).GetAxesApi(_scaffoldKey);
-  //   Api(context).GetGovernmentApi(_scaffoldKey);
-  //   Api(context).GetDepartementApi(_scaffoldKey);
-  //   Api(context).GetHospitalsApi(_scaffoldKey);
-  //   Api(context).GetSectionsApi(_scaffoldKey);
-  //   Api(context).WorkTypesApi(_scaffoldKey);
-  //   Api(context).HospitalInputsApi(_scaffoldKey);
-  //   Api(context).contractorApi(_scaffoldKey);
-  //   Api(context).civilProtectionApi(_scaffoldKey);
-  //   super.dispose();
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -88,7 +78,18 @@ class _HomePageState extends State<HomePage> {
                               width: 300,
                             )),
                       ),
-                      // items[widget.currentIndex],
+                      Padding(
+                        padding: const EdgeInsets.all(20.0),
+                        child: InkWell(
+                            onTap: () {
+                              navigateAndClearStack(context, DashBoard());
+                            },
+                            child: Icon(
+                              Icons.logout,
+                              color: Colors.red,
+                              size: 40,
+                            )),
+                      )
                     ],
                   ),
                   // alignment: Alignment.center,
@@ -126,7 +127,7 @@ class _HomePageState extends State<HomePage> {
                                   // axisesList[index].id == 1
                                   //     ?
                                   () {
-                                navigateAndClearStack(context, GovernmentsBody()
+                                navigateAndKeepStack(context, GovernmentsBody()
                                     // HomePage(
                                     //   currentIndex: 1,
                                     // ),
