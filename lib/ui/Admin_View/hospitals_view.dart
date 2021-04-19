@@ -101,7 +101,7 @@ class _HospitalsViewState extends State<HospitalsView> {
                       child: Container(
                         padding: EdgeInsets.all(200),
                         // width: screenWidth / 2,
-                        height: screenHeight ,
+                        // height: screenHeight ,
                         child: ListView.builder(
                           shrinkWrap: true,
                             physics: ScrollPhysics(),

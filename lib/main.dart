@@ -19,8 +19,8 @@ void main() {
       ),
       title: "first-app",
       // home: GovernmentsBody(),
-      home: DashBoard()
-      // home: AdminView()
+      // home: DashBoard()
+      home: AdminView()
       // home: AxesTest()
       // home: HospitalsSubcategory1Body(),
       // home: LoginScreen(),

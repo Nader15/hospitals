@@ -29,7 +29,7 @@ class _AdminViewState extends State<AdminView> {
   gettingData() {
     setState(() {
       Api(context).GetAxesApi(_scaffoldKey);
-      // Api(context).GetCreateApi(_scaffoldKey);
+      Api(context).GetCreateApi(_scaffoldKey);
     });
   }
 
