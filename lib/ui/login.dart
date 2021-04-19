@@ -29,6 +29,8 @@ import 'package:hospitals/ui/dashboard.dart';
 import 'package:hospitals/utils/mySql.dart';
 import 'package:mysql1/mysql1.dart';
 
+import 'home_page.dart';
+
 const users = const {
   'admin@gmail.com': "666666",
 };
@@ -90,7 +92,7 @@ class _LoginScreenState extends State<LoginScreen> {
         onSignup: _authUser,
         onSubmitAnimationCompleted: () {
           Navigator.of(context).pushReplacement(MaterialPageRoute(
-            builder: (context) => Dashboard(),
+            builder: (context) => HomePage(),
           ));
         },
         onRecoverPassword: _recoverPassword,
