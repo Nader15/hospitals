@@ -4,6 +4,7 @@ import 'package:hospitals/models/axises_model.dart';
 import 'package:hospitals/ui/Axes/Constructions.dart';
 import 'package:hospitals/ui/Input_View/utils/Navigator.dart';
 import 'package:hospitals/ui/Input_View/utils/global.dart';
+import 'package:hospitals/ui/dashboard/dashboard.dart';
 
 import 'hospitals_view.dart';
 
@@ -34,6 +35,11 @@ class _AdminViewState extends State<AdminView> {
   }
 
   @override
+  void dispose() {
+    gettingData();
+    super.dispose();
+  }
+  @override
   Widget build(BuildContext context) {
     var screenHeight = MediaQuery.of(context).size.height;
     var screenWidth = MediaQuery.of(context).size.width;
@@ -60,7 +66,18 @@ class _AdminViewState extends State<AdminView> {
                               width: 300,
                             )),
                       ),
-                      // items[widget.currentIndex],
+                      Padding(
+                        padding: const EdgeInsets.all(20.0),
+                        child: InkWell(
+                            onTap: () {
+                              navigateAndClearStack(context, DashBoard());
+                            },
+                            child: Icon(
+                              Icons.logout,
+                              color: Colors.red,
+                              size: 40,
+                            )),
+                      )
                     ],
                   ),
                   // alignment: Alignment.center,

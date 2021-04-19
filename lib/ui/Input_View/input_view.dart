@@ -28,11 +28,11 @@ class _InputViewState extends State<InputView> {
     Future.delayed(Duration(milliseconds: 0), () {
       gettingData();
     });
-    Future.delayed(Duration(milliseconds: 1000), () {
-      setState(() {
-        Api(context).GetAxesApi(_scaffoldKey);
-      });
-    });
+    // Future.delayed(Duration(milliseconds: 1000), () {
+    //   setState(() {
+    //     Api(context).GetAxesApi(_scaffoldKey);
+    //   });
+    // });
   }
 
   gettingData() {

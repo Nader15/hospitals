@@ -24,7 +24,6 @@ class _HospitalsViewState extends State<HospitalsView> {
   gettingData() {
     setState(() {
       Api(context).GetCreateApi(_scaffoldKey);
-
     });
   }
   @override
