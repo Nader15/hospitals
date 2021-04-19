@@ -171,14 +171,14 @@ class _HospitalsSubcategory2BodyState extends State<HospitalsSubcategory2Body> {
                     ],
                   ),
                   SizedBox(
-                    height: 100,
+                    height: screenHeight/10,
                   ),
                   Text(
                     "${headerGlobal}",
                     style: TextStyle(color: Colors.black, fontSize: 50),
                   ),
                   SizedBox(
-                    height: 100,
+                    height: screenHeight/10,
                   ),
                   Container(
                     width: screenWidth / 1.7,
@@ -215,6 +215,7 @@ class _HospitalsSubcategory2BodyState extends State<HospitalsSubcategory2Body> {
                             // Api(context).PostWorkApi(_scaffoldKey,workTypesList[index].name);
                           },
                           child: Container(
+                            alignment: Alignment.center,
                             width: screenWidth / 6,
                             child: TextFormField(
                               controller: dateController2,

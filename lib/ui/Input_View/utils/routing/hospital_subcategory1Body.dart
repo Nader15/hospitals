@@ -93,14 +93,14 @@ class _HospitalsSubcategory1BodyState extends State<HospitalsSubcategory1Body> {
                     ],
                   ),
                   SizedBox(
-                    height: 100,
+                    height: screenHeight/15,
                   ),
                   Text(
                     "$headerGlobal",
                     style: TextStyle(color: Colors.black, fontSize: 50),
                   ),
                   SizedBox(
-                    height: 100,
+                    height: screenHeight/10,
                   ),
                   Container(
                     padding: EdgeInsets.all(20),
@@ -121,11 +121,12 @@ class _HospitalsSubcategory1BodyState extends State<HospitalsSubcategory1Body> {
                     ),
                   ),
                   SizedBox(
-                    height: 200,
+                    height: screenHeight/10,
                   ),
                   Container(
-                    width: screenWidth / 1.7,
-                    height: screenHeight / 2,
+                    padding: EdgeInsets.all(50),
+                    // width: screenWidth / 1.7,
+                    // height: screenHeight / 2,
                     child: GridView.builder(
                       itemCount: workTypesList.length,
                       // itemCount: workTypesList.length,

@@ -98,18 +98,19 @@ class _SectionBodyState extends State<SectionBody> {
                     ],
                   ),
                   SizedBox(
-                    height: 200,
+                    height: screenHeight/10,
                   ),
                   Text(
                     "نوع الوحدة",
                     style: TextStyle(color: Colors.black, fontSize: 50),
                   ),
                   SizedBox(
-                    height: 300,
+                    height: screenHeight/5,
                   ),
                   Container(
-                    width: screenWidth / 1.7,
-                    height: screenHeight / 3,
+                    padding: EdgeInsets.all(50),
+                    // width: screenWidth / 1.7,
+                    // height: screenHeight / 3,
                     child: GridView.builder(
                       itemCount: 3,
                       physics: ScrollPhysics(),

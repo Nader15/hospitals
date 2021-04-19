@@ -100,11 +100,12 @@ class _GovernmentsBodyState extends State<GovernmentsBody> {
                     style: TextStyle(color: Colors.black, fontSize: 50),
                   ),
                   SizedBox(
-                    height: 200,
+                    height: screenHeight/15,
                   ),
                   Container(
-                    width: screenWidth / 1.7,
-                    height: screenHeight / 2,
+                    padding: EdgeInsets.all(50),
+                    // width: screenWidth / 1.7,
+                    // height: screenHeight / 2,
                     child: GridView.builder(
                       itemCount: governmentsList.length,
                       physics: ScrollPhysics(),
@@ -142,6 +143,7 @@ class _GovernmentsBodyState extends State<GovernmentsBody> {
                                 borderRadius: BorderRadius.circular(25)),
                             child: Text(
                               "${governmentsList[index].name}",
+                              textAlign: TextAlign.center,
                               style: TextStyle(fontSize: 25),
                             ),
                           ),

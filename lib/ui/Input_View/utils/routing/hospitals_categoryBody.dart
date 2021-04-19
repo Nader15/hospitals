@@ -106,18 +106,19 @@ class _HospitalsCategoryBodyState extends State<HospitalsCategoryBody> {
                     ],
                   ),
                   SizedBox(
-                    height: 100,
+                    height: screenHeight/10,
                   ),
                   Text(
                     "المستشفيات" + " (${items.length})",
                     style: TextStyle(color: Colors.black, fontSize: 50),
                   ),
                   SizedBox(
-                    height: 200,
+                    height: screenHeight/5,
                   ),
                   Container(
-                    width: screenWidth / 1.7,
-                    height: screenHeight / 2,
+                    padding: EdgeInsets.all(50),
+                    // width: screenWidth / 1.7,
+                    // height: screenHeight / 2,
                     child: GridView.builder(
                       itemCount: items.length,
                       physics: ScrollPhysics(),
