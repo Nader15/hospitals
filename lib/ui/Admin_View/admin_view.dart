@@ -21,7 +21,10 @@ class _AdminViewState extends State<AdminView> {
     // TODO: implement initState
     super.initState();
     Future.delayed(Duration(milliseconds: 0), () {
-      gettingData();
+      setState(() {
+        gettingData();
+        axisesList;
+      });
     });
   }
 
@@ -34,11 +37,6 @@ class _AdminViewState extends State<AdminView> {
     });
   }
 
-  @override
-  void dispose() {
-    gettingData();
-    super.dispose();
-  }
   @override
   Widget build(BuildContext context) {
     var screenHeight = MediaQuery.of(context).size.height;
