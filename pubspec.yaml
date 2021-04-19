@@ -12,8 +12,9 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_login: ^1.1.0
-  mysql1: ^0.19.0
-  crypto: ^3.0.1
+  xs_progress_hud: ^1.0.2
+  http: ^0.12.1
+  shared_preferences: ^2.0.5
 
 
   cupertino_icons: ^1.0.2

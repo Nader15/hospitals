@@ -2,12 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
-class Dashboard extends StatefulWidget {
+class Dashboard2 extends StatefulWidget {
   @override
-  _DashboardState createState() => _DashboardState();
+  _Dashboard2State createState() => _Dashboard2State();
 }
 
-class _DashboardState extends State<Dashboard> {
+class _Dashboard2State extends State<Dashboard2> {
   bool govTapped = false;
   bool centerTapped = false;
   bool sectionsTapped = false;
@@ -29,11 +29,7 @@ class _DashboardState extends State<Dashboard> {
     var screenHeight = MediaQuery.of(context).size.height;
     var screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
-      body: screenWidth < 1300
-          ? Center(
-              child: Text("Do Full Screen Plz"),
-            )
-          : SingleChildScrollView(
+      body: SingleChildScrollView(
               child: Container(
                 child: Row(
                   children: [

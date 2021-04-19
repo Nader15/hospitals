@@ -1,25 +1,42 @@
 import 'package:flutter/material.dart';
+import 'package:hospitals/ApiFunctions/api.dart';
+import 'package:hospitals/models/axises_model.dart';
 import 'package:hospitals/ui/Axes/Constructions.dart';
-import 'package:hospitals/utils/Navigator.dart';
-import 'package:hospitals/utils/routing/departmentsBody.dart';
-import 'package:hospitals/utils/routing/governmentsBody.dart';
+import 'package:hospitals/ui/Input_View/utils/Navigator.dart';
+import 'package:hospitals/ui/Input_View/utils/global.dart';
+import 'package:hospitals/ui/dashboard/dashboard.dart';
 
-class HomePage extends StatefulWidget {
-  int currentIndex;
+import 'hospitals_view.dart';
 
-  HomePage({this.currentIndex = 0});
-
+class AdminView extends StatefulWidget {
   @override
-  _HomePageState createState() => _HomePageState();
+  _AdminViewState createState() => _AdminViewState();
 }
 
-class _HomePageState extends State<HomePage> {
-  final items = [
-    Container(),
-    GovernmentsBody(),
-    DepartementsBody(),
-  ];
-  bool constructionsEnabled = false;
+class _AdminViewState extends State<AdminView> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    setState(() {
+      Future.delayed(Duration(milliseconds: 0), () {
+        gettingData();
+        // axisesList.clear();
+        CreatorsList.clear();
+      });
+    });
+  }
+
+  List items = [];
+
+  gettingData() {
+    setState(() {
+      Api(context).GetAxesApi(_scaffoldKey);
+      Api(context).GetCreateApi(_scaffoldKey);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +65,18 @@ class _HomePageState extends State<HomePage> {
                               width: 300,
                             )),
                       ),
-                      items[widget.currentIndex],
+                      Padding(
+                        padding: const EdgeInsets.all(20.0),
+                        child: InkWell(
+                            onTap: () {
+                              navigateAndClearStack(context, DashBoard());
+                            },
+                            child: Icon(
+                              Icons.logout,
+                              color: Colors.red,
+                              size: 40,
+                            )),
+                      )
                     ],
                   ),
                   // alignment: Alignment.center,
@@ -77,30 +105,36 @@ class _HomePageState extends State<HomePage> {
                         padding: EdgeInsets.all(30),
                         height: screenHeight,
                         child: ListView.builder(
+                          physics: NeverScrollableScrollPhysics(),
                           shrinkWrap: true,
-                          physics: AlwaysScrollableScrollPhysics(),
-                          itemCount: 9,
+                          itemCount: axisesList.length,
                           itemBuilder: (context, index) {
                             return InkWell(
-                              onTap: () {
-                                setState(() {
-                                  constructionsEnabled = true;
-                                });
-                                navigateAndKeepStack(
-                                    context,
-                                    HomePage(
-                                      currentIndex: 1,
-                                    ));
-                              },
+                              onTap:
+                                  // axisesList[index].id == 1
+                                  //     ?
+                                  () {
+                                navigateAndKeepStack(context, HospitalsView()
+                                    // HomePage(
+                                    //   currentIndex: 1,
+                                    // ),
+                                    );
+                              }
+                              // : null
+                              ,
                               child: Container(
+                                padding: EdgeInsets.only(left: 10, right: 10),
                                 alignment: Alignment.center,
                                 margin: EdgeInsets.only(bottom: 50),
                                 height: 60,
                                 decoration: BoxDecoration(
-                                    color: Colors.white,
+                                    color: axisesList[index].id == 1
+                                        ? Colors.white
+                                        : Colors.grey,
                                     borderRadius: BorderRadius.circular(30)),
                                 child: Text(
-                                  "محور الانشاءات",
+                                  "${axisesList[index].name}",
+                                  textAlign: TextAlign.center,
                                   style: TextStyle(
                                       fontSize: 25,
                                       fontWeight: FontWeight.bold),
