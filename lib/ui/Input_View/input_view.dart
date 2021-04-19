@@ -123,7 +123,7 @@ class _InputViewState extends State<InputView> {
                       ),
                       Container(
                         padding: EdgeInsets.all(30),
-                        height: screenHeight,
+                        // height: screenHeight,
                         child: ListView.builder(
                           physics: NeverScrollableScrollPhysics(),
                           shrinkWrap: true,
@@ -143,10 +143,10 @@ class _InputViewState extends State<InputView> {
                               // : null
                               ,
                               child: Container(
-                                padding: EdgeInsets.only(left: 10, right: 10),
+                                padding: EdgeInsets.all(10),
                                 alignment: Alignment.center,
                                 margin: EdgeInsets.only(bottom: 50),
-                                height: 60,
+                                // height: 60,
                                 decoration: BoxDecoration(
                                     color: axisesList[index].id == 1
                                         ? Colors.white

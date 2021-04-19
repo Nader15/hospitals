@@ -22,9 +22,9 @@ void main() {
       // home: HomePage()
       // home: LoginScreen(),
       // home: GovernmentsBody(),
-      home: DashBoard()
+      // home: DashBoard()
       // home: AdminView()
-      // home: InputView()
+      home: InputView()
       // home: AxesTest()
       // home: HospitalsSubcategory1Body(),
       // home: LoginScreen(),
