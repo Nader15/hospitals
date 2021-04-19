@@ -23,7 +23,8 @@ class _AdminViewState extends State<AdminView> {
     Future.delayed(Duration(milliseconds: 0), () {
       setState(() {
         gettingData();
-        axisesList;
+        axisesList.clear();
+        CreatorsList.clear();
       });
     });
   }

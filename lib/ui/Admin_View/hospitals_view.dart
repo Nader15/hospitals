@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hospitals/ApiFunctions/shared.dart';
 
 import '../../ApiFunctions/api.dart';
 import 'package:hospitals/ui/Input_View/utils/Navigator.dart';
@@ -10,22 +11,6 @@ class HospitalsView extends StatefulWidget {
 }
 
 class _HospitalsViewState extends State<HospitalsView> {
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    Future.delayed(Duration(milliseconds: 0), () {
-      // gettingData();
-    });
-  }
-
-  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-
-  gettingData() {
-    setState(() {
-      Api(context).GetCreateApi(_scaffoldKey);
-    });
-  }
   @override
   Widget build(BuildContext context) {
     var screenHeight = MediaQuery.of(context).size.height;

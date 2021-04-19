@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hospitals/ApiFunctions/api.dart';
 import 'package:hospitals/ui/Axes/Constructions.dart';
+import 'package:hospitals/ui/Input_View/input_view.dart';
 import 'package:hospitals/ui/Input_View/utils/Navigator.dart';
 import 'package:hospitals/ui/Input_View/utils/global.dart';
 
@@ -23,6 +24,13 @@ class _HospitalsSubcategory2BodyState extends State<HospitalsSubcategory2Body> {
     super.initState();
     Future.delayed(Duration(milliseconds: 0), () {
       gettingData();
+      contractorsList.clear();
+      CivilProtectionList.clear();
+      DonOrNotModelList.clear();
+      WaterStateModelList.clear();
+      ExchangeModelList.clear();
+      CreatorsList.clear();
+      AdvisorsList.clear();
     });
     // Future.delayed(Duration(milliseconds: 381), () {
     //   gettingData();
@@ -102,12 +110,25 @@ class _HospitalsSubcategory2BodyState extends State<HospitalsSubcategory2Body> {
                     width: 300,
                   )),
             ),
+
             SingleChildScrollView(
               child: Column(
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
+                      Padding(
+                        padding: const EdgeInsets.all(20.0),
+                        child: InkWell(
+                            onTap: () {
+                              navigateAndClearStack(context, InputView());
+                            },
+                            child: Icon(
+                              Icons.logout,
+                              color: Colors.red,
+                              size: 40,
+                            )),
+                      ),
                       Align(
                         alignment: Alignment.center,
                         child: Container(

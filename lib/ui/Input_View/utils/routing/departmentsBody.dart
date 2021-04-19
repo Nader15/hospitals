@@ -23,6 +23,7 @@ class _DepartementsBodyState extends State<DepartementsBody> {
     super.initState();
     Future.delayed(Duration(milliseconds: 0), () {
       gettingData();
+      filterDepartmentList.clear();
     });
   }
 
@@ -43,7 +44,7 @@ class _DepartementsBodyState extends State<DepartementsBody> {
 
   @override
   Widget build(BuildContext context) {
-    print("build ::::::::::::: ${items.length}");
+    print("build ::::::::::::: ${filterDepartmentList.length}");
     var screenHeight = MediaQuery.of(context).size.height;
     var screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
@@ -109,7 +110,7 @@ class _DepartementsBodyState extends State<DepartementsBody> {
                     height: 100,
                   ),
                   Text(
-                    "الأدارات" + " (${items.length})",
+                    "الأدارات" + " (${filterDepartmentList.length})",
                     style: TextStyle(color: Colors.black, fontSize: 50),
                   ),
                   SizedBox(
@@ -119,7 +120,7 @@ class _DepartementsBodyState extends State<DepartementsBody> {
                     width: screenWidth / 1.7,
                     height: screenHeight / 2,
                     child: GridView.builder(
-                      itemCount: items.length,
+                      itemCount: filterDepartmentList.length,
                       physics: ScrollPhysics(),
                       shrinkWrap: true,
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -132,10 +133,10 @@ class _DepartementsBodyState extends State<DepartementsBody> {
                         return InkWell(
                           onTap: () {
                           setState(() {
-                            depIdGlobal = items[index].id;
-                            depNameGlobal = items[index].name;
+                            depIdGlobal = filterDepartmentList[index].id;
+                            depNameGlobal = filterDepartmentList[index].name;
                             print(
-                                "hello we are heeeeeere :::${governmentsList[index].name}");
+                                "hello we are Depppppppa :::${filterDepartmentList[index].name}");
                             navigateAndKeepStack(context, SectionBody());
                           });
 
@@ -152,7 +153,7 @@ class _DepartementsBodyState extends State<DepartementsBody> {
                                     ]),
                                 borderRadius: BorderRadius.circular(25)),
                             child: Text(
-                              "${items[index].name}",
+                              "${filterDepartmentList[index].name}",
                               style: TextStyle(fontSize: 25),
                             ),
                           ),

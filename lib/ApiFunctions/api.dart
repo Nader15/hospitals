@@ -31,7 +31,6 @@ class Api {
   final String typeesLink = "sectiontypes";
   final String worktypesLink = "worktypes";
   final String advisorsLink = "advisors";
-
   // final String HospitalInputsLink = "Hospital-Inputs";
   final String contractorsLink = "contractors";
   final String CivilProtectionLink = "civil-protectionsses";
@@ -532,7 +531,7 @@ class Api {
     CreatorsList.addAll(CreatorsList2);
     XsProgressHud.hide();
     if (response.statusCode == 200) {
-      print("axisesList content : ${CreatorsList.length}");
+      print("Creators List content : ${CreatorsList.length}");
       return true;
     } else {
       print(dataContent);

@@ -25,8 +25,15 @@ class _InputViewState extends State<InputView> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    Future.delayed(Duration(milliseconds: 0), () {
-      gettingData();
+    setState(() {
+      Future.delayed(Duration(milliseconds: 0), () {
+        gettingData();
+        // axisesList.clear();
+        governmentsList.clear();
+        filterDepartmentList.clear();
+        sectionTypeList.clear();
+        workTypesList.clear();
+      });
     });
     // Future.delayed(Duration(milliseconds: 1000), () {
     //   setState(() {
@@ -39,7 +46,7 @@ class _InputViewState extends State<InputView> {
     setState(() {
       Api(context).GetAxesApi(_scaffoldKey);
       Api(context).GetGovernmentApi(_scaffoldKey);
-      // Api(context).GetDepartementApi(_scaffoldKey);
+      Api(context).GetDepartementApi(_scaffoldKey);
       // Api(context).GetHospitalsApi(_scaffoldKey);
       Api(context).GetSectionsApi(_scaffoldKey);
       Api(context).WorkTypesApi(_scaffoldKey);
