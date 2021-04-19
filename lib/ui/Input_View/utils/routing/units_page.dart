@@ -46,111 +46,124 @@ class _unitsCategoryBodyState extends State<unitsCategoryBody> {
     var screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       body: Center(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+        child: Stack(
+          children: [
+            Center(
+              child: Opacity(
+                  opacity: 0.1,
+                  child: Image.asset(
+                    "images/main_logo.png",
+                    width: 300,
+                  )),
+            ),
+            SingleChildScrollView(
+              child: Column(
                 children: [
-                  Align(
-                    alignment: Alignment.center,
-                    child: Container(
-                      child: Text(
-                        "محور الانشاءات",
-                        style: TextStyle(color: Colors.white, fontSize: 30),
-                      ),
-                      width: screenWidth / 2,
-                      decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                              begin: Alignment.topCenter,
-                              end: Alignment.bottomCenter,
-                              colors: [
-                                Color(0Xff4743a5),
-                                Color(0Xff2b52c9),
-                              ]),
-                          borderRadius: BorderRadius.circular(25)),
-                      alignment: Alignment.center,
-                      padding: EdgeInsets.all(10),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  InkWell(
-                    onTap: () {
-                      Navigator.pop(context);
-                    },
-                    child: Container(
-                        padding: EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                            color: Colors.red,
-                            borderRadius: BorderRadius.circular(15)),
-                        child: Icon(
-                          Icons.arrow_forward_outlined,
-                          size: 40,
-                          color: Colors.white,
-                        )),
-                  )
-                ],
-              ),
-              SizedBox(
-                height: 100,
-              ),
-              Text(
-                "الوحدات" + " (${items.length})",
-                style: TextStyle(color: Colors.black, fontSize: 50),
-              ),
-              SizedBox(
-                height: 200,
-              ),
-              Container(
-                width: screenWidth / 1.7,
-                height: screenHeight / 2,
-                child: GridView.builder(
-                  itemCount: items.length,
-                  physics: ScrollPhysics(),
-                  shrinkWrap: true,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 3,
-                    childAspectRatio: 4,
-                    mainAxisSpacing: 60,
-                    crossAxisSpacing: 100,
-                  ),
-                  itemBuilder: (context, index) {
-                    return InkWell(
-                      onTap: () {
-                        setState(() {
-                          headerGlobal = items[index].name;
-                        });
-                        navigateAndKeepStack(context, HospitalsSubcategory1Body()
-                          // Constructions(
-                          //   currentIndex: 4,
-                          // ),
-                        );
-                      },
-                      child: Container(
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Align(
                         alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                                begin: Alignment.topCenter,
-                                end: Alignment.bottomCenter,
-                                colors: [
-                                  Color(0XffE9A4A7),
-                                  Color(0XffD2B0C3),
-                                ]),
-                            borderRadius: BorderRadius.circular(25)),
-                        child: Text(
-                          "${items[index].name}",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(fontSize: 25),
+                        child: Container(
+                          child: Text(
+                            "محور الانشاءات",
+                            style: TextStyle(color: Colors.white, fontSize: 30),
+                          ),
+                          width: screenWidth / 2,
+                          decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                  begin: Alignment.topCenter,
+                                  end: Alignment.bottomCenter,
+                                  colors: [
+                                    Color(0Xff4743a5),
+                                    Color(0Xff2b52c9),
+                                  ]),
+                              borderRadius: BorderRadius.circular(25)),
+                          alignment: Alignment.center,
+                          padding: EdgeInsets.all(10),
                         ),
                       ),
-                    );
-                  },
-                ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      InkWell(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: Container(
+                            padding: EdgeInsets.all(10),
+                            decoration: BoxDecoration(
+                                color: Colors.red,
+                                borderRadius: BorderRadius.circular(15)),
+                            child: Icon(
+                              Icons.arrow_forward_outlined,
+                              size: 40,
+                              color: Colors.white,
+                            )),
+                      )
+                    ],
+                  ),
+                  SizedBox(
+                    height: screenHeight/10,
+                  ),
+                  Text(
+                    "الوحدات" + " (${items.length})",
+                    style: TextStyle(color: Colors.black, fontSize: 50),
+                  ),
+                  SizedBox(
+                    height: screenHeight/5,
+                  ),
+                  Container(
+                    padding: EdgeInsets.all(50),
+                    // width: screenWidth / 1.7,
+                    // height: screenHeight / 2,
+                    child: GridView.builder(
+                      itemCount: items.length,
+                      physics: ScrollPhysics(),
+                      shrinkWrap: true,
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 3,
+                        childAspectRatio: 4,
+                        mainAxisSpacing: 60,
+                        crossAxisSpacing: 100,
+                      ),
+                      itemBuilder: (context, index) {
+                        return InkWell(
+                          onTap: () {
+                            setState(() {
+                              headerGlobal = items[index].name;
+                            });
+                            navigateAndKeepStack(context, HospitalsSubcategory1Body()
+                              // Constructions(
+                              //   currentIndex: 4,
+                              // ),
+                            );
+                          },
+                          child: Container(
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                                gradient: LinearGradient(
+                                    begin: Alignment.topCenter,
+                                    end: Alignment.bottomCenter,
+                                    colors: [
+                                      Color(0XffE9A4A7),
+                                      Color(0XffD2B0C3),
+                                    ]),
+                                borderRadius: BorderRadius.circular(25)),
+                            child: Text(
+                              "${items[index].name}",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(fontSize: 25),
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
