@@ -594,7 +594,7 @@ class Api {
 
     XsProgressHud.hide();
     if (response.statusCode == 200) {
-      CustomSnackBar(_scaffoldKey, json.decode(response.body).toString());
+      CustomSnackBar(_scaffoldKey, "تمت ارسال البيانات بنجاع");
       print("dataContent:: ${dataContent}");
       return true;
     } else {
