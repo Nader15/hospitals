@@ -4,6 +4,7 @@ import 'package:hospitals/ui/Axes/Constructions.dart';
 import 'package:hospitals/ui/Input_View/input_view.dart';
 import 'package:hospitals/ui/Input_View/utils/Navigator.dart';
 import 'package:hospitals/ui/Input_View/utils/global.dart';
+import 'package:hospitals/ui/custom_snackBar.dart';
 
 class HospitalsSubcategory2Body extends StatefulWidget {
   final String header;
@@ -99,6 +100,7 @@ class _HospitalsSubcategory2BodyState extends State<HospitalsSubcategory2Body> {
     var screenHeight = MediaQuery.of(context).size.height;
     var screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
+      key: _scaffoldKey,
       body: Center(
         child: Stack(
           children: [
@@ -174,6 +176,7 @@ class _HospitalsSubcategory2BodyState extends State<HospitalsSubcategory2Body> {
                   ),
                   Text(
                     "${headerGlobal}",
+                    textAlign: TextAlign.center,
                     style: TextStyle(color: Colors.black, fontSize: 50),
                   ),
                   SizedBox(
@@ -1037,25 +1040,33 @@ class _HospitalsSubcategory2BodyState extends State<HospitalsSubcategory2Body> {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(25)),
                       onPressed: () {
-                        Api(context).PostCreateApi(
-                            _scaffoldKey,
-                            headerGlobal,
-                            percentageController.text,
-                            dateController1.text,
-                            contractors_id,
-                            WaterState_id,
-                            Exchange_id,
-                            DonOrNotSupply_id,
-                            CivilProtection_id,
-                            DonOrNotInstallation_id,
-                            DonOrNotElectric_id,
-                            notesController.text,
-                            WorkTypeGlobal,
-                            govGlobal,
-                            depNameGlobal,
-                            sectionNameGlobal,
-                            dateController2.text,
-                            Advisors_id);
+                        if (percentageController.text.isEmpty ||
+                            dateController1.text.isEmpty ||
+                            notesController.text.isEmpty ||
+                            dateController2.text.isEmpty) {
+                          CustomSnackBar(
+                              _scaffoldKey, " من فضلك ادخل الحقول الفارغة");
+                        } else {
+                          Api(context).PostCreateApi(
+                              _scaffoldKey,
+                              headerGlobal,
+                              percentageController.text,
+                              dateController1.text,
+                              contractors_id,
+                              WaterState_id,
+                              Exchange_id,
+                              DonOrNotSupply_id,
+                              CivilProtection_id,
+                              DonOrNotInstallation_id,
+                              DonOrNotElectric_id,
+                              notesController.text,
+                              WorkTypeGlobal,
+                              govGlobal,
+                              depNameGlobal,
+                              sectionNameGlobal,
+                              dateController2.text,
+                              Advisors_id);
+                        }
                       },
                       child: Container(
                         alignment: Alignment.center,

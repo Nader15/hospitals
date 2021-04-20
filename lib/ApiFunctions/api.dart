@@ -19,6 +19,7 @@ import 'package:hospitals/models/water_state_model.dart';
 import 'package:hospitals/models/workTypes_model.dart';
 import 'package:hospitals/ui/Input_View/utils/Navigator.dart';
 import 'package:hospitals/ui/Input_View/utils/global.dart';
+import 'package:hospitals/ui/custom_snackBar.dart';
 import 'package:xs_progress_hud/xs_progress_hud.dart';
 import 'package:http/http.dart' as http;
 
@@ -31,6 +32,7 @@ class Api {
   final String typeesLink = "sectiontypes";
   final String worktypesLink = "worktypes";
   final String advisorsLink = "advisors";
+
   // final String HospitalInputsLink = "Hospital-Inputs";
   final String contractorsLink = "contractors";
   final String CivilProtectionLink = "civil-protectionsses";
@@ -539,7 +541,6 @@ class Api {
     }
   }
 
-
   Future PostCreateApi(
       GlobalKey<ScaffoldState> _scaffoldKey,
       String Name,
@@ -593,10 +594,13 @@ class Api {
 
     XsProgressHud.hide();
     if (response.statusCode == 200) {
+      CustomSnackBar(_scaffoldKey, json.decode(response.body).toString());
       print("dataContent:: ${dataContent}");
       return true;
-    } else
+    } else {
+      CustomSnackBar(_scaffoldKey, json.decode(response.body).toString());
       print("dataContent:: ${dataContent}");
+    }
     return false;
   }
 }
