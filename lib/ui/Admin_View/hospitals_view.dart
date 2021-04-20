@@ -100,12 +100,79 @@ class _HospitalsViewState extends State<HospitalsView> {
                         itemBuilder: (context, index) {
                           return InkWell(
                             onTap: () {
-                              idView = CreatorsList[index].id;
                               navigateAndKeepStack(
                                   context,
                                   HospitalsView2(
+                                    index: index,
                                     title: CreatorsList[index].name,
                                   ));
+                              // showDialog(
+                              //     context: context,
+                              //     builder: (BuildContext context) {
+                              //       return AlertDialog(
+                              //         backgroundColor: Color(0xff1D1D1D),
+                              //         title: Text(
+                              //           "البيانات",
+                              //           style: TextStyle(color: Colors.white),
+                              //         ),
+                              //         shape: RoundedRectangleBorder(
+                              //             borderRadius:
+                              //                 BorderRadius.circular(20)),
+                              //         actions: [
+                              //           FlatButton(
+                              //               onPressed: () {
+                              //                 Navigator.of(context).pop();
+                              //               },
+                              //               child: Text(
+                              //                 "الرجوع ",
+                              //                 style: TextStyle(),
+                              //               ))
+                              //         ],
+                              //         content: Container(
+                              //           height:
+                              //               MediaQuery.of(context).size.height *
+                              //                   0.15,
+                              //           child: Center(
+                              //             child: SingleChildScrollView(
+                              //               child: Container(
+                              //                 alignment: Alignment.center,
+                              //                 width: screenHeight/2,
+                              //                 child: Column(
+                              //                   crossAxisAlignment: CrossAxisAlignment.center,
+                              //                   children: [
+                              //                     Text(
+                              //                       "${CreatorsList[index].departments}",
+                              //                       style: TextStyle(
+                              //                           color: Colors.white),
+                              //                     ),
+                              //                     Text(
+                              //                       "${CreatorsList[index].type}",
+                              //                       style: TextStyle(
+                              //                           color: Colors.white),
+                              //                     ),
+                              //                     Text(
+                              //                       "${CreatorsList[index].governorate}",
+                              //                       style: TextStyle(
+                              //                           color: Colors.white),
+                              //                     ),
+                              //                     Text(
+                              //                       "${CreatorsList[index].contractor}",
+                              //                       style: TextStyle(
+                              //                           color: Colors.white),
+                              //                     ),
+                              //                     Text(
+                              //                       "${CreatorsList[index].water}",
+                              //                       style: TextStyle(
+                              //                           color: Colors.white),
+                              //                     ),
+                              //                   ],
+                              //                 ),
+                              //               ),
+                              //             ),
+                              //           ),
+                              //         ),
+                              //       );
+                              //     });
                             },
                             child: Card(
                               elevation: 5,

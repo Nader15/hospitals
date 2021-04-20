@@ -638,16 +638,17 @@ class Api {
         'Accept': 'application/json',
       },
     );
-    var dataContent = json.decode(response.body);
+    // var dataContent = json.decode(response.body);
 
     // XsProgressHud.hide();
     if (response.statusCode == 200) {
-      dataView = dataContent;
+      dataView = json.decode(response.body);
+      // print("dataContentApi::: ${dataContent.toString()}");
       // print("dataContentApi::: ${data["Name"]}");
       return  dataView;
-      return  AdminViewModel.fromJson(dataContent);
+      // return  AdminViewModel.fromJson(dataContent);
     } else {
-      print("dataContentApi::: ${dataContent.toString()}");
+      // print("dataContentApi::: ${dataContent.toString()}");
       return false;
     }
   }

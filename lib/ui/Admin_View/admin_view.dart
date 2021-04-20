@@ -35,7 +35,6 @@ class _AdminViewState extends State<AdminView> {
     setState(() {
       Api(context).GetAxesApi(_scaffoldKey);
       Api(context).GetCreateApi(_scaffoldKey);
-      // Api(context).GetAdminViewApi2(_scaffoldKey, widget.id);
     });
   }
 

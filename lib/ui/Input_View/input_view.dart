@@ -28,7 +28,7 @@ class _InputViewState extends State<InputView> {
     setState(() {
       Future.delayed(Duration(milliseconds: 0), () {
         gettingData();
-        // axisesList.clear();
+        axisesList.clear();
         governmentsList.clear();
         filterDepartmentList.clear();
         sectionTypeList.clear();
