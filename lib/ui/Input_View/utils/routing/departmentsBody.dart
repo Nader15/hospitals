@@ -65,25 +65,28 @@ class _DepartementsBodyState extends State<DepartementsBody> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Align(
-                        alignment: Alignment.center,
-                        child: Container(
-                          child: Text(
-                            "محور الانشاءات",
-                            style: TextStyle(color: Colors.white, fontSize: 30),
-                          ),
-                          width: screenWidth / 2,
-                          decoration: BoxDecoration(
-                              gradient: LinearGradient(
-                                  begin: Alignment.topCenter,
-                                  end: Alignment.bottomCenter,
-                                  colors: [
-                                    Color(0Xff4743a5),
-                                    Color(0Xff2b52c9),
-                                  ]),
-                              borderRadius: BorderRadius.circular(25)),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 20),
+                        child: Align(
                           alignment: Alignment.center,
-                          padding: EdgeInsets.all(10),
+                          child: Container(
+                            child: Text(
+                              "محور الانشاءات",
+                              style: TextStyle(color: Colors.white, fontSize: 30),
+                            ),
+                            width: screenWidth / 2,
+                            decoration: BoxDecoration(
+                                gradient: LinearGradient(
+                                    begin: Alignment.topCenter,
+                                    end: Alignment.bottomCenter,
+                                    colors: [
+                                      Color(0Xff4743a5),
+                                      Color(0Xff2b52c9),
+                                    ]),
+                                borderRadius: BorderRadius.circular(25)),
+                            alignment: Alignment.center,
+                            padding: EdgeInsets.all(10),
+                          ),
                         ),
                       ),
                       SizedBox(
@@ -107,7 +110,7 @@ class _DepartementsBodyState extends State<DepartementsBody> {
                     ],
                   ),
                   SizedBox(
-                    height: 100,
+                    height: screenHeight/20,
                   ),
                   Text(
                     "الأدارات" + " (${filterDepartmentList.length})",
@@ -116,10 +119,10 @@ class _DepartementsBodyState extends State<DepartementsBody> {
                   SizedBox(
                     height: screenHeight > 800
                         ? screenHeight / 10
-                        : screenHeight / 20,
+                        : screenHeight / 70,
                   ),
                   Container(
-                    padding: EdgeInsets.all(50),
+                    padding: EdgeInsets.all(30),
                     // width: screenWidth / 1.7,
                     // height: screenHeight / 2,
                     child: GridView.builder(

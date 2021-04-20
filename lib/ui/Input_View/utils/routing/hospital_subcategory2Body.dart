@@ -130,25 +130,28 @@ class _HospitalsSubcategory2BodyState extends State<HospitalsSubcategory2Body> {
                               size: 40,
                             )),
                       ),
-                      Align(
-                        alignment: Alignment.center,
-                        child: Container(
-                          child: Text(
-                            "محور الانشاءات",
-                            style: TextStyle(color: Colors.white, fontSize: 30),
-                          ),
-                          width: screenWidth / 2,
-                          decoration: BoxDecoration(
-                              gradient: LinearGradient(
-                                  begin: Alignment.topCenter,
-                                  end: Alignment.bottomCenter,
-                                  colors: [
-                                    Color(0Xff4743a5),
-                                    Color(0Xff2b52c9),
-                                  ]),
-                              borderRadius: BorderRadius.circular(25)),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 20),
+                        child: Align(
                           alignment: Alignment.center,
-                          padding: EdgeInsets.all(10),
+                          child: Container(
+                            child: Text(
+                              "محور الانشاءات",
+                              style: TextStyle(color: Colors.white, fontSize: 30),
+                            ),
+                            width: screenWidth / 2,
+                            decoration: BoxDecoration(
+                                gradient: LinearGradient(
+                                    begin: Alignment.topCenter,
+                                    end: Alignment.bottomCenter,
+                                    colors: [
+                                      Color(0Xff4743a5),
+                                      Color(0Xff2b52c9),
+                                    ]),
+                                borderRadius: BorderRadius.circular(25)),
+                            alignment: Alignment.center,
+                            padding: EdgeInsets.all(10),
+                          ),
                         ),
                       ),
                       SizedBox(
