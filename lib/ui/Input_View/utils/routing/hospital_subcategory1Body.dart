@@ -97,14 +97,15 @@ class _HospitalsSubcategory1BodyState extends State<HospitalsSubcategory1Body> {
                   ),
                   Text(
                     "$headerGlobal",
-                    style: TextStyle(color: Colors.black, fontSize: 50),
+                    textAlign: TextAlign.center,
+                    style: TextStyle(color: Colors.black, fontSize: 40),
                   ),
                   SizedBox(
                     height: screenHeight/10,
                   ),
                   Container(
                     padding: EdgeInsets.all(20),
-                    width: screenWidth / 6.2,
+                    width: screenWidth / 2.5  ,
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
                         gradient: LinearGradient(
@@ -121,7 +122,9 @@ class _HospitalsSubcategory1BodyState extends State<HospitalsSubcategory1Body> {
                     ),
                   ),
                   SizedBox(
-                    height: screenHeight/10,
+                    height: screenHeight > 800
+                        ? screenHeight / 10
+                        : screenHeight / 20,
                   ),
                   Container(
                     padding: EdgeInsets.all(50),
@@ -133,8 +136,8 @@ class _HospitalsSubcategory1BodyState extends State<HospitalsSubcategory1Body> {
                       physics: NeverScrollableScrollPhysics(),
                       shrinkWrap: true,
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 3,
-                        childAspectRatio: 4,
+                        crossAxisCount: screenWidth > 1200 ? 3 : 1,
+                        childAspectRatio: 6,
                         mainAxisSpacing: 60,
                         crossAxisSpacing: 100,
                       ),

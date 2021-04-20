@@ -90,10 +90,10 @@ class Api {
       filterDepList2.add(FilterDepModel.fromJson(value));
     }
     items.addAll(filterDepList2);
-    filterDepartmentList.addAll(filterDepList2);
+    // filterDepartmentList.addAll(filterDepList2);
     XsProgressHud.hide();
     if (response.statusCode == 200) {
-      print("FilterDepList content : ${filterDepartmentList.length}");
+      // print("FilterDepList content : ${filterDepartmentList.length}");
       return items;
     } else {
       print(dataContent);
@@ -122,7 +122,7 @@ class Api {
     // filterDepartmentList.addAll(filterDepList2);
     XsProgressHud.hide();
     if (response.statusCode == 200) {
-      print("FilterDepList content : ${filterDepartmentList.length}");
+      // print("FilterDepList content : ${filterDepartmentList.length}");
       return items;
     } else {
       print(dataContent);
@@ -151,7 +151,7 @@ class Api {
     // filterDepartmentList.addAll(filterDepList2);
     XsProgressHud.hide();
     if (response.statusCode == 200) {
-      print("FilterDepList content : ${filterDepartmentList.length}");
+      // print("FilterDepList content : ${filterDepartmentList.length}");
       return items;
     } else {
       print(dataContent);

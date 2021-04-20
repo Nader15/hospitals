@@ -98,14 +98,16 @@ class _SectionBodyState extends State<SectionBody> {
                     ],
                   ),
                   SizedBox(
-                    height: screenHeight/10,
+                    height: screenHeight / 10,
                   ),
                   Text(
                     "نوع الوحدة",
                     style: TextStyle(color: Colors.black, fontSize: 50),
                   ),
                   SizedBox(
-                    height: screenHeight/5,
+                    height: screenHeight > 800
+                        ? screenHeight / 5
+                        : screenHeight / 20,
                   ),
                   Container(
                     padding: EdgeInsets.all(50),
@@ -116,7 +118,7 @@ class _SectionBodyState extends State<SectionBody> {
                       physics: ScrollPhysics(),
                       shrinkWrap: true,
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 3,
+                        crossAxisCount: screenWidth > 1200 ? 3 : 1,
                         childAspectRatio: 4,
                         mainAxisSpacing: 60,
                         crossAxisSpacing: 100,
@@ -130,13 +132,12 @@ class _SectionBodyState extends State<SectionBody> {
                                   context,
                                   sectionTypeList[index].id == 1
                                       ? HospitalsCategoryBody(
-                                    idGov: widget.idGov,
-                                  )
+                                          idGov: widget.idGov,
+                                        )
                                       : sectionTypeList[index].id == 2
-                                      ? unitsCategoryBody()
-                                      : CentersCategoryBody());
+                                          ? unitsCategoryBody()
+                                          : CentersCategoryBody());
                             });
-
                           },
                           child: Container(
                             alignment: Alignment.center,

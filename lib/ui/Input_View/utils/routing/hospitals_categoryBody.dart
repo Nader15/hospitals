@@ -113,7 +113,9 @@ class _HospitalsCategoryBodyState extends State<HospitalsCategoryBody> {
                     style: TextStyle(color: Colors.black, fontSize: 50),
                   ),
                   SizedBox(
-                    height: screenHeight/5,
+                    height: screenHeight > 800
+                        ? screenHeight / 5
+                        : screenHeight / 20,
                   ),
                   Container(
                     padding: EdgeInsets.all(50),
@@ -124,7 +126,7 @@ class _HospitalsCategoryBodyState extends State<HospitalsCategoryBody> {
                       physics: ScrollPhysics(),
                       shrinkWrap: true,
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 3,
+                        crossAxisCount: screenWidth > 1200 ? 3 : 1,
                         childAspectRatio: 4,
                         mainAxisSpacing: 60,
                         crossAxisSpacing: 100,

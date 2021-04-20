@@ -25,6 +25,7 @@ void main() {
       // home: DashBoard()
       // home: AdminView()
       home: InputView()
+      // home: MyApp()
       // home: AxesTest()
       // home: HospitalsSubcategory1Body(),
       // home: LoginScreen(),

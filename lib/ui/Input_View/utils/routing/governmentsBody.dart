@@ -100,7 +100,9 @@ class _GovernmentsBodyState extends State<GovernmentsBody> {
                     style: TextStyle(color: Colors.black, fontSize: 50),
                   ),
                   SizedBox(
-                    height: screenHeight/15,
+                    height:screenHeight > 800
+                        ? screenHeight / 10
+                        : screenHeight / 20,
                   ),
                   Container(
                     padding: EdgeInsets.all(50),
@@ -111,7 +113,7 @@ class _GovernmentsBodyState extends State<GovernmentsBody> {
                       physics: ScrollPhysics(),
                       shrinkWrap: true,
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 3,
+                        crossAxisCount: screenWidth > 1200 ? 3 : 1,
                         childAspectRatio: 4,
                         mainAxisSpacing: 60,
                         crossAxisSpacing: 100,

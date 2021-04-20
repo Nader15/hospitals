@@ -6,8 +6,6 @@ import 'package:hospitals/ui/Input_View/utils/global.dart';
 import 'package:hospitals/ui/Input_View/utils/routing/hospital_subcategory1Body.dart';
 
 class unitsCategoryBody extends StatefulWidget {
-
-
   @override
   _unitsCategoryBodyState createState() => _unitsCategoryBodyState();
 }
@@ -104,14 +102,14 @@ class _unitsCategoryBodyState extends State<unitsCategoryBody> {
                     ],
                   ),
                   SizedBox(
-                    height: screenHeight/10,
+                    height: screenHeight / 10,
                   ),
                   Text(
                     "الوحدات" + " (${items.length})",
                     style: TextStyle(color: Colors.black, fontSize: 50),
                   ),
                   SizedBox(
-                    height: screenHeight/5,
+                    height: screenHeight>800?screenHeight / 5:screenHeight / 20,
                   ),
                   Container(
                     padding: EdgeInsets.all(50),
@@ -122,7 +120,7 @@ class _unitsCategoryBodyState extends State<unitsCategoryBody> {
                       physics: ScrollPhysics(),
                       shrinkWrap: true,
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 3,
+                        crossAxisCount: screenWidth > 1200 ? 3 : 1,
                         childAspectRatio: 4,
                         mainAxisSpacing: 60,
                         crossAxisSpacing: 100,
@@ -133,13 +131,15 @@ class _unitsCategoryBodyState extends State<unitsCategoryBody> {
                             setState(() {
                               headerGlobal = items[index].name;
                             });
-                            navigateAndKeepStack(context, HospitalsSubcategory1Body()
-                              // Constructions(
-                              //   currentIndex: 4,
-                              // ),
-                            );
+                            navigateAndKeepStack(
+                                context, HospitalsSubcategory1Body()
+                                // Constructions(
+                                //   currentIndex: 4,
+                                // ),
+                                );
                           },
                           child: Container(
+                            padding: EdgeInsets.zero,
                             alignment: Alignment.center,
                             decoration: BoxDecoration(
                                 gradient: LinearGradient(
