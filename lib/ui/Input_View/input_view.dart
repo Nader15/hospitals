@@ -6,7 +6,7 @@ import 'package:hospitals/ui/Input_View/utils/routing/governmentsBody.dart';
 import 'package:hospitals/ui/dashboard/dashboard.dart';
 import 'package:hospitals/ui/dashboard_test.dart';
 import 'package:hospitals/ui/Input_View/utils/Navigator.dart';
-import 'package:hospitals/ui/Input_View/utils/global.dart';
+import 'file:///D:/Nadrinhoo/AndroidStudioProjects/hospitals/lib/ui/global.dart';
 
 class InputView extends StatefulWidget {
   @override
@@ -73,7 +73,7 @@ class _InputViewState extends State<InputView> {
                 // width: screenWidth/2,
                 height: screenHeight,
                 child: Container(
-                  width: screenWidth - (screenWidth / 6),
+                  width: screenWidth>1200?screenWidth - (screenWidth / 6):screenWidth - (screenWidth / 2),
                   // color: Colors.red,
                   child: Stack(
                     children: [
@@ -104,7 +104,7 @@ class _InputViewState extends State<InputView> {
             Align(
               // alignment: Alignment.centerLeft,
               child: Container(
-                width: screenWidth / 6,
+                width: screenWidth>1200?screenWidth / 6 :screenWidth / 2 ,
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                       begin: Alignment.topCenter,

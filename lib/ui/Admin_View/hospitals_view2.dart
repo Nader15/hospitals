@@ -1,22 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:hospitals/ApiFunctions/api.dart';
-import 'package:hospitals/ui/Axes/Constructions.dart';
+import 'package:hospitals/ApiFunctions/shared.dart';
+import 'package:hospitals/models/admin_view_model.dart';
+import 'package:hospitals/ui/global.dart';
+
 import 'package:hospitals/ui/Input_View/utils/Navigator.dart';
-import 'file:///D:/Nadrinhoo/AndroidStudioProjects/hospitals/lib/ui/global.dart';
-import 'package:hospitals/ui/Input_View/utils/routing/centers_page.dart';
-import 'package:hospitals/ui/Input_View/utils/routing/hospitals_categoryBody.dart';
-import 'package:hospitals/ui/Input_View/utils/routing/units_page.dart';
 
-class SectionBody extends StatefulWidget {
-  final int idGov;
+class HospitalsView2 extends StatefulWidget {
+  final int id;
+  final String title;
 
-  SectionBody({this.idGov});
+  HospitalsView2({this.title, this.id});
 
   @override
-  _SectionBodyState createState() => _SectionBodyState();
+  _HospitalsView2State createState() => _HospitalsView2State();
 }
 
-class _SectionBodyState extends State<SectionBody> {
+class _HospitalsView2State extends State<HospitalsView2> {
+  AdminViewModel adminViewModel;
+
+
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -25,12 +28,16 @@ class _SectionBodyState extends State<SectionBody> {
     super.initState();
     Future.delayed(Duration(milliseconds: 0), () {
       gettingData();
+      print("dataaaaaaa1::::${dataView()}");
     });
   }
 
   gettingData() {
     setState(() {
-      Api(context).GetSectionsApi(_scaffoldKey);
+      // Api(context).GetAdminViewApi(_scaffoldKey, widget.id);
+      Api(context).GetAdminViewApi2(_scaffoldKey, widget.id);
+      print("dataaaaaaa2::::${dataView()}");
+      // adminView;
     });
   }
 
@@ -98,69 +105,30 @@ class _SectionBodyState extends State<SectionBody> {
                     ],
                   ),
                   SizedBox(
-                    height: screenHeight / 10,
+                    height: 100,
                   ),
                   Text(
-                    "نوع الوحدة",
+                    "${widget.title}",
                     style: TextStyle(color: Colors.black, fontSize: 50),
                   ),
                   SizedBox(
-                    height: screenHeight > 800
-                        ? screenHeight / 5
-                        : screenHeight / 20,
+                    height: 200,
                   ),
-                  Container(
-                    padding: EdgeInsets.all(50),
-                    // width: screenWidth / 1.7,
-                    // height: screenHeight / 3,
-                    child: GridView.builder(
-                      itemCount: 3,
-                      physics: ScrollPhysics(),
-                      shrinkWrap: true,
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: screenWidth > 1200 ? 3 : 1,
-                        childAspectRatio: 4,
-                        mainAxisSpacing: 60,
-                        crossAxisSpacing: 100,
-                      ),
-                      itemBuilder: (context, index) {
-                        return InkWell(
-                          onTap: () {
-                            setState(() {
-                              sectionNameGlobal = sectionTypeList[index].name;
-                              navigateAndKeepStack(
-                                  context,
-                                  sectionTypeList[index].id == 1
-                                      ? HospitalsCategoryBody(
-                                          idGov: widget.idGov,
-                                        )
-                                      : sectionTypeList[index].id == 2
-                                          ? unitsCategoryBody()
-                                          : CentersCategoryBody());
-                            });
-                          },
-                          child: Container(
-                            alignment: Alignment.center,
-                            decoration: BoxDecoration(
-                                gradient: LinearGradient(
-                                    begin: Alignment.topCenter,
-                                    end: Alignment.bottomCenter,
-                                    colors: [
-                                      Color(0XffE9A4A7),
-                                      Color(0XffD2B0C3),
-                                    ]),
-                                borderRadius: BorderRadius.circular(25)),
-                            child: Text(
-                              "${sectionTypeList[index].name}",
-                              style: TextStyle(fontSize: 25),
-                            ),
-                          ),
-                        );
-                      },
+                  Center(
+                      child: Container(
+                    width: screenWidth / 1.5,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text("${dataView.toString()}"),
+                      ],
                     ),
-                  ),
+                  ))
                 ],
               ),
+            ),
+            SizedBox(
+              height: 100,
             ),
           ],
         ),

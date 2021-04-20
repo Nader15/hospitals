@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:hospitals/models/admin_view_model.dart';
 import 'package:hospitals/models/advisors_model.dart';
 import 'package:hospitals/models/axises_model.dart';
 import 'package:hospitals/models/civil_protection_model.dart';
@@ -18,7 +19,7 @@ import 'package:hospitals/models/sectionType_model.dart';
 import 'package:hospitals/models/water_state_model.dart';
 import 'package:hospitals/models/workTypes_model.dart';
 import 'package:hospitals/ui/Input_View/utils/Navigator.dart';
-import 'package:hospitals/ui/Input_View/utils/global.dart';
+import 'file:///D:/Nadrinhoo/AndroidStudioProjects/hospitals/lib/ui/global.dart';
 import 'package:hospitals/ui/custom_snackBar.dart';
 import 'package:xs_progress_hud/xs_progress_hud.dart';
 import 'package:http/http.dart' as http;
@@ -602,5 +603,53 @@ class Api {
       print("dataContent:: ${dataContent}");
     }
     return false;
+  }
+
+  // Future GetAdminViewApi(GlobalKey<ScaffoldState> _scaffoldKey, int id) async {
+  //   XsProgressHud.show(context);
+  //   final String completeUrl = baseUrl + CreatorsLink + "/$id";
+  //   final response = await http.get(
+  //     completeUrl,
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //       'Accept': 'application/json',
+  //       // HttpHeaders.authorizationHeader: UserTocken
+  //     },
+  //   );
+  //   var dataContent = json.decode(response.body);
+  //   XsProgressHud.hide();
+  //   if (response.statusCode == 200) {
+  //     adminView = dataContent;
+  //     print("Creators dataContent : ${dataContent["Name"]}");
+  //     print("Creators adminView : ${adminView["Name"]}");
+  //     return dataContent;
+  //   } else {
+  //     print(dataContent);
+  //     return false;
+  //   }
+  // }
+
+  Future GetAdminViewApi2(GlobalKey<ScaffoldState> _scaffoldKey, int id) async {
+    // XsProgressHud.show(context);
+    final String completeUrl = baseUrl + CreatorsLink + "/$id";
+    final response = await http.get(
+      completeUrl,
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      },
+    );
+    var dataContent = json.decode(response.body);
+
+    // XsProgressHud.hide();
+    if (response.statusCode == 200) {
+      dataView = dataContent;
+      // print("dataContentApi::: ${data["Name"]}");
+      return  dataView;
+      return  AdminViewModel.fromJson(dataContent);
+    } else {
+      print("dataContentApi::: ${dataContent.toString()}");
+      return false;
+    }
   }
 }

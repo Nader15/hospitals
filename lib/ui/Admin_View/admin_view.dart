@@ -3,8 +3,8 @@ import 'package:hospitals/ApiFunctions/api.dart';
 import 'package:hospitals/models/axises_model.dart';
 import 'package:hospitals/ui/Axes/Constructions.dart';
 import 'package:hospitals/ui/Input_View/utils/Navigator.dart';
-import 'package:hospitals/ui/Input_View/utils/global.dart';
 import 'package:hospitals/ui/dashboard/dashboard.dart';
+import 'package:hospitals/ui/global.dart';
 
 import 'hospitals_view.dart';
 
@@ -35,6 +35,7 @@ class _AdminViewState extends State<AdminView> {
     setState(() {
       Api(context).GetAxesApi(_scaffoldKey);
       Api(context).GetCreateApi(_scaffoldKey);
+      // Api(context).GetAdminViewApi2(_scaffoldKey, widget.id);
     });
   }
 

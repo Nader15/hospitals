@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:hospitals/ApiFunctions/shared.dart';
+import 'package:hospitals/ui/Admin_View/hospitals_view2.dart';
+import 'package:hospitals/ui/global.dart';
 
 import '../../ApiFunctions/api.dart';
 import 'package:hospitals/ui/Input_View/utils/Navigator.dart';
-import 'package:hospitals/ui/Input_View/utils/global.dart';
 
 class HospitalsView extends StatefulWidget {
   @override
@@ -83,50 +84,44 @@ class _HospitalsViewState extends State<HospitalsView> {
                   ),
                   Center(
                       child: Container(
-                        padding: EdgeInsets.all(200),
-                        // width: screenWidth / 2,
-                        // height: screenHeight ,
-                        child: ListView.builder(
-                          shrinkWrap: true,
-                            physics: ScrollPhysics(),
-                            itemCount: CreatorsList.length,
-                            itemBuilder: (context, index) {
-                              return Padding(
-                                padding: EdgeInsets.only(bottom: 20),
-                                child: Card(
-                                  elevation: 10,
-                                  child: ListTile(
-                                    contentPadding: const EdgeInsets.all(100.0),
-                                    onTap: () {},
-                                    title: Row(
-                                      mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Icon(
-                                          Icons.arrow_back,
-                                          size: 30,
-                                        ),
-                                        Container(
-                                          // width: screenWidth/6,
-                                          child: Row(
-                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              Text(
-                                                "${CreatorsList[index].name}",
-                                                style: TextStyle(fontSize: 30),
-                                              ),
-                                              SizedBox(width: 100,),
-                                              Icon(Icons.local_hospital,size: 50,color: Colors.red,),
-                                            ],
-                                          ),
-                                        )
-                                      ],
-                                    ),
-                                  ),
+                    padding: EdgeInsets.all(100),
+                    // width: screenWidth / 2,
+                    // height: screenHeight ,
+                    child: GridView.builder(
+                        physics: ScrollPhysics(),
+                        shrinkWrap: true,
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: screenWidth > 1200 ? 3 : 1,
+                          childAspectRatio: 4,
+                          mainAxisSpacing: 40,
+                          crossAxisSpacing: 50,
+                        ),
+                        itemCount: CreatorsList.length,
+                        itemBuilder: (context, index) {
+                          return InkWell(
+                            onTap: () {
+                              idView = CreatorsList[index].id;
+                              navigateAndKeepStack(
+                                  context,
+                                  HospitalsView2(
+                                    title: CreatorsList[index].name,
+                                  ));
+                            },
+                            child: Card(
+                              elevation: 5,
+                              child: Container(
+                                alignment: Alignment.center,
+                                child: Text(
+                                  "${CreatorsList[index].name}",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      fontSize: 20, color: Colors.black),
                                 ),
-                              );
-                            }),
-                      )),
+                              ),
+                            ),
+                          );
+                        }),
+                  )),
                 ],
               ),
             ),

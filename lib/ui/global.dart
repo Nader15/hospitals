@@ -38,6 +38,8 @@ String DonOrNotSupply_id;
 String DonOrNotInstallation_id;
 String WaterState_id;
 String WorkTypeGlobal;
+var dataView;
+int idView;
 
 //--------------------------------------
 int depIdGlobal;
