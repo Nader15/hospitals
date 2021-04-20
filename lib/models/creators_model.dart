@@ -18,7 +18,7 @@ class CreatorsModel {
   String unittype;
   String databasic;
   String advisor;
-  Null stateNow;
+  dynamic stateNow;
   String publishedAt;
   String createdAt;
   String updatedAt;

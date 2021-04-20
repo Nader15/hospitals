@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_login/flutter_login.dart';
 import 'package:hospitals/ui/Admin_View/admin_view.dart';
 import 'package:hospitals/ui/dashboard_test.dart';
+import 'package:hospitals/ui/global.dart';
 
 
 const users = const {
@@ -53,7 +54,7 @@ class _AdminLoginState extends State<AdminLogin> {
     return Scaffold(
       body: FlutterLogin(
         // title: '$mail',
-        logo: 'images/main_logo.png',
+        logo: Logo,
         onLogin: _authUser,
         onSignup: _authUser,
         onSubmitAnimationCompleted: () {

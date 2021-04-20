@@ -50,7 +50,7 @@ class _unitsCategoryBodyState extends State<unitsCategoryBody> {
               child: Opacity(
                   opacity: 0.1,
                   child: Image.asset(
-                    "images/main_logo.png",
+                    Logo,
                     width: 300,
                   )),
             ),

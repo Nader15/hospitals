@@ -81,7 +81,7 @@ class _InputViewState extends State<InputView> {
                         child: Opacity(
                             opacity: 0.1,
                             child: Image.asset(
-                              "images/main_logo.png",
+                              Logo,
                               width: 300,
                             )),
                       ),
@@ -118,7 +118,7 @@ class _InputViewState extends State<InputView> {
                   child: Column(
                     children: [
                       Image.asset(
-                        "images/main_logo.png",
+                        Logo,
                         width: 150,
                       ),
                       Container(

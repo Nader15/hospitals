@@ -44,7 +44,7 @@ class _ConstructionsState extends State<Constructions> {
                         child: Padding(
                           padding: const EdgeInsets.only(top: 200),
                           child: Image.asset(
-                            "images/main_logo.png",
+                            Logo,
                             width: 300,
                           ),
                         )),

@@ -4,6 +4,7 @@ import 'package:flutter_login/flutter_login.dart';
 import 'package:hospitals/ui/Admin_View/admin_view.dart';
 import 'package:hospitals/ui/Input_View/input_view.dart';
 import 'package:hospitals/ui/dashboard_test.dart';
+import 'package:hospitals/ui/global.dart';
 
 const users = const {
   'input@gmail.com': "666666",
@@ -52,7 +53,7 @@ class _InputLoginState extends State<InputLogin> {
     return Scaffold(
       body: FlutterLogin(
         // title: '$mail',
-        logo: 'images/main_logo.png',
+        logo: Logo,
         onLogin: _authUser,
         onSignup: _authUser,
         onSubmitAnimationCompleted: () {

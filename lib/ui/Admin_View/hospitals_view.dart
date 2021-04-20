@@ -24,7 +24,7 @@ class _HospitalsViewState extends State<HospitalsView> {
               child: Opacity(
                   opacity: 0.1,
                   child: Image.asset(
-                    "images/main_logo.png",
+                    Logo,
                     width: 300,
                   )),
             ),
@@ -34,25 +34,28 @@ class _HospitalsViewState extends State<HospitalsView> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Align(
-                        alignment: Alignment.center,
-                        child: Container(
-                          child: Text(
-                            "محور الانشاءات",
-                            style: TextStyle(color: Colors.white, fontSize: 30),
-                          ),
-                          width: screenWidth / 2,
-                          decoration: BoxDecoration(
-                              gradient: LinearGradient(
-                                  begin: Alignment.topCenter,
-                                  end: Alignment.bottomCenter,
-                                  colors: [
-                                    Color(0Xff4743a5),
-                                    Color(0Xff2b52c9),
-                                  ]),
-                              borderRadius: BorderRadius.circular(25)),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 20),
+                        child: Align(
                           alignment: Alignment.center,
-                          padding: EdgeInsets.all(10),
+                          child: Container(
+                            child: Text(
+                              "محور الانشاءات",
+                              style: TextStyle(color: Colors.white, fontSize: 30),
+                            ),
+                            width: screenWidth / 2,
+                            decoration: BoxDecoration(
+                                gradient: LinearGradient(
+                                    begin: Alignment.topCenter,
+                                    end: Alignment.bottomCenter,
+                                    colors: [
+                                      Color(0Xff4743a5),
+                                      Color(0Xff2b52c9),
+                                    ]),
+                                borderRadius: BorderRadius.circular(25)),
+                            alignment: Alignment.center,
+                            padding: EdgeInsets.all(10),
+                          ),
                         ),
                       ),
                       SizedBox(
@@ -76,7 +79,7 @@ class _HospitalsViewState extends State<HospitalsView> {
                     ],
                   ),
                   SizedBox(
-                    height: 100,
+                    height: screenHeight/20,
                   ),
                   Text(
                     "الأنشاءات" + " (${CreatorsList.length})",
@@ -84,7 +87,7 @@ class _HospitalsViewState extends State<HospitalsView> {
                   ),
                   Center(
                       child: Container(
-                    padding: EdgeInsets.all(100),
+                    padding: EdgeInsets.all(50),
                     // width: screenWidth / 2,
                     // height: screenHeight ,
                     child: GridView.builder(
@@ -106,73 +109,7 @@ class _HospitalsViewState extends State<HospitalsView> {
                                     index: index,
                                     title: CreatorsList[index].name,
                                   ));
-                              // showDialog(
-                              //     context: context,
-                              //     builder: (BuildContext context) {
-                              //       return AlertDialog(
-                              //         backgroundColor: Color(0xff1D1D1D),
-                              //         title: Text(
-                              //           "البيانات",
-                              //           style: TextStyle(color: Colors.white),
-                              //         ),
-                              //         shape: RoundedRectangleBorder(
-                              //             borderRadius:
-                              //                 BorderRadius.circular(20)),
-                              //         actions: [
-                              //           FlatButton(
-                              //               onPressed: () {
-                              //                 Navigator.of(context).pop();
-                              //               },
-                              //               child: Text(
-                              //                 "الرجوع ",
-                              //                 style: TextStyle(),
-                              //               ))
-                              //         ],
-                              //         content: Container(
-                              //           height:
-                              //               MediaQuery.of(context).size.height *
-                              //                   0.15,
-                              //           child: Center(
-                              //             child: SingleChildScrollView(
-                              //               child: Container(
-                              //                 alignment: Alignment.center,
-                              //                 width: screenHeight/2,
-                              //                 child: Column(
-                              //                   crossAxisAlignment: CrossAxisAlignment.center,
-                              //                   children: [
-                              //                     Text(
-                              //                       "${CreatorsList[index].departments}",
-                              //                       style: TextStyle(
-                              //                           color: Colors.white),
-                              //                     ),
-                              //                     Text(
-                              //                       "${CreatorsList[index].type}",
-                              //                       style: TextStyle(
-                              //                           color: Colors.white),
-                              //                     ),
-                              //                     Text(
-                              //                       "${CreatorsList[index].governorate}",
-                              //                       style: TextStyle(
-                              //                           color: Colors.white),
-                              //                     ),
-                              //                     Text(
-                              //                       "${CreatorsList[index].contractor}",
-                              //                       style: TextStyle(
-                              //                           color: Colors.white),
-                              //                     ),
-                              //                     Text(
-                              //                       "${CreatorsList[index].water}",
-                              //                       style: TextStyle(
-                              //                           color: Colors.white),
-                              //                     ),
-                              //                   ],
-                              //                 ),
-                              //               ),
-                              //             ),
-                              //           ),
-                              //         ),
-                              //       );
-                              //     });
+
                             },
                             child: Card(
                               elevation: 5,

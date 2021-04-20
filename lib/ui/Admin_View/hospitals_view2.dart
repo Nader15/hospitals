@@ -50,7 +50,7 @@ class _HospitalsView2State extends State<HospitalsView2> {
               child: Opacity(
                   opacity: 0.1,
                   child: Image.asset(
-                    "images/main_logo.png",
+                    Logo,
                     width: 300,
                   )),
             ),
@@ -60,26 +60,29 @@ class _HospitalsView2State extends State<HospitalsView2> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Align(
-                        alignment: Alignment.center,
-                        child: Container(
-                          child: Text(
-                            "محور الانشاءات",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(color: Colors.white, fontSize: 30),
-                          ),
-                          width: screenWidth / 2,
-                          decoration: BoxDecoration(
-                              gradient: LinearGradient(
-                                  begin: Alignment.topCenter,
-                                  end: Alignment.bottomCenter,
-                                  colors: [
-                                    Color(0Xff4743a5),
-                                    Color(0Xff2b52c9),
-                                  ]),
-                              borderRadius: BorderRadius.circular(25)),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 20),
+                        child: Align(
                           alignment: Alignment.center,
-                          padding: EdgeInsets.all(10),
+                          child: Container(
+                            child: Text(
+                              "محور الانشاءات",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(color: Colors.white, fontSize: 30),
+                            ),
+                            width: screenWidth / 2,
+                            decoration: BoxDecoration(
+                                gradient: LinearGradient(
+                                    begin: Alignment.topCenter,
+                                    end: Alignment.bottomCenter,
+                                    colors: [
+                                      Color(0Xff4743a5),
+                                      Color(0Xff2b52c9),
+                                    ]),
+                                borderRadius: BorderRadius.circular(25)),
+                            alignment: Alignment.center,
+                            padding: EdgeInsets.all(10),
+                          ),
                         ),
                       ),
                       SizedBox(
@@ -103,7 +106,7 @@ class _HospitalsView2State extends State<HospitalsView2> {
                     ],
                   ),
                   SizedBox(
-                    height: 100,
+                    height: screenHeight/20,
                   ),
                   Text(
                     "${widget.title}",
@@ -111,7 +114,7 @@ class _HospitalsView2State extends State<HospitalsView2> {
                     style: TextStyle(color: Colors.black, fontSize: 50),
                   ),
                   SizedBox(
-                    height: screenHeight / 8,
+                    height: screenHeight / 20,
                   ),
                   Center(
                       child: Container(
@@ -890,767 +893,869 @@ class _HospitalsView2State extends State<HospitalsView2> {
                           ),
                           screenWidth > 1200
                               ? Row(
-                            mainAxisAlignment:
-                            MainAxisAlignment.spaceBetween,
-                            children: [
-                              Column(
-                                children: [
-                                  Text(
-                                    "الصرف",
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(fontSize: 25),
-                                  ),
-                                  SizedBox(
-                                    height: 10,
-                                  ),
-                                  Container(
-                                    alignment: Alignment.center,
-                                    width: screenWidth / 5,
-                                    child: Text(
-                                      "${CreatorsList[widget.index].exchange}",
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(fontSize: 30),
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Column(
+                                      children: [
+                                        Text(
+                                          "الصرف",
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(fontSize: 25),
+                                        ),
+                                        SizedBox(
+                                          height: 10,
+                                        ),
+                                        Container(
+                                          alignment: Alignment.center,
+                                          width: screenWidth / 5,
+                                          child: Text(
+                                            "${CreatorsList[widget.index].exchange}",
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(fontSize: 30),
+                                          ),
+                                          decoration: BoxDecoration(
+                                              color:
+                                                  Colors.pink.withOpacity(0.2),
+                                              borderRadius:
+                                                  BorderRadius.circular(25)),
+                                          padding: EdgeInsets.all(10),
+                                        ),
+                                      ],
                                     ),
-                                    decoration: BoxDecoration(
-                                        color:
-                                        Colors.pink.withOpacity(0.2),
-                                        borderRadius:
-                                        BorderRadius.circular(25)),
-                                    padding: EdgeInsets.all(10),
-                                  ),
-                                ],
-                              ),
-                              Column(
-                                children: [
-                                  Text(
-                                    "المياة",
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(fontSize: 25),
-                                  ),
-                                  SizedBox(
-                                    height: 10,
-                                  ),
-                                  Container(
-                                    width: screenWidth / 5,
-                                    alignment: Alignment.center,
-                                    child: Text(
-                                      "${CreatorsList[widget.index].water}",
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(fontSize: 30),
+                                    Column(
+                                      children: [
+                                        Text(
+                                          "المياة",
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(fontSize: 25),
+                                        ),
+                                        SizedBox(
+                                          height: 10,
+                                        ),
+                                        Container(
+                                          width: screenWidth / 5,
+                                          alignment: Alignment.center,
+                                          child: Text(
+                                            "${CreatorsList[widget.index].water}",
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(fontSize: 30),
+                                          ),
+                                          decoration: BoxDecoration(
+                                              color:
+                                                  Colors.pink.withOpacity(0.2),
+                                              borderRadius:
+                                                  BorderRadius.circular(25)),
+                                          padding: EdgeInsets.all(10),
+                                        ),
+                                      ],
                                     ),
-                                    decoration: BoxDecoration(
-                                        color:
-                                        Colors.pink.withOpacity(0.2),
-                                        borderRadius:
-                                        BorderRadius.circular(25)),
-                                    padding: EdgeInsets.all(10),
-                                  ),
-                                ],
-                              ),
-                              Column(
-                                children: [
-                                  Text(
-                                    "الإستشاري",
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(fontSize: 25),
-                                  ),
-                                  SizedBox(
-                                    height: 10,
-                                  ),
-                                  Container(
-                                    width: screenWidth / 5,
-                                    alignment: Alignment.center,
-                                    child: Text(
-                                      "${CreatorsList[widget.index].advisor}",
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(fontSize: 30),
+                                    Column(
+                                      children: [
+                                        Text(
+                                          "الإستشاري",
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(fontSize: 25),
+                                        ),
+                                        SizedBox(
+                                          height: 10,
+                                        ),
+                                        Container(
+                                          width: screenWidth / 5,
+                                          alignment: Alignment.center,
+                                          child: Text(
+                                            "${CreatorsList[widget.index].advisor}",
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(fontSize: 30),
+                                          ),
+                                          decoration: BoxDecoration(
+                                              color:
+                                                  Colors.pink.withOpacity(0.2),
+                                              borderRadius:
+                                                  BorderRadius.circular(25)),
+                                          padding: EdgeInsets.all(10),
+                                        ),
+                                      ],
                                     ),
-                                    decoration: BoxDecoration(
-                                        color:
-                                        Colors.pink.withOpacity(0.2),
-                                        borderRadius:
-                                        BorderRadius.circular(25)),
-                                    padding: EdgeInsets.all(10),
-                                  ),
-                                ],
-                              ),
-                              Column(
-                                children: [
-                                  Text(
-                                    "تاريخ اخر تحديث",
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(fontSize: 25),
-                                  ),
-                                  SizedBox(
-                                    height: 10,
-                                  ),
-                                  Container(
-                                    width: screenWidth / 5,
-                                    alignment: Alignment.center,
-                                    child: Text(
-                                      "${CreatorsList[widget.index].updatedAt.split("T")[0]} , ${CreatorsList[widget.index].updatedAt.split("T")[1].split(".")[0]}",
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(fontSize: 30),
+                                    Column(
+                                      children: [
+                                        Text(
+                                          "تاريخ اخر تحديث",
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(fontSize: 25),
+                                        ),
+                                        SizedBox(
+                                          height: 10,
+                                        ),
+                                        Container(
+                                          width: screenWidth / 5,
+                                          alignment: Alignment.center,
+                                          child: Text(
+                                            "${CreatorsList[widget.index].updatedAt.split("T")[0]} , ${CreatorsList[widget.index].updatedAt.split("T")[1].split(".")[0]}",
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(fontSize: 30),
+                                          ),
+                                          decoration: BoxDecoration(
+                                              color:
+                                                  Colors.pink.withOpacity(0.2),
+                                              borderRadius:
+                                                  BorderRadius.circular(25)),
+                                          padding: EdgeInsets.all(10),
+                                        ),
+                                      ],
                                     ),
-                                    decoration: BoxDecoration(
-                                        color:
-                                        Colors.pink.withOpacity(0.2),
-                                        borderRadius:
-                                        BorderRadius.circular(25)),
-                                    padding: EdgeInsets.all(10),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          )
+                                  ],
+                                )
                               : screenWidth < 500
-                              ? Column(
-                            children: [
-                              Column(
-                                children: [
-                                  Text(
-                                    "تاريخ اخر تحديث",
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(fontSize: 25),
-                                  ),
-                                  SizedBox(
-                                    height: 10,
-                                  ),
-                                  Container(
-                                    width: screenWidth / 1.5,
-                                    alignment: Alignment.center,
-                                    child: Text(
-                                      "${CreatorsList[widget.index].updatedAt.split("T")[0]} , ${CreatorsList[widget.index].updatedAt.split("T")[1].split(".")[0]}",
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(fontSize: 30),
-                                    ),
-                                    decoration: BoxDecoration(
-                                        color: Colors.pink
-                                            .withOpacity(0.2),
-                                        borderRadius:
-                                        BorderRadius.circular(
-                                            25)),
-                                    padding: EdgeInsets.all(10),
-                                  ),
-                                ],
-                              ),
-                              SizedBox(
-                                height: 20,
-                              ),
-                              Column(
-                                children: [
-                                  Text(
-                                    "الإستشاري",
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(fontSize: 25),
-                                  ),
-                                  SizedBox(
-                                    height: 10,
-                                  ),
-                                  Container(
-                                    width: screenWidth / 1.5,
-                                    alignment: Alignment.center,
-                                    child: Text(
-                                      "${CreatorsList[widget.index].advisor}",
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(fontSize: 30),
-                                    ),
-                                    decoration: BoxDecoration(
-                                        color: Colors.pink
-                                            .withOpacity(0.2),
-                                        borderRadius:
-                                        BorderRadius.circular(
-                                            25)),
-                                    padding: EdgeInsets.all(10),
-                                  ),
-                                ],
-                              ),
-                              SizedBox(
-                                height: 20,
-                              ),
-                              Column(
-                                children: [
-                                  Text(
-                                    "المياة",
-                                    style: TextStyle(fontSize: 25),
-                                    textAlign: TextAlign.center,
-                                  ),
-                                  SizedBox(
-                                    height: 10,
-                                  ),
-                                  Container(
-                                    alignment: Alignment.center,
-                                    width: screenWidth / 1.5,
-                                    child: Text(
-                                      "${CreatorsList[widget.index].water}",
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(fontSize: 30),
-                                    ),
-                                    decoration: BoxDecoration(
-                                        color: Colors.pink
-                                            .withOpacity(0.2),
-                                        borderRadius:
-                                        BorderRadius.circular(
-                                            25)),
-                                    padding: EdgeInsets.all(10),
-                                  ),
-                                ],
-                              ),
-                              SizedBox(
-                                height: 20,
-                              ),
-                              Column(
-                                children: [
-                                  Text(
-                                    "الصرف",
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(fontSize: 25),
-                                  ),
-                                  SizedBox(
-                                    height: 10,
-                                  ),
-                                  Container(
-                                    width: screenWidth / 1.5,
-                                    alignment: Alignment.center,
-                                    child: Text(
-                                      "${CreatorsList[widget.index].exchange}",
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(fontSize: 30),
-                                    ),
-                                    decoration: BoxDecoration(
-                                        color: Colors.pink
-                                            .withOpacity(0.2),
-                                        borderRadius:
-                                        BorderRadius.circular(
-                                            25)),
-                                    padding: EdgeInsets.all(10),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          )
-                              : Column(
-                            children: [
-                              Row(
-                                mainAxisAlignment:
-                                MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  Column(
-                                    children: [
-                                      Text(
-                                        "الإستشاري",
-                                        textAlign: TextAlign.center,
-                                        style:
-                                        TextStyle(fontSize: 25),
-                                      ),
-                                      SizedBox(
-                                        height: 10,
-                                      ),
-                                      Container(
-                                        width: screenWidth / 5,
-                                        alignment: Alignment.center,
-                                        child: Text(
-                                          "${CreatorsList[widget.index].advisor}",
-                                          textAlign: TextAlign.center,
-                                          style:
-                                          TextStyle(fontSize: 30),
+                                  ? Column(
+                                      children: [
+                                        Column(
+                                          children: [
+                                            Text(
+                                              "تاريخ اخر تحديث",
+                                              textAlign: TextAlign.center,
+                                              style: TextStyle(fontSize: 25),
+                                            ),
+                                            SizedBox(
+                                              height: 10,
+                                            ),
+                                            Container(
+                                              width: screenWidth / 1.5,
+                                              alignment: Alignment.center,
+                                              child: Text(
+                                                "${CreatorsList[widget.index].updatedAt.split("T")[0]} , ${CreatorsList[widget.index].updatedAt.split("T")[1].split(".")[0]}",
+                                                textAlign: TextAlign.center,
+                                                style: TextStyle(fontSize: 30),
+                                              ),
+                                              decoration: BoxDecoration(
+                                                  color: Colors.pink
+                                                      .withOpacity(0.2),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          25)),
+                                              padding: EdgeInsets.all(10),
+                                            ),
+                                          ],
                                         ),
-                                        decoration: BoxDecoration(
-                                            color: Colors.pink
-                                                .withOpacity(0.2),
-                                            borderRadius:
-                                            BorderRadius.circular(
-                                                25)),
-                                        padding: EdgeInsets.all(10),
-                                      ),
-                                    ],
-                                  ),
-                                  Column(
-                                    children: [
-                                      Text(
-                                        "تاريخ اخر تحديث ",
-                                        textAlign: TextAlign.center,
-                                        style:
-                                        TextStyle(fontSize: 25),
-                                      ),
-                                      SizedBox(
-                                        height: 10,
-                                      ),
-                                      Container(
-                                        width: screenWidth / 5,
-                                        alignment: Alignment.center,
-                                        child: Text(
-                                          "${CreatorsList[widget.index].updatedAt.split("T")[0]} , ${CreatorsList[widget.index].updatedAt.split("T")[1].split(".")[0]}",
-                                          textAlign: TextAlign.center,
-                                          style:
-                                          TextStyle(fontSize: 30),
+                                        SizedBox(
+                                          height: 20,
                                         ),
-                                        decoration: BoxDecoration(
-                                            color: Colors.pink
-                                                .withOpacity(0.2),
-                                            borderRadius:
-                                            BorderRadius.circular(
-                                                25)),
-                                        padding: EdgeInsets.all(10),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                              SizedBox(
-                                height: 50,
-                              ),
-                              Row(
-                                mainAxisAlignment:
-                                MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  Column(
-                                    children: [
-                                      Text(
-                                        "الصرف",
-                                        style:
-                                        TextStyle(fontSize: 25),
-                                        textAlign: TextAlign.center,
-                                      ),
-                                      SizedBox(
-                                        height: 10,
-                                      ),
-                                      Container(
-                                        alignment: Alignment.center,
-                                        width: screenWidth / 5,
-                                        child: Text(
-                                          "${CreatorsList[widget.index].exchange}",
-                                          textAlign: TextAlign.center,
-                                          style:
-                                          TextStyle(fontSize: 30),
+                                        Column(
+                                          children: [
+                                            Text(
+                                              "الإستشاري",
+                                              textAlign: TextAlign.center,
+                                              style: TextStyle(fontSize: 25),
+                                            ),
+                                            SizedBox(
+                                              height: 10,
+                                            ),
+                                            Container(
+                                              width: screenWidth / 1.5,
+                                              alignment: Alignment.center,
+                                              child: Text(
+                                                "${CreatorsList[widget.index].advisor}",
+                                                textAlign: TextAlign.center,
+                                                style: TextStyle(fontSize: 30),
+                                              ),
+                                              decoration: BoxDecoration(
+                                                  color: Colors.pink
+                                                      .withOpacity(0.2),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          25)),
+                                              padding: EdgeInsets.all(10),
+                                            ),
+                                          ],
                                         ),
-                                        decoration: BoxDecoration(
-                                            color: Colors.pink
-                                                .withOpacity(0.2),
-                                            borderRadius:
-                                            BorderRadius.circular(
-                                                25)),
-                                        padding: EdgeInsets.all(10),
-                                      ),
-                                    ],
-                                  ),
-                                  Column(
-                                    children: [
-                                      Text(
-                                        "المياة",
-                                        textAlign: TextAlign.center,
-                                        style:
-                                        TextStyle(fontSize: 25),
-                                      ),
-                                      SizedBox(
-                                        height: 10,
-                                      ),
-                                      Container(
-                                        width: screenWidth / 5,
-                                        alignment: Alignment.center,
-                                        child: Text(
-                                          "${CreatorsList[widget.index].water}",
-                                          textAlign: TextAlign.center,
-                                          style:
-                                          TextStyle(fontSize: 30),
+                                        SizedBox(
+                                          height: 20,
                                         ),
-                                        decoration: BoxDecoration(
-                                            color: Colors.pink
-                                                .withOpacity(0.2),
-                                            borderRadius:
-                                            BorderRadius.circular(
-                                                25)),
-                                        padding: EdgeInsets.all(10),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              )
-                            ],
-                          ),
+                                        Column(
+                                          children: [
+                                            Text(
+                                              "المياة",
+                                              style: TextStyle(fontSize: 25),
+                                              textAlign: TextAlign.center,
+                                            ),
+                                            SizedBox(
+                                              height: 10,
+                                            ),
+                                            Container(
+                                              alignment: Alignment.center,
+                                              width: screenWidth / 1.5,
+                                              child: Text(
+                                                "${CreatorsList[widget.index].water}",
+                                                textAlign: TextAlign.center,
+                                                style: TextStyle(fontSize: 30),
+                                              ),
+                                              decoration: BoxDecoration(
+                                                  color: Colors.pink
+                                                      .withOpacity(0.2),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          25)),
+                                              padding: EdgeInsets.all(10),
+                                            ),
+                                          ],
+                                        ),
+                                        SizedBox(
+                                          height: 20,
+                                        ),
+                                        Column(
+                                          children: [
+                                            Text(
+                                              "الصرف",
+                                              textAlign: TextAlign.center,
+                                              style: TextStyle(fontSize: 25),
+                                            ),
+                                            SizedBox(
+                                              height: 10,
+                                            ),
+                                            Container(
+                                              width: screenWidth / 1.5,
+                                              alignment: Alignment.center,
+                                              child: Text(
+                                                "${CreatorsList[widget.index].exchange}",
+                                                textAlign: TextAlign.center,
+                                                style: TextStyle(fontSize: 30),
+                                              ),
+                                              decoration: BoxDecoration(
+                                                  color: Colors.pink
+                                                      .withOpacity(0.2),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          25)),
+                                              padding: EdgeInsets.all(10),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    )
+                                  : Column(
+                                      children: [
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
+                                          children: [
+                                            Column(
+                                              children: [
+                                                Text(
+                                                  "الإستشاري",
+                                                  textAlign: TextAlign.center,
+                                                  style:
+                                                      TextStyle(fontSize: 25),
+                                                ),
+                                                SizedBox(
+                                                  height: 10,
+                                                ),
+                                                Container(
+                                                  width: screenWidth / 5,
+                                                  alignment: Alignment.center,
+                                                  child: Text(
+                                                    "${CreatorsList[widget.index].advisor}",
+                                                    textAlign: TextAlign.center,
+                                                    style:
+                                                        TextStyle(fontSize: 30),
+                                                  ),
+                                                  decoration: BoxDecoration(
+                                                      color: Colors.pink
+                                                          .withOpacity(0.2),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              25)),
+                                                  padding: EdgeInsets.all(10),
+                                                ),
+                                              ],
+                                            ),
+                                            Column(
+                                              children: [
+                                                Text(
+                                                  "تاريخ اخر تحديث ",
+                                                  textAlign: TextAlign.center,
+                                                  style:
+                                                      TextStyle(fontSize: 25),
+                                                ),
+                                                SizedBox(
+                                                  height: 10,
+                                                ),
+                                                Container(
+                                                  width: screenWidth / 5,
+                                                  alignment: Alignment.center,
+                                                  child: Text(
+                                                    "${CreatorsList[widget.index].updatedAt.split("T")[0]} , ${CreatorsList[widget.index].updatedAt.split("T")[1].split(".")[0]}",
+                                                    textAlign: TextAlign.center,
+                                                    style:
+                                                        TextStyle(fontSize: 30),
+                                                  ),
+                                                  decoration: BoxDecoration(
+                                                      color: Colors.pink
+                                                          .withOpacity(0.2),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              25)),
+                                                  padding: EdgeInsets.all(10),
+                                                ),
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                        SizedBox(
+                                          height: 50,
+                                        ),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
+                                          children: [
+                                            Column(
+                                              children: [
+                                                Text(
+                                                  "الصرف",
+                                                  style:
+                                                      TextStyle(fontSize: 25),
+                                                  textAlign: TextAlign.center,
+                                                ),
+                                                SizedBox(
+                                                  height: 10,
+                                                ),
+                                                Container(
+                                                  alignment: Alignment.center,
+                                                  width: screenWidth / 5,
+                                                  child: Text(
+                                                    "${CreatorsList[widget.index].exchange}",
+                                                    textAlign: TextAlign.center,
+                                                    style:
+                                                        TextStyle(fontSize: 30),
+                                                  ),
+                                                  decoration: BoxDecoration(
+                                                      color: Colors.pink
+                                                          .withOpacity(0.2),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              25)),
+                                                  padding: EdgeInsets.all(10),
+                                                ),
+                                              ],
+                                            ),
+                                            Column(
+                                              children: [
+                                                Text(
+                                                  "المياة",
+                                                  textAlign: TextAlign.center,
+                                                  style:
+                                                      TextStyle(fontSize: 25),
+                                                ),
+                                                SizedBox(
+                                                  height: 10,
+                                                ),
+                                                Container(
+                                                  width: screenWidth / 5,
+                                                  alignment: Alignment.center,
+                                                  child: Text(
+                                                    "${CreatorsList[widget.index].water}",
+                                                    textAlign: TextAlign.center,
+                                                    style:
+                                                        TextStyle(fontSize: 30),
+                                                  ),
+                                                  decoration: BoxDecoration(
+                                                      color: Colors.pink
+                                                          .withOpacity(0.2),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              25)),
+                                                  padding: EdgeInsets.all(10),
+                                                ),
+                                              ],
+                                            ),
+                                          ],
+                                        )
+                                      ],
+                                    ),
                           SizedBox(
                             height: 40,
                           ),
                           screenWidth > 1200
                               ? Row(
-                            mainAxisAlignment:
-                            MainAxisAlignment.spaceBetween,
-                            children: [
-                              Column(
-                                children: [
-                                  Text(
-                                    "إطلاق التيار الكهربي",
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(fontSize: 25),
-                                  ),
-                                  SizedBox(
-                                    height: 10,
-                                  ),
-                                  Container(
-                                    alignment: Alignment.center,
-                                    width: screenWidth / 5,
-                                    child: Text(
-                                      "${CreatorsList[widget.index].thepositionoftheelectriccurrent}",
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(fontSize: 30),
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Column(
+                                      children: [
+                                        Text(
+                                          "إطلاق التيار الكهربي",
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(fontSize: 25),
+                                        ),
+                                        SizedBox(
+                                          height: 10,
+                                        ),
+                                        Container(
+                                          alignment: Alignment.center,
+                                          width: screenWidth / 5,
+                                          child: Text(
+                                            "${CreatorsList[widget.index].thepositionoftheelectriccurrent}",
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(fontSize: 30),
+                                          ),
+                                          decoration: BoxDecoration(
+                                              color:
+                                                  Colors.pink.withOpacity(0.2),
+                                              borderRadius:
+                                                  BorderRadius.circular(25)),
+                                          padding: EdgeInsets.all(10),
+                                        ),
+                                      ],
                                     ),
-                                    decoration: BoxDecoration(
-                                        color:
-                                        Colors.pink.withOpacity(0.2),
-                                        borderRadius:
-                                        BorderRadius.circular(25)),
-                                    padding: EdgeInsets.all(10),
-                                  ),
-                                ],
-                              ),
-                              Column(
-                                children: [
-                                  Text(
-                                    "تركيب المحول",
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(fontSize: 25),
-                                  ),
-                                  SizedBox(
-                                    height: 10,
-                                  ),
-                                  Container(
-                                    width: screenWidth / 5,
-                                    alignment: Alignment.center,
-                                    child: Text(
-                                      "${CreatorsList[widget.index].adapterinstallation}",
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(fontSize: 30),
+                                    Column(
+                                      children: [
+                                        Text(
+                                          "تركيب المحول",
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(fontSize: 25),
+                                        ),
+                                        SizedBox(
+                                          height: 10,
+                                        ),
+                                        Container(
+                                          width: screenWidth / 5,
+                                          alignment: Alignment.center,
+                                          child: Text(
+                                            "${CreatorsList[widget.index].adapterinstallation}",
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(fontSize: 30),
+                                          ),
+                                          decoration: BoxDecoration(
+                                              color:
+                                                  Colors.pink.withOpacity(0.2),
+                                              borderRadius:
+                                                  BorderRadius.circular(25)),
+                                          padding: EdgeInsets.all(10),
+                                        ),
+                                      ],
                                     ),
-                                    decoration: BoxDecoration(
-                                        color:
-                                        Colors.pink.withOpacity(0.2),
-                                        borderRadius:
-                                        BorderRadius.circular(25)),
-                                    padding: EdgeInsets.all(10),
-                                  ),
-                                ],
-                              ),
-                              Column(
-                                children: [
-                                  Text(
-                                    "توريد المحول",
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(fontSize: 25),
-                                  ),
-                                  SizedBox(
-                                    height: 10,
-                                  ),
-                                  Container(
-                                    width: screenWidth / 5,
-                                    alignment: Alignment.center,
-                                    child: Text(
-                                      "${CreatorsList[widget.index].transformersupply}",
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(fontSize: 30),
+                                    Column(
+                                      children: [
+                                        Text(
+                                          "توريد المحول",
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(fontSize: 25),
+                                        ),
+                                        SizedBox(
+                                          height: 10,
+                                        ),
+                                        Container(
+                                          width: screenWidth / 5,
+                                          alignment: Alignment.center,
+                                          child: Text(
+                                            "${CreatorsList[widget.index].transformersupply}",
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(fontSize: 30),
+                                          ),
+                                          decoration: BoxDecoration(
+                                              color:
+                                                  Colors.pink.withOpacity(0.2),
+                                              borderRadius:
+                                                  BorderRadius.circular(25)),
+                                          padding: EdgeInsets.all(10),
+                                        ),
+                                      ],
                                     ),
-                                    decoration: BoxDecoration(
-                                        color:
-                                        Colors.pink.withOpacity(0.2),
-                                        borderRadius:
-                                        BorderRadius.circular(25)),
-                                    padding: EdgeInsets.all(10),
-                                  ),
-                                ],
-                              ),
-                              Column(
-                                children: [
-                                  Text(
-                                    "الحماية المدنية",
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(fontSize: 25),
-                                  ),
-                                  SizedBox(
-                                    height: 10,
-                                  ),
-                                  Container(
-                                    width: screenWidth / 5,
-                                    alignment: Alignment.center,
-                                    child: Text(
-                                      "${CreatorsList[widget.index].civilProtection}",
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(fontSize: 30),
+                                    Column(
+                                      children: [
+                                        Text(
+                                          "الحماية المدنية",
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(fontSize: 25),
+                                        ),
+                                        SizedBox(
+                                          height: 10,
+                                        ),
+                                        Container(
+                                          width: screenWidth / 5,
+                                          alignment: Alignment.center,
+                                          child: Text(
+                                            "${CreatorsList[widget.index].civilProtection}",
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(fontSize: 30),
+                                          ),
+                                          decoration: BoxDecoration(
+                                              color:
+                                                  Colors.pink.withOpacity(0.2),
+                                              borderRadius:
+                                                  BorderRadius.circular(25)),
+                                          padding: EdgeInsets.all(10),
+                                        ),
+                                      ],
                                     ),
-                                    decoration: BoxDecoration(
-                                        color:
-                                        Colors.pink.withOpacity(0.2),
-                                        borderRadius:
-                                        BorderRadius.circular(25)),
-                                    padding: EdgeInsets.all(10),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          )
+                                  ],
+                                )
                               : screenWidth < 500
-                              ? Column(
-                            children: [
-                              Column(
-                                children: [
-                                  Text(
-                                    "الحماية المدنية",
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(fontSize: 25),
-                                  ),
-                                  SizedBox(
-                                    height: 10,
-                                  ),
-                                  Container(
-                                    width: screenWidth / 1.5,
-                                    alignment: Alignment.center,
-                                    child: Text(
-                                      "${CreatorsList[widget.index].civilProtection}",
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(fontSize: 30),
+                                  ? Column(
+                                      children: [
+                                        Column(
+                                          children: [
+                                            Text(
+                                              "الحماية المدنية",
+                                              textAlign: TextAlign.center,
+                                              style: TextStyle(fontSize: 25),
+                                            ),
+                                            SizedBox(
+                                              height: 10,
+                                            ),
+                                            Container(
+                                              width: screenWidth / 1.5,
+                                              alignment: Alignment.center,
+                                              child: Text(
+                                                "${CreatorsList[widget.index].civilProtection}",
+                                                textAlign: TextAlign.center,
+                                                style: TextStyle(fontSize: 30),
+                                              ),
+                                              decoration: BoxDecoration(
+                                                  color: Colors.pink
+                                                      .withOpacity(0.2),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          25)),
+                                              padding: EdgeInsets.all(10),
+                                            ),
+                                          ],
+                                        ),
+                                        SizedBox(
+                                          height: 20,
+                                        ),
+                                        Column(
+                                          children: [
+                                            Text(
+                                              "توريد المحول",
+                                              textAlign: TextAlign.center,
+                                              style: TextStyle(fontSize: 25),
+                                            ),
+                                            SizedBox(
+                                              height: 10,
+                                            ),
+                                            Container(
+                                              width: screenWidth / 1.5,
+                                              alignment: Alignment.center,
+                                              child: Text(
+                                                "${CreatorsList[widget.index].transformersupply}",
+                                                textAlign: TextAlign.center,
+                                                style: TextStyle(fontSize: 30),
+                                              ),
+                                              decoration: BoxDecoration(
+                                                  color: Colors.pink
+                                                      .withOpacity(0.2),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          25)),
+                                              padding: EdgeInsets.all(10),
+                                            ),
+                                          ],
+                                        ),
+                                        SizedBox(
+                                          height: 20,
+                                        ),
+                                        Column(
+                                          children: [
+                                            Text(
+                                              "تركيب المحول",
+                                              style: TextStyle(fontSize: 25),
+                                              textAlign: TextAlign.center,
+                                            ),
+                                            SizedBox(
+                                              height: 10,
+                                            ),
+                                            Container(
+                                              alignment: Alignment.center,
+                                              width: screenWidth / 1.5,
+                                              child: Text(
+                                                "${CreatorsList[widget.index].adapterinstallation}",
+                                                textAlign: TextAlign.center,
+                                                style: TextStyle(fontSize: 30),
+                                              ),
+                                              decoration: BoxDecoration(
+                                                  color: Colors.pink
+                                                      .withOpacity(0.2),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          25)),
+                                              padding: EdgeInsets.all(10),
+                                            ),
+                                          ],
+                                        ),
+                                        SizedBox(
+                                          height: 20,
+                                        ),
+                                        Column(
+                                          children: [
+                                            Text(
+                                              "إطلاق التيار الكهربي",
+                                              textAlign: TextAlign.center,
+                                              style: TextStyle(fontSize: 25),
+                                            ),
+                                            SizedBox(
+                                              height: 10,
+                                            ),
+                                            Container(
+                                              width: screenWidth / 1.5,
+                                              alignment: Alignment.center,
+                                              child: Text(
+                                                "${CreatorsList[widget.index].thepositionoftheelectriccurrent}",
+                                                textAlign: TextAlign.center,
+                                                style: TextStyle(fontSize: 30),
+                                              ),
+                                              decoration: BoxDecoration(
+                                                  color: Colors.pink
+                                                      .withOpacity(0.2),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          25)),
+                                              padding: EdgeInsets.all(10),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    )
+                                  : Column(
+                                      children: [
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
+                                          children: [
+                                            Column(
+                                              children: [
+                                                Text(
+                                                  "توريد المحول",
+                                                  textAlign: TextAlign.center,
+                                                  style:
+                                                      TextStyle(fontSize: 25),
+                                                ),
+                                                SizedBox(
+                                                  height: 10,
+                                                ),
+                                                Container(
+                                                  width: screenWidth / 5,
+                                                  alignment: Alignment.center,
+                                                  child: Text(
+                                                    "${CreatorsList[widget.index].transformersupply}",
+                                                    textAlign: TextAlign.center,
+                                                    style:
+                                                        TextStyle(fontSize: 30),
+                                                  ),
+                                                  decoration: BoxDecoration(
+                                                      color: Colors.pink
+                                                          .withOpacity(0.2),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              25)),
+                                                  padding: EdgeInsets.all(10),
+                                                ),
+                                              ],
+                                            ),
+                                            Column(
+                                              children: [
+                                                Text(
+                                                  "الحماية المدنية",
+                                                  textAlign: TextAlign.center,
+                                                  style:
+                                                      TextStyle(fontSize: 25),
+                                                ),
+                                                SizedBox(
+                                                  height: 10,
+                                                ),
+                                                Container(
+                                                  width: screenWidth / 5,
+                                                  alignment: Alignment.center,
+                                                  child: Text(
+                                                    "${CreatorsList[widget.index].civilProtection}",
+                                                    textAlign: TextAlign.center,
+                                                    style:
+                                                        TextStyle(fontSize: 30),
+                                                  ),
+                                                  decoration: BoxDecoration(
+                                                      color: Colors.pink
+                                                          .withOpacity(0.2),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              25)),
+                                                  padding: EdgeInsets.all(10),
+                                                ),
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                        SizedBox(
+                                          height: 50,
+                                        ),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
+                                          children: [
+                                            Column(
+                                              children: [
+                                                Text(
+                                                  "إطلاق التيار الكهربي",
+                                                  style:
+                                                      TextStyle(fontSize: 25),
+                                                  textAlign: TextAlign.center,
+                                                ),
+                                                SizedBox(
+                                                  height: 10,
+                                                ),
+                                                Container(
+                                                  alignment: Alignment.center,
+                                                  width: screenWidth / 5,
+                                                  child: Text(
+                                                    "${CreatorsList[widget.index].thepositionoftheelectriccurrent}",
+                                                    textAlign: TextAlign.center,
+                                                    style:
+                                                        TextStyle(fontSize: 30),
+                                                  ),
+                                                  decoration: BoxDecoration(
+                                                      color: Colors.pink
+                                                          .withOpacity(0.2),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              25)),
+                                                  padding: EdgeInsets.all(10),
+                                                ),
+                                              ],
+                                            ),
+                                            Column(
+                                              children: [
+                                                Text(
+                                                  "تركيب المحول",
+                                                  textAlign: TextAlign.center,
+                                                  style:
+                                                      TextStyle(fontSize: 25),
+                                                ),
+                                                SizedBox(
+                                                  height: 10,
+                                                ),
+                                                Container(
+                                                  width: screenWidth / 5,
+                                                  alignment: Alignment.center,
+                                                  child: Text(
+                                                    "${CreatorsList[widget.index].adapterinstallation}",
+                                                    textAlign: TextAlign.center,
+                                                    style:
+                                                        TextStyle(fontSize: 30),
+                                                  ),
+                                                  decoration: BoxDecoration(
+                                                      color: Colors.pink
+                                                          .withOpacity(0.2),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              25)),
+                                                  padding: EdgeInsets.all(10),
+                                                ),
+                                              ],
+                                            ),
+                                          ],
+                                        )
+                                      ],
                                     ),
-                                    decoration: BoxDecoration(
-                                        color: Colors.pink
-                                            .withOpacity(0.2),
-                                        borderRadius:
-                                        BorderRadius.circular(
-                                            25)),
-                                    padding: EdgeInsets.all(10),
-                                  ),
-                                ],
-                              ),
-                              SizedBox(
-                                height: 20,
-                              ),
-                              Column(
-                                children: [
-                                  Text(
-                                    "توريد المحول",
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(fontSize: 25),
-                                  ),
-                                  SizedBox(
-                                    height: 10,
-                                  ),
-                                  Container(
-                                    width: screenWidth / 1.5,
-                                    alignment: Alignment.center,
-                                    child: Text(
-                                      "${CreatorsList[widget.index].transformersupply}",
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(fontSize: 30),
-                                    ),
-                                    decoration: BoxDecoration(
-                                        color: Colors.pink
-                                            .withOpacity(0.2),
-                                        borderRadius:
-                                        BorderRadius.circular(
-                                            25)),
-                                    padding: EdgeInsets.all(10),
-                                  ),
-                                ],
-                              ),
-                              SizedBox(
-                                height: 20,
-                              ),
-                              Column(
-                                children: [
-                                  Text(
-                                    "تركيب المحول",
-                                    style: TextStyle(fontSize: 25),
-                                    textAlign: TextAlign.center,
-                                  ),
-                                  SizedBox(
-                                    height: 10,
-                                  ),
-                                  Container(
-                                    alignment: Alignment.center,  
-                                    width: screenWidth / 1.5,
-                                    child: Text(
-                                      "${CreatorsList[widget.index].adapterinstallation}",
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(fontSize: 30),
-                                    ),
-                                    decoration: BoxDecoration(
-                                        color: Colors.pink
-                                            .withOpacity(0.2),
-                                        borderRadius:
-                                        BorderRadius.circular(
-                                            25)),
-                                    padding: EdgeInsets.all(10),
-                                  ),
-                                ],
-                              ),
-                              SizedBox(
-                                height: 20,
-                              ),
-                              Column(
-                                children: [
-                                  Text(
-                                    "إطلاق التيار الكهربي",
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(fontSize: 25),
-                                  ),
-                                  SizedBox(
-                                    height: 10,
-                                  ),
-                                  Container(
-                                    width: screenWidth / 1.5,
-                                    alignment: Alignment.center,
-                                    child: Text(
-                                      "${CreatorsList[widget.index].thepositionoftheelectriccurrent}",
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(fontSize: 30),
-                                    ),
-                                    decoration: BoxDecoration(
-                                        color: Colors.pink
-                                            .withOpacity(0.2),
-                                        borderRadius:
-                                        BorderRadius.circular(
-                                            25)),
-                                    padding: EdgeInsets.all(10),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          )
-                              : Column(
-                            children: [
-                              Row(
-                                mainAxisAlignment:
-                                MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  Column(
+                          //ERwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww5
+                          screenWidth > 1200
+                              ? Padding(
+                                  padding: const EdgeInsets.all(50.0),
+                                  child: Column(
                                     children: [
                                       Text(
-                                        "توريد المحول",
+                                        "ملاحظات",
                                         textAlign: TextAlign.center,
-                                        style:
-                                        TextStyle(fontSize: 25),
+                                        style: TextStyle(fontSize: 25),
                                       ),
                                       SizedBox(
                                         height: 10,
                                       ),
                                       Container(
-                                        width: screenWidth / 5,
+                                        width: screenWidth / 1.5,
+                                        height: screenHeight / 6,
                                         alignment: Alignment.center,
-                                        child: Text(
-                                          "${CreatorsList[widget.index].transformersupply}",
-                                          textAlign: TextAlign.center,
-                                          style:
-                                          TextStyle(fontSize: 30),
+                                        child: SingleChildScrollView(
+                                          child: Text(
+                                            "${CreatorsList[widget.index].notes}",
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(fontSize: 30),
+                                          ),
                                         ),
                                         decoration: BoxDecoration(
-                                            color: Colors.pink
-                                                .withOpacity(0.2),
+                                            color: Colors.pink.withOpacity(0.2),
                                             borderRadius:
-                                            BorderRadius.circular(
-                                                25)),
+                                                BorderRadius.circular(25)),
                                         padding: EdgeInsets.all(10),
                                       ),
                                     ],
                                   ),
-                                  Column(
-                                    children: [
-                                      Text(
-                                        "الحماية المدنية",
-                                        textAlign: TextAlign.center,
-                                        style:
-                                        TextStyle(fontSize: 25),
+                                )
+                              : screenWidth < 500
+                                  ? Padding(
+                                      padding: const EdgeInsets.only(
+                                          top: 20, bottom: 50),
+                                      child: Column(
+                                        children: [
+                                          Text(
+                                            "ملاحظات",
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(fontSize: 25),
+                                          ),
+                                          SizedBox(
+                                            height: 10,
+                                          ),
+                                          Container(
+                                            width: screenWidth,
+                                            height: screenHeight / 6,
+                                            alignment: Alignment.center,
+                                            child: SingleChildScrollView(
+                                              child: Text(
+                                                "${CreatorsList[widget.index].notes}",
+                                                textAlign: TextAlign.center,
+                                                style: TextStyle(fontSize: 30),
+                                              ),
+                                            ),
+                                            decoration: BoxDecoration(
+                                                color: Colors.pink
+                                                    .withOpacity(0.2),
+                                                borderRadius:
+                                                    BorderRadius.circular(25)),
+                                            padding: EdgeInsets.all(10),
+                                          ),
+                                        ],
                                       ),
-                                      SizedBox(
-                                        height: 10,
+                                    )
+                                  : Padding(
+                                      padding: const EdgeInsets.all(50.0),
+                                      child: Column(
+                                        children: [
+                                          Text(
+                                            "ملاحظات",
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(fontSize: 25),
+                                          ),
+                                          SizedBox(
+                                            height: 10,
+                                          ),
+                                          Container(
+                                            width: screenWidth / 1.5,
+                                            height: screenHeight / 6,
+                                            alignment: Alignment.center,
+                                            child: SingleChildScrollView(
+                                              child: Text(
+                                                "${CreatorsList[widget.index].notes}",
+                                                textAlign: TextAlign.center,
+                                                style: TextStyle(fontSize: 30),
+                                              ),
+                                            ),
+                                            decoration: BoxDecoration(
+                                                color: Colors.pink
+                                                    .withOpacity(0.2),
+                                                borderRadius:
+                                                    BorderRadius.circular(25)),
+                                            padding: EdgeInsets.all(10),
+                                          ),
+                                        ],
                                       ),
-                                      Container(
-                                        width: screenWidth / 5,
-                                        alignment: Alignment.center,
-                                        child: Text(
-                                          "${CreatorsList[widget.index].civilProtection}",
-                                          textAlign: TextAlign.center,
-                                          style:
-                                          TextStyle(fontSize: 30),
-                                        ),
-                                        decoration: BoxDecoration(
-                                            color: Colors.pink
-                                                .withOpacity(0.2),
-                                            borderRadius:
-                                            BorderRadius.circular(
-                                                25)),
-                                        padding: EdgeInsets.all(10),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                              SizedBox(
-                                height: 50,
-                              ),
-                              Row(
-                                mainAxisAlignment:
-                                MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  Column(
-                                    children: [
-                                      Text(
-                                        "إطلاق التيار الكهربي",
-                                        style:
-                                        TextStyle(fontSize: 25),
-                                        textAlign: TextAlign.center,
-                                      ),
-                                      SizedBox(
-                                        height: 10,
-                                      ),
-                                      Container(
-                                        alignment: Alignment.center,
-                                        width: screenWidth / 5,
-                                        child: Text(
-                                          "${CreatorsList[widget.index].thepositionoftheelectriccurrent}",
-                                          textAlign: TextAlign.center,
-                                          style:
-                                          TextStyle(fontSize: 30),
-                                        ),
-                                        decoration: BoxDecoration(
-                                            color: Colors.pink
-                                                .withOpacity(0.2),
-                                            borderRadius:
-                                            BorderRadius.circular(
-                                                25)),
-                                        padding: EdgeInsets.all(10),
-                                      ),
-                                    ],
-                                  ),
-                                  Column(
-                                    children: [
-                                      Text(
-                                        "تركيب المحول",
-                                        textAlign: TextAlign.center,
-                                        style:
-                                        TextStyle(fontSize: 25),
-                                      ),
-                                      SizedBox(
-                                        height: 10,
-                                      ),
-                                      Container(
-                                        width: screenWidth / 5,
-                                        alignment: Alignment.center,
-                                        child: Text(
-                                          "${CreatorsList[widget.index].adapterinstallation}",
-                                          textAlign: TextAlign.center,
-                                          style:
-                                          TextStyle(fontSize: 30),
-                                        ),
-                                        decoration: BoxDecoration(
-                                            color: Colors.pink
-                                                .withOpacity(0.2),
-                                            borderRadius:
-                                            BorderRadius.circular(
-                                                25)),
-                                        padding: EdgeInsets.all(10),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              )
-                            ],
-                          ),
+                                    ),
                         ],
                       ),
                     ),

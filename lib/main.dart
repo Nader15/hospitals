@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hospitals/ui/Admin_View/admin_view.dart';
-import 'package:hospitals/ui/Axes/axes_test.dart';
 import 'package:hospitals/ui/Input_View/input_view.dart';
 import 'package:hospitals/ui/dashboard/dashboard.dart';
 import 'package:hospitals/ui/dashboard_test.dart';
@@ -15,6 +14,7 @@ void main() {
     MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        fontFamily: "Cairo-Regular",
         // primarySwatch: Colors.blue,
       ),
       title: "first-app",
@@ -23,8 +23,8 @@ void main() {
       // home: LoginScreen(),
       // home: GovernmentsBody(),
       // home: DashBoard()
-      home: AdminView()
-      // home: InputView()
+      // home: AdminView()
+      home: InputView()
       // home: MyApp()
       // home: AxesTest()
       // home: HospitalsSubcategory1Body(),

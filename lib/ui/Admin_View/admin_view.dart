@@ -53,7 +53,7 @@ class _AdminViewState extends State<AdminView> {
                 // width: screenWidth/2,
                 height: screenHeight,
                 child: Container(
-                  width: screenWidth - (screenWidth / 6),
+                  width: screenWidth>1200?screenWidth - (screenWidth / 6):screenWidth - (screenWidth / 2),
                   // color: Colors.red,
                   child: Stack(
                     children: [
@@ -61,7 +61,7 @@ class _AdminViewState extends State<AdminView> {
                         child: Opacity(
                             opacity: 0.1,
                             child: Image.asset(
-                              "images/main_logo.png",
+                              Logo,
                               width: 300,
                             )),
                       ),
@@ -84,7 +84,7 @@ class _AdminViewState extends State<AdminView> {
             Align(
               // alignment: Alignment.centerLeft,
               child: Container(
-                width: screenWidth / 6,
+                width: screenWidth>1200?screenWidth / 6 :screenWidth / 2,
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                       begin: Alignment.topCenter,
@@ -98,7 +98,7 @@ class _AdminViewState extends State<AdminView> {
                   child: Column(
                     children: [
                       Image.asset(
-                        "images/main_logo.png",
+                        Logo,
                         width: 150,
                       ),
                       Container(

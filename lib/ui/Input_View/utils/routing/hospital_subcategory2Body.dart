@@ -108,7 +108,7 @@ class _HospitalsSubcategory2BodyState extends State<HospitalsSubcategory2Body> {
               child: Opacity(
                   opacity: 0.1,
                   child: Image.asset(
-                    "images/main_logo.png",
+                    Logo,
                     width: 300,
                   )),
             ),
@@ -172,7 +172,7 @@ class _HospitalsSubcategory2BodyState extends State<HospitalsSubcategory2Body> {
                     ],
                   ),
                   SizedBox(
-                    height: screenHeight / 10,
+                    height: screenHeight / 30 ,
                   ),
                   Text(
                     "${headerGlobal}",
@@ -180,7 +180,7 @@ class _HospitalsSubcategory2BodyState extends State<HospitalsSubcategory2Body> {
                     style: TextStyle(color: Colors.black, fontSize: 50),
                   ),
                   SizedBox(
-                    height: screenHeight / 10,
+                    height: screenHeight / 15,
                   ),
                   Container(
                     width: screenWidth / 1.7,
@@ -189,53 +189,25 @@ class _HospitalsSubcategory2BodyState extends State<HospitalsSubcategory2Body> {
                         ? Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              // InkWell(
-                              //   onTap: () {
-                              //     // Api(context).PostWorkApi(_scaffoldKey,workTypesList[index].name);
-                              //   },
-                              //   child: Container(
-                              //     width: screenWidth/6,
-                              //     child: TextFormField(
-                              //       controller: contractorController,
-                              //       onTap: () => _selectDate(context),
-                              //       style: TextStyle(color: Colors.white),
-                              //       textAlign: TextAlign.right,
-                              //       cursorColor: Colors.blue,
-                              //       decoration: InputDecoration(
-                              //         hintText: "مقاول التنفيذ",
-                              //         hintStyle: TextStyle(fontSize: 25),
-                              //         filled: true,
-                              //         fillColor: Color(0XffE9A4A7),
-                              //         border: OutlineInputBorder(
-                              //             borderSide: BorderSide.none,
-                              //             borderRadius: BorderRadius.circular(25)),
-                              //       ),
-                              //     ),
-                              //   ),
-                              // ),
-                              InkWell(
-                                onTap: () {
-                                  // Api(context).PostWorkApi(_scaffoldKey,workTypesList[index].name);
-                                },
-                                child: Container(
-                                  alignment: Alignment.center,
-                                  width: screenWidth / 6,
-                                  child: TextFormField(
-                                    controller: dateController2,
-                                    onTap: () => _selectDate2(context),
-                                    style: TextStyle(color: Colors.white),
-                                    textAlign: TextAlign.right,
-                                    cursorColor: Colors.blue,
-                                    decoration: InputDecoration(
-                                      hintText: "تاريخ الاستلام المتوقع",
-                                      hintStyle: TextStyle(fontSize: 25),
-                                      filled: true,
-                                      fillColor: Color(0XffE9A4A7),
-                                      border: OutlineInputBorder(
-                                          borderSide: BorderSide.none,
-                                          borderRadius:
-                                              BorderRadius.circular(25)),
-                                    ),
+
+                              Container(
+                                alignment: Alignment.center,
+                                width: screenWidth / 6,
+                                child: TextFormField(
+                                  controller: dateController2,
+                                  onTap: () => _selectDate2(context),
+                                  style: TextStyle(color: Colors.white),
+                                  textAlign: TextAlign.right,
+                                  cursorColor: Colors.blue,
+                                  decoration: InputDecoration(
+                                    hintText: "تاريخ الاستلام المتوقع",
+                                    hintStyle: TextStyle(fontSize: 25),
+                                    filled: true,
+                                    fillColor: Color(0XffE9A4A7),
+                                    border: OutlineInputBorder(
+                                        borderSide: BorderSide.none,
+                                        borderRadius:
+                                            BorderRadius.circular(25)),
                                   ),
                                 ),
                               ),

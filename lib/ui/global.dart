@@ -40,6 +40,7 @@ String WaterState_id;
 String WorkTypeGlobal;
 var dataView;
 int idView;
+String Logo = "assets/images/logo.png";
 // String dateFormat =
 //     "${CreatorsList[widget.index].updatedAt.split("T")[0]} , ${CreatorsList[widget.index].updatedAt.split("T")[1].split(".")[0]}";
 
