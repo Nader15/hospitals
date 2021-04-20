@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hospitals/ui/Input_View/utils/Navigator.dart';
-import 'file:///D:/Nadrinhoo/AndroidStudioProjects/hospitals/lib/ui/global.dart';
+import 'package:hospitals/ui/global.dart';
 
 class Constructions extends StatefulWidget {
   int currentIndex;

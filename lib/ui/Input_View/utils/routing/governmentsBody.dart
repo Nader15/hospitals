@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hospitals/ApiFunctions/api.dart';
 import 'package:hospitals/ui/Axes/Constructions.dart';
 import 'package:hospitals/ui/Input_View/utils/Navigator.dart';
-import 'file:///D:/Nadrinhoo/AndroidStudioProjects/hospitals/lib/ui/global.dart';
+import 'package:hospitals/ui/global.dart';
 import 'package:hospitals/ui/Input_View/utils/routing/departmentsBody.dart';
 
 class GovernmentsBody extends StatefulWidget {

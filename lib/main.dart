@@ -5,10 +5,10 @@ import 'package:hospitals/ui/Input_View/input_view.dart';
 import 'package:hospitals/ui/dashboard/dashboard.dart';
 import 'package:hospitals/ui/dashboard_test.dart';
 import 'package:hospitals/ui/Input_View/utils/Navigator.dart';
-import 'file:///D:/Nadrinhoo/AndroidStudioProjects/hospitals/lib/ui/global.dart';
+import 'package:hospitals/ui/global.dart';
 import 'package:hospitals/ui/test.dart';
 import 'package:hospitals/ui/Input_View/utils/Navigator.dart';
-import 'file:///D:/Nadrinhoo/AndroidStudioProjects/hospitals/lib/ui/global.dart';
+import 'package:hospitals/ui/global.dart';
 
 void main() {
   runApp(

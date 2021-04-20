@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:hospitals/ui/Admin_View/admin_login.dart';
 import 'package:hospitals/ui/Input_View/input_login.dart';
 import 'package:hospitals/ui/Input_View/utils/Navigator.dart';
-import 'file:///D:/Nadrinhoo/AndroidStudioProjects/hospitals/lib/ui/global.dart';
 import 'package:hospitals/ui/Input_View/utils/Navigator.dart';
-import 'file:///D:/Nadrinhoo/AndroidStudioProjects/hospitals/lib/ui/global.dart';
+import 'package:hospitals/ui/global.dart';
 
 class DashBoard extends StatefulWidget {
   @override

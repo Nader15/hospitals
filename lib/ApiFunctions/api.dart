@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:hospitals/models/admin_view_model.dart';
 import 'package:hospitals/models/advisors_model.dart';
@@ -19,8 +18,8 @@ import 'package:hospitals/models/sectionType_model.dart';
 import 'package:hospitals/models/water_state_model.dart';
 import 'package:hospitals/models/workTypes_model.dart';
 import 'package:hospitals/ui/Input_View/utils/Navigator.dart';
-import 'file:///D:/Nadrinhoo/AndroidStudioProjects/hospitals/lib/ui/global.dart';
 import 'package:hospitals/ui/custom_snackBar.dart';
+import 'package:hospitals/ui/global.dart';
 import 'package:xs_progress_hud/xs_progress_hud.dart';
 import 'package:http/http.dart' as http;
 
