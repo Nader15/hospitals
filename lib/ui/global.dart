@@ -40,6 +40,8 @@ String WaterState_id;
 String WorkTypeGlobal;
 var dataView;
 int idView;
+// String dateFormat =
+//     "${CreatorsList[widget.index].updatedAt.split("T")[0]} , ${CreatorsList[widget.index].updatedAt.split("T")[1].split(".")[0]}";
 
 //--------------------------------------
 int depIdGlobal;

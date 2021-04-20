@@ -896,7 +896,7 @@ class _HospitalsView2State extends State<HospitalsView2> {
                               Column(
                                 children: [
                                   Text(
-                                    "طبيعة العمل",
+                                    "الصرف",
                                     textAlign: TextAlign.center,
                                     style: TextStyle(fontSize: 25),
                                   ),
@@ -907,7 +907,7 @@ class _HospitalsView2State extends State<HospitalsView2> {
                                     alignment: Alignment.center,
                                     width: screenWidth / 5,
                                     child: Text(
-                                      "${CreatorsList[widget.index].type}",
+                                      "${CreatorsList[widget.index].exchange}",
                                       textAlign: TextAlign.center,
                                       style: TextStyle(fontSize: 30),
                                     ),
@@ -923,7 +923,7 @@ class _HospitalsView2State extends State<HospitalsView2> {
                               Column(
                                 children: [
                                   Text(
-                                    "نوع المنشأة",
+                                    "المياة",
                                     textAlign: TextAlign.center,
                                     style: TextStyle(fontSize: 25),
                                   ),
@@ -934,7 +934,7 @@ class _HospitalsView2State extends State<HospitalsView2> {
                                     width: screenWidth / 5,
                                     alignment: Alignment.center,
                                     child: Text(
-                                      "${CreatorsList[widget.index].unittype}",
+                                      "${CreatorsList[widget.index].water}",
                                       textAlign: TextAlign.center,
                                       style: TextStyle(fontSize: 30),
                                     ),
@@ -950,7 +950,7 @@ class _HospitalsView2State extends State<HospitalsView2> {
                               Column(
                                 children: [
                                   Text(
-                                    "إدارة",
+                                    "الإستشاري",
                                     textAlign: TextAlign.center,
                                     style: TextStyle(fontSize: 25),
                                   ),
@@ -961,7 +961,7 @@ class _HospitalsView2State extends State<HospitalsView2> {
                                     width: screenWidth / 5,
                                     alignment: Alignment.center,
                                     child: Text(
-                                      "${CreatorsList[widget.index].departments}",
+                                      "${CreatorsList[widget.index].advisor}",
                                       textAlign: TextAlign.center,
                                       style: TextStyle(fontSize: 30),
                                     ),
@@ -977,7 +977,7 @@ class _HospitalsView2State extends State<HospitalsView2> {
                               Column(
                                 children: [
                                   Text(
-                                    "المحافظة",
+                                    "تاريخ اخر تحديث",
                                     textAlign: TextAlign.center,
                                     style: TextStyle(fontSize: 25),
                                   ),
@@ -988,7 +988,7 @@ class _HospitalsView2State extends State<HospitalsView2> {
                                     width: screenWidth / 5,
                                     alignment: Alignment.center,
                                     child: Text(
-                                      "${CreatorsList[widget.index].governorate}",
+                                      "${CreatorsList[widget.index].updatedAt.split("T")[0]} , ${CreatorsList[widget.index].updatedAt.split("T")[1].split(".")[0]}",
                                       textAlign: TextAlign.center,
                                       style: TextStyle(fontSize: 30),
                                     ),
@@ -1009,7 +1009,7 @@ class _HospitalsView2State extends State<HospitalsView2> {
                               Column(
                                 children: [
                                   Text(
-                                    "المحافظة",
+                                    "تاريخ اخر تحديث",
                                     textAlign: TextAlign.center,
                                     style: TextStyle(fontSize: 25),
                                   ),
@@ -1020,7 +1020,7 @@ class _HospitalsView2State extends State<HospitalsView2> {
                                     width: screenWidth / 1.5,
                                     alignment: Alignment.center,
                                     child: Text(
-                                      "${CreatorsList[widget.index].governorate}",
+                                      "${CreatorsList[widget.index].updatedAt.split("T")[0]} , ${CreatorsList[widget.index].updatedAt.split("T")[1].split(".")[0]}",
                                       textAlign: TextAlign.center,
                                       style: TextStyle(fontSize: 30),
                                     ),
@@ -1040,7 +1040,7 @@ class _HospitalsView2State extends State<HospitalsView2> {
                               Column(
                                 children: [
                                   Text(
-                                    "إدارة",
+                                    "الإستشاري",
                                     textAlign: TextAlign.center,
                                     style: TextStyle(fontSize: 25),
                                   ),
@@ -1051,7 +1051,7 @@ class _HospitalsView2State extends State<HospitalsView2> {
                                     width: screenWidth / 1.5,
                                     alignment: Alignment.center,
                                     child: Text(
-                                      "${CreatorsList[widget.index].departments}",
+                                      "${CreatorsList[widget.index].advisor}",
                                       textAlign: TextAlign.center,
                                       style: TextStyle(fontSize: 30),
                                     ),
@@ -1071,7 +1071,7 @@ class _HospitalsView2State extends State<HospitalsView2> {
                               Column(
                                 children: [
                                   Text(
-                                    "نوع المنشأة",
+                                    "المياة",
                                     style: TextStyle(fontSize: 25),
                                     textAlign: TextAlign.center,
                                   ),
@@ -1082,7 +1082,7 @@ class _HospitalsView2State extends State<HospitalsView2> {
                                     alignment: Alignment.center,
                                     width: screenWidth / 1.5,
                                     child: Text(
-                                      "${CreatorsList[widget.index].unittype}",
+                                      "${CreatorsList[widget.index].water}",
                                       textAlign: TextAlign.center,
                                       style: TextStyle(fontSize: 30),
                                     ),
@@ -1102,7 +1102,7 @@ class _HospitalsView2State extends State<HospitalsView2> {
                               Column(
                                 children: [
                                   Text(
-                                    "طبيعة العمل",
+                                    "الصرف",
                                     textAlign: TextAlign.center,
                                     style: TextStyle(fontSize: 25),
                                   ),
@@ -1113,7 +1113,7 @@ class _HospitalsView2State extends State<HospitalsView2> {
                                     width: screenWidth / 1.5,
                                     alignment: Alignment.center,
                                     child: Text(
-                                      "${CreatorsList[widget.index].type}",
+                                      "${CreatorsList[widget.index].exchange}",
                                       textAlign: TextAlign.center,
                                       style: TextStyle(fontSize: 30),
                                     ),
@@ -1138,7 +1138,7 @@ class _HospitalsView2State extends State<HospitalsView2> {
                                   Column(
                                     children: [
                                       Text(
-                                        "إدارة",
+                                        "الإستشاري",
                                         textAlign: TextAlign.center,
                                         style:
                                         TextStyle(fontSize: 25),
@@ -1150,7 +1150,7 @@ class _HospitalsView2State extends State<HospitalsView2> {
                                         width: screenWidth / 5,
                                         alignment: Alignment.center,
                                         child: Text(
-                                          "${CreatorsList[widget.index].departments}",
+                                          "${CreatorsList[widget.index].advisor}",
                                           textAlign: TextAlign.center,
                                           style:
                                           TextStyle(fontSize: 30),
@@ -1168,7 +1168,7 @@ class _HospitalsView2State extends State<HospitalsView2> {
                                   Column(
                                     children: [
                                       Text(
-                                        "المحافظة",
+                                        "تاريخ اخر تحديث ",
                                         textAlign: TextAlign.center,
                                         style:
                                         TextStyle(fontSize: 25),
@@ -1180,7 +1180,7 @@ class _HospitalsView2State extends State<HospitalsView2> {
                                         width: screenWidth / 5,
                                         alignment: Alignment.center,
                                         child: Text(
-                                          "${CreatorsList[widget.index].governorate}",
+                                          "${CreatorsList[widget.index].updatedAt.split("T")[0]} , ${CreatorsList[widget.index].updatedAt.split("T")[1].split(".")[0]}",
                                           textAlign: TextAlign.center,
                                           style:
                                           TextStyle(fontSize: 30),
@@ -1207,7 +1207,7 @@ class _HospitalsView2State extends State<HospitalsView2> {
                                   Column(
                                     children: [
                                       Text(
-                                        "طبيعة العمل",
+                                        "الصرف",
                                         style:
                                         TextStyle(fontSize: 25),
                                         textAlign: TextAlign.center,
@@ -1219,7 +1219,7 @@ class _HospitalsView2State extends State<HospitalsView2> {
                                         alignment: Alignment.center,
                                         width: screenWidth / 5,
                                         child: Text(
-                                          "${CreatorsList[widget.index].type}",
+                                          "${CreatorsList[widget.index].exchange}",
                                           textAlign: TextAlign.center,
                                           style:
                                           TextStyle(fontSize: 30),
@@ -1237,7 +1237,7 @@ class _HospitalsView2State extends State<HospitalsView2> {
                                   Column(
                                     children: [
                                       Text(
-                                        "نوع المنشأة",
+                                        "المياة",
                                         textAlign: TextAlign.center,
                                         style:
                                         TextStyle(fontSize: 25),
@@ -1249,7 +1249,7 @@ class _HospitalsView2State extends State<HospitalsView2> {
                                         width: screenWidth / 5,
                                         alignment: Alignment.center,
                                         child: Text(
-                                          "${CreatorsList[widget.index].unittype}",
+                                          "${CreatorsList[widget.index].water}",
                                           textAlign: TextAlign.center,
                                           style:
                                           TextStyle(fontSize: 30),
@@ -1279,7 +1279,7 @@ class _HospitalsView2State extends State<HospitalsView2> {
                               Column(
                                 children: [
                                   Text(
-                                    "مقاول التنفيذ",
+                                    "إطلاق التيار الكهربي",
                                     textAlign: TextAlign.center,
                                     style: TextStyle(fontSize: 25),
                                   ),
@@ -1290,7 +1290,7 @@ class _HospitalsView2State extends State<HospitalsView2> {
                                     alignment: Alignment.center,
                                     width: screenWidth / 5,
                                     child: Text(
-                                      "${CreatorsList[widget.index].contractor}",
+                                      "${CreatorsList[widget.index].thepositionoftheelectriccurrent}",
                                       textAlign: TextAlign.center,
                                       style: TextStyle(fontSize: 30),
                                     ),
@@ -1306,7 +1306,7 @@ class _HospitalsView2State extends State<HospitalsView2> {
                               Column(
                                 children: [
                                   Text(
-                                    "تاريخ الإستلام المتوقع",
+                                    "تركيب المحول",
                                     textAlign: TextAlign.center,
                                     style: TextStyle(fontSize: 25),
                                   ),
@@ -1317,7 +1317,7 @@ class _HospitalsView2State extends State<HospitalsView2> {
                                     width: screenWidth / 5,
                                     alignment: Alignment.center,
                                     child: Text(
-                                      "${CreatorsList[widget.index].datedelivery}",
+                                      "${CreatorsList[widget.index].adapterinstallation}",
                                       textAlign: TextAlign.center,
                                       style: TextStyle(fontSize: 30),
                                     ),
@@ -1333,7 +1333,7 @@ class _HospitalsView2State extends State<HospitalsView2> {
                               Column(
                                 children: [
                                   Text(
-                                    "تاريخ الإستلام المقرر",
+                                    "توريد المحول",
                                     textAlign: TextAlign.center,
                                     style: TextStyle(fontSize: 25),
                                   ),
@@ -1344,7 +1344,7 @@ class _HospitalsView2State extends State<HospitalsView2> {
                                     width: screenWidth / 5,
                                     alignment: Alignment.center,
                                     child: Text(
-                                      "${CreatorsList[widget.index].databasic}",
+                                      "${CreatorsList[widget.index].transformersupply}",
                                       textAlign: TextAlign.center,
                                       style: TextStyle(fontSize: 30),
                                     ),
@@ -1360,7 +1360,7 @@ class _HospitalsView2State extends State<HospitalsView2> {
                               Column(
                                 children: [
                                   Text(
-                                    "نسبة التنفيذ",
+                                    "الحماية المدنية",
                                     textAlign: TextAlign.center,
                                     style: TextStyle(fontSize: 25),
                                   ),
@@ -1371,7 +1371,7 @@ class _HospitalsView2State extends State<HospitalsView2> {
                                     width: screenWidth / 5,
                                     alignment: Alignment.center,
                                     child: Text(
-                                      "%${CreatorsList[widget.index].excutionpercentage}",
+                                      "${CreatorsList[widget.index].civilProtection}",
                                       textAlign: TextAlign.center,
                                       style: TextStyle(fontSize: 30),
                                     ),
@@ -1392,7 +1392,7 @@ class _HospitalsView2State extends State<HospitalsView2> {
                               Column(
                                 children: [
                                   Text(
-                                    "نسبة التنفيذ",
+                                    "الحماية المدنية",
                                     textAlign: TextAlign.center,
                                     style: TextStyle(fontSize: 25),
                                   ),
@@ -1403,7 +1403,7 @@ class _HospitalsView2State extends State<HospitalsView2> {
                                     width: screenWidth / 1.5,
                                     alignment: Alignment.center,
                                     child: Text(
-                                      "%${CreatorsList[widget.index].excutionpercentage}",
+                                      "${CreatorsList[widget.index].civilProtection}",
                                       textAlign: TextAlign.center,
                                       style: TextStyle(fontSize: 30),
                                     ),
@@ -1423,7 +1423,7 @@ class _HospitalsView2State extends State<HospitalsView2> {
                               Column(
                                 children: [
                                   Text(
-                                    "تاريخ الإستلام المقرر",
+                                    "توريد المحول",
                                     textAlign: TextAlign.center,
                                     style: TextStyle(fontSize: 25),
                                   ),
@@ -1434,7 +1434,7 @@ class _HospitalsView2State extends State<HospitalsView2> {
                                     width: screenWidth / 1.5,
                                     alignment: Alignment.center,
                                     child: Text(
-                                      "${CreatorsList[widget.index].databasic}",
+                                      "${CreatorsList[widget.index].transformersupply}",
                                       textAlign: TextAlign.center,
                                       style: TextStyle(fontSize: 30),
                                     ),
@@ -1454,7 +1454,7 @@ class _HospitalsView2State extends State<HospitalsView2> {
                               Column(
                                 children: [
                                   Text(
-                                    "تاريخ الإستلام المتوقع",
+                                    "تركيب المحول",
                                     style: TextStyle(fontSize: 25),
                                     textAlign: TextAlign.center,
                                   ),
@@ -1462,10 +1462,10 @@ class _HospitalsView2State extends State<HospitalsView2> {
                                     height: 10,
                                   ),
                                   Container(
-                                    alignment: Alignment.center,
+                                    alignment: Alignment.center,  
                                     width: screenWidth / 1.5,
                                     child: Text(
-                                      "${CreatorsList[widget.index].datedelivery}",
+                                      "${CreatorsList[widget.index].adapterinstallation}",
                                       textAlign: TextAlign.center,
                                       style: TextStyle(fontSize: 30),
                                     ),
@@ -1485,7 +1485,7 @@ class _HospitalsView2State extends State<HospitalsView2> {
                               Column(
                                 children: [
                                   Text(
-                                    "مقاول التنفيذ",
+                                    "إطلاق التيار الكهربي",
                                     textAlign: TextAlign.center,
                                     style: TextStyle(fontSize: 25),
                                   ),
@@ -1496,7 +1496,7 @@ class _HospitalsView2State extends State<HospitalsView2> {
                                     width: screenWidth / 1.5,
                                     alignment: Alignment.center,
                                     child: Text(
-                                      "${CreatorsList[widget.index].contractor}",
+                                      "${CreatorsList[widget.index].thepositionoftheelectriccurrent}",
                                       textAlign: TextAlign.center,
                                       style: TextStyle(fontSize: 30),
                                     ),
@@ -1521,7 +1521,7 @@ class _HospitalsView2State extends State<HospitalsView2> {
                                   Column(
                                     children: [
                                       Text(
-                                        "تاريخ الإستلام المقرر",
+                                        "توريد المحول",
                                         textAlign: TextAlign.center,
                                         style:
                                         TextStyle(fontSize: 25),
@@ -1533,7 +1533,7 @@ class _HospitalsView2State extends State<HospitalsView2> {
                                         width: screenWidth / 5,
                                         alignment: Alignment.center,
                                         child: Text(
-                                          "${CreatorsList[widget.index].databasic}",
+                                          "${CreatorsList[widget.index].transformersupply}",
                                           textAlign: TextAlign.center,
                                           style:
                                           TextStyle(fontSize: 30),
@@ -1551,7 +1551,7 @@ class _HospitalsView2State extends State<HospitalsView2> {
                                   Column(
                                     children: [
                                       Text(
-                                        "نسبة التنفيذ",
+                                        "الحماية المدنية",
                                         textAlign: TextAlign.center,
                                         style:
                                         TextStyle(fontSize: 25),
@@ -1563,7 +1563,7 @@ class _HospitalsView2State extends State<HospitalsView2> {
                                         width: screenWidth / 5,
                                         alignment: Alignment.center,
                                         child: Text(
-                                          "%${CreatorsList[widget.index].excutionpercentage}",
+                                          "${CreatorsList[widget.index].civilProtection}",
                                           textAlign: TextAlign.center,
                                           style:
                                           TextStyle(fontSize: 30),
@@ -1590,7 +1590,7 @@ class _HospitalsView2State extends State<HospitalsView2> {
                                   Column(
                                     children: [
                                       Text(
-                                        "مقاول التنفيذ",
+                                        "إطلاق التيار الكهربي",
                                         style:
                                         TextStyle(fontSize: 25),
                                         textAlign: TextAlign.center,
@@ -1602,7 +1602,7 @@ class _HospitalsView2State extends State<HospitalsView2> {
                                         alignment: Alignment.center,
                                         width: screenWidth / 5,
                                         child: Text(
-                                          "${CreatorsList[widget.index].contractor}",
+                                          "${CreatorsList[widget.index].thepositionoftheelectriccurrent}",
                                           textAlign: TextAlign.center,
                                           style:
                                           TextStyle(fontSize: 30),
@@ -1620,7 +1620,7 @@ class _HospitalsView2State extends State<HospitalsView2> {
                                   Column(
                                     children: [
                                       Text(
-                                        "تاريخ الإستلام المتوقع",
+                                        "تركيب المحول",
                                         textAlign: TextAlign.center,
                                         style:
                                         TextStyle(fontSize: 25),
@@ -1632,7 +1632,7 @@ class _HospitalsView2State extends State<HospitalsView2> {
                                         width: screenWidth / 5,
                                         alignment: Alignment.center,
                                         child: Text(
-                                          "${CreatorsList[widget.index].datedelivery}",
+                                          "${CreatorsList[widget.index].adapterinstallation}",
                                           textAlign: TextAlign.center,
                                           style:
                                           TextStyle(fontSize: 30),
